@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Filly's Brand Colors */
+  --warm-cream: #F5EDD6;
+  --deep-plum: #3D1A2E;
+  --lavender-silk: #C4B5D4;
+
+  /* Aroma Accent Colors */
+  --vanilla: #F3E5C0;
+  --pistachio: #B5C9A1;
+  --matcha: #8FA87A;
+  --caramel: #C4864A;
+  --white-choc: #EDD9C0;
+
+  --background: var(--warm-cream);
+  --foreground: var(--deep-plum);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-warm-cream: var(--warm-cream);
+  --color-deep-plum: var(--deep-plum);
+  --color-lavender-silk: var(--lavender-silk);
+  --color-vanilla: var(--vanilla);
+  --color-pistachio: var(--pistachio);
+  --color-matcha: var(--matcha);
+  --color-caramel: var(--caramel);
+  --color-white-choc: var(--white-choc);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
