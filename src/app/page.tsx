@@ -207,8 +207,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="type-body text-[#53284E]/55 mt-8 max-w-sm leading-relaxed" style={{ fontSize: "0.95rem" }}>
-              Sabah ritüelinin keyfini yaşa — hazırlık değil. Kapsülü aç, dök, içine çek.
-              Matcha'nın derin aroması, kahvende tam yerine oturur.
+              Matcha kapsülünü aç, kahvene dök — ritüelin tadı, hazırlığın derdi olmadan.
             </p>
             <div className="mt-8">
               <Link
