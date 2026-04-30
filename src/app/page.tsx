@@ -35,7 +35,7 @@ export default function Home() {
 
         {/* Tam ekran fotoğraf */}
         <Image
-          src="/media/hero-beyaz-cikolata-5.jpg"
+          src="/media/hero-beyaz-cikolata-6.png"
           alt="filly's beyaz çikolata kahve kreması"
           fill
           className="object-cover object-right md:object-center"
