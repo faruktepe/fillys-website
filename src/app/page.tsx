@@ -38,7 +38,7 @@ export default function Home() {
           src="/media/hero-beyaz-cikolata-6.png"
           alt="filly's beyaz çikolata kahve kreması"
           fill
-          className="object-cover object-right md:object-center"
+          className="object-cover object-center"
           sizes="100vw"
           quality={95}
           priority
@@ -52,9 +52,9 @@ export default function Home() {
           }}
         />
 
-        {/* Metin — sol alt köşe */}
+        {/* Metin — mobilde orta, desktop sol alt */}
         <div className="absolute bottom-0 left-0 right-0 px-8 md:px-14 lg:px-20 pb-8 lg:pb-10">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto md:mx-0 text-center md:text-left">
 
             {/* Başlık */}
             <h1
@@ -62,7 +62,7 @@ export default function Home() {
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(3.2rem, 6.5vw, 7.5rem)",
+                fontSize: "clamp(2.6rem, 6.5vw, 7.5rem)",
                 lineHeight: 0.92,
                 letterSpacing: "-0.03em",
                 color: "#fff",
@@ -73,7 +73,7 @@ export default function Home() {
             </h1>
 
             {/* CTA butonu */}
-            <div className="mt-6 anim-fadeup-2">
+            <div className="mt-6 anim-fadeup-2 flex justify-center md:justify-start">
               <Link
                 href="/urunler"
                 className="inline-flex items-center gap-2 bg-[#53284E] text-white px-8 py-4 hover:bg-[#3A1F2B] transition-colors duration-300 type-nav"
