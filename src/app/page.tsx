@@ -26,151 +26,208 @@ export default function Home() {
       <Navbar />
 
       {/* ══════════════════════════════════════════
-          HERO
+          HERO — Full-bleed, text bottom-left
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden">
 
-        {/* Sol — Tipografi (Deep Plum) */}
-        <div className="relative bg-[#53284E] flex flex-col justify-center px-8 md:px-14 lg:px-20 pt-28 pb-16 lg:py-0 order-2 lg:order-1">
-          <div className="relative max-w-lg">
-            <h1 className="type-display text-[#D6D1C3] anim-fadeup" style={{ fontSize: "clamp(3.5rem, 6vw, 7rem)" }}>
-              FLAVOURED.
-            </h1>
-            <h2
-              className="type-display anim-fadeup-2"
+        {/* Tam ekran fotoğraf */}
+        <Image
+          src="/media/hero-beyaz-cikolata-2.png"
+          alt="filly's beyaz çikolata kahve kreması"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+
+        {/* Sol alt gradient — sadece metin alanı için, fotoğrafı öldürmez */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(to top, rgba(83,40,78,0.45) 0%, rgba(83,40,78,0.15) 35%, transparent 60%)",
+          }}
+        />
+
+        {/* Metin — sol alt köşe */}
+        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-14 lg:px-20 pb-8 lg:pb-10">
+          <div className="max-w-2xl">
+
+            {/* Başlık */}
+            <h1
+              className="anim-fadeup"
               style={{
-                fontSize: "clamp(3.5rem, 6vw, 7rem)",
-                WebkitTextStroke: "2px #D6D1C3",
-                color: "transparent",
+                fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(3.2rem, 6.5vw, 7.5rem)",
+                lineHeight: 0.92,
+                letterSpacing: "-0.03em",
+                color: "#fff",
               }}
             >
-              NOT SWEETENED.
-            </h2>
+              Aynı ritüel,<br />
+              yepyeni bir deneyim.
+            </h1>
 
-            <p className="type-body text-[#C0A4B8]/70 text-base mt-8 mb-10 leading-relaxed anim-fadeup-3" style={{ maxWidth: "22rem" }}>
-              5 aromada şekersiz sıvı kahve kreması.<br />Kapsül formatı. Türkiye&apos;de ilk.
-            </p>
+            {/* CTA butonu */}
+            <div className="mt-6 anim-fadeup-2">
+              <Link
+                href="/urunler"
+                className="inline-flex items-center gap-2 bg-[#53284E] text-white px-8 py-4 hover:bg-[#3A1F2B] transition-colors duration-300 type-nav"
+                style={{ fontSize: "0.68rem", borderRadius: "2px" }}
+              >
+                DAHA FAZLA →
+              </Link>
+            </div>
 
-            <Link
-              href="/urunler"
-              className="inline-flex items-center gap-3 border border-[#D6D1C3]/30 text-[#D6D1C3] px-9 py-4 type-nav hover:bg-[#D6D1C3] hover:text-[#53284E] transition-colors anim-fadeup-3"
-              style={{ fontSize: "0.68rem" }}
-            >
-              5 AROMAYA BAK →
-            </Link>
           </div>
         </div>
 
-        {/* Sağ — Ürün görseli (Lavender Silk) */}
-        <div className="relative bg-[#C0A4B8] min-h-[60vw] lg:min-h-0 order-1 lg:order-2 flex items-center justify-center overflow-hidden">
-          <Image
-            src="/media/kapsul/vanilya.png"
-            alt="filly's vanilya kahve kreması kapsülü"
-            fill
-            className="object-contain object-center anim-float"
-            style={{ padding: "8%" }}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+        {/* Scroll hint — sağ alt */}
+        <div className="hidden lg:flex absolute bottom-8 right-10 items-center gap-3 opacity-40">
+          <div className="w-px h-10 bg-white/60 overflow-hidden relative flex-shrink-0">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-white anim-scroll-bar" />
+          </div>
+          <span
+            className="type-label text-white"
+            style={{ fontSize: "0.46rem", letterSpacing: "0.28em" }}
+          >
+            SCROLL
+          </span>
         </div>
+
       </section>
 
       {/* ══════════════════════════════════════════
           5 AROMA GRID
       ══════════════════════════════════════════ */}
-      <section className="bg-[#D6D1C3] py-24">
+      <section className="bg-[#C0A4B8] py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-baseline justify-between mb-14 border-b border-[#53284E]/10 pb-6">
-            <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>
-              5 Aroma.
-            </p>
+
+          {/* Başlık satırı */}
+          <div className="flex items-end justify-between mb-12 pb-6 border-b border-[#53284E]/20">
+            <div>
+              <p
+                className="type-label mb-3"
+                style={{ fontSize: "0.5rem", letterSpacing: "0.35em", color: "#C0A4B8" }}
+              >
+                AROMALAR
+              </p>
+              <p
+                className="type-display text-[#53284E]"
+                style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
+              >
+                5 Aroma.
+              </p>
+            </div>
             <Link
               href="/urunler"
-              className="type-nav text-[#53284E]/35 hover:text-[#53284E] transition-colors"
-              style={{ fontSize: "0.65rem" }}
+              className="type-nav border border-[#53284E] text-[#53284E] px-5 py-2.5 hover:bg-[#53284E] hover:text-[#C0A4B8] transition-colors duration-300 mb-1"
+              style={{ fontSize: "0.63rem" }}
             >
               TÜMÜNÜ GÖR →
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          {/* Ürün grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
             {products.map((product, i) => (
               <Link key={product.slug} href={`/urunler/${product.slug}`} className="group flex flex-col">
-                <div
-                  className="relative aspect-square overflow-hidden mb-4"
-                  style={{ backgroundColor: product.imageBg }}
-                >
-                  <Image
-                    src={product.image}
-                    alt={`filly's ${product.name}`}
-                    fill
-                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
-                    style={{ padding: "6%" }}
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                  />
+                {/* Görsel — w-[75%] inner box ile boyut normalizasyonu */}
+                <div className="relative aspect-square overflow-hidden mb-5 flex items-center justify-center">
+                  <div className="relative w-[75%] h-[75%] group-hover:scale-[1.07] transition-transform duration-500">
+                    <Image
+                      src={product.image}
+                      alt={`filly's ${product.name}`}
+                      fill
+                      className="object-contain object-center"
+                      sizes="(max-width: 768px) 40vw, (max-width: 1024px) 27vw, 16vw"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <p className="type-label text-[#53284E]/25 text-[0.45rem] tracking-[0.2em] mb-1">
+
+                {/* Metin */}
+                <div className="border-t border-[#53284E]/15 pt-4">
+                  <p
+                    className="type-label mb-2"
+                    style={{ fontSize: "0.42rem", letterSpacing: "0.22em", color: "#C0A4B8" }}
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <p className="type-product text-[#53284E] text-sm group-hover:text-[#53284E]/60 transition-colors">
+                  <p
+                    className="type-product text-[0.88rem] transition-opacity duration-300 group-hover:opacity-60"
+                    style={{ color: "#53284E" }}
+                  >
                     {product.name.toUpperCase()}
                   </p>
-                  <p className="type-body text-[#53284E]/40 text-xs italic mt-0.5">
+                  <p
+                    className="type-body text-[0.75rem] italic mt-1"
+                    style={{ color: "#C0A4B8", opacity: 0.7 }}
+                  >
                     {product.tagline}
                   </p>
                 </div>
               </Link>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          MANİFESTO (Deep Plum)
+          MANİFESTO (#C1DDE9)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#53284E] overflow-hidden">
+      <section className="bg-[#C1D8E4] overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
-          <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-24 lg:py-32">
-            <p className="type-display text-[#D6D1C3]" style={{ fontSize: "clamp(3rem, 6vw, 6.5rem)" }}>
-              Şeker
-            </p>
-            <p className="type-display text-[#D6D1C3]" style={{ fontSize: "clamp(3rem, 6vw, 6.5rem)" }}>
-              koydular.
-            </p>
-            <p
-              className="type-display mt-1"
+
+          {/* Sol — metin */}
+          <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-20 lg:py-28">
+            <h2
               style={{
-                fontSize: "clamp(3rem, 6vw, 6.5rem)",
-                WebkitTextStroke: "2px #D6D1C3",
-                color: "transparent",
+                fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(2.2rem, 4.5vw, 5rem)",
+                lineHeight: 0.92,
+                letterSpacing: "-0.03em",
+                color: "#53284E",
               }}
             >
-              Biz koymadık.
+              ceremony,<br />
+              <span
+                style={{
+                  fontWeight: 400,
+                  fontStyle: "italic",
+                  color: "#53284E",
+                }}
+              >
+                but faster.
+              </span>
+            </h2>
+            <p className="type-body text-[#53284E]/55 mt-8 max-w-sm leading-relaxed" style={{ fontSize: "0.95rem" }}>
+              Sabah ritüelinin keyfini yaşa — hazırlık değil. Kapsülü aç, dök, içine çek.
+              Matcha'nın derin aroması, kahvende tam yerine oturur.
             </p>
-            <p className="type-body text-[#D6D1C3]/50 mt-10 max-w-sm leading-relaxed" style={{ fontSize: "1rem" }}>
-              Piyasadaki kremalara baktık: ya şeker, ya yapay aroma, ya da her ikisi.
-              Hiçbiri yeterli değildi. Biz farklı bir yol seçtik.
-            </p>
-            <Link
-              href="/hakkimizda"
-              className="inline-flex items-center gap-2 mt-10 type-nav text-[#C0A4B8] border-b border-[#C0A4B8]/30 pb-1 w-fit hover:border-[#C0A4B8] transition-colors"
-              style={{ fontSize: "0.65rem" }}
-            >
-              HİKAYEMİZ →
-            </Link>
+            <div className="mt-8">
+              <Link
+                href="/hakkimizda"
+                className="inline-flex items-center gap-2 type-nav px-6 py-3 border border-[#53284E] text-[#53284E] bg-white hover:bg-[#53284E] hover:text-white transition-colors duration-300"
+                style={{ fontSize: "0.65rem" }}
+              >
+                HİKAYEMİZ →
+              </Link>
+            </div>
           </div>
 
-          <div className="relative min-h-80 lg:min-h-0 overflow-hidden img-zoom">
+          {/* Sağ — görsel tam sütun */}
+          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4]">
             <Image
-              src="/media/instagram/matcha-2.jpg"
-              alt="filly's — her an bir aroma"
+              src="/media/matcha-site-2.png"
+              alt="filly's matcha kahve kreması"
               fill
-              className="object-cover object-center"
+              className="object-contain object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#53284E]/30 to-transparent pointer-events-none" />
           </div>
+
         </div>
       </section>
 

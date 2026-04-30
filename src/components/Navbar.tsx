@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const leftLinks = [
   { label: "Ürünler", href: "/urunler" },
@@ -14,15 +14,23 @@ const rightLinks = [
   { label: "Etki", href: "/etki" },
 ];
 
-/* Navbar arka plan rengi: #EAE5C4 — marka Lavender Silk tonu */
-const NAV_BG = "#C0A4B8";
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [atTop, setAtTop] = useState(true);
+  const lastY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const current = window.scrollY;
+      setAtTop(current < 8);
+      if (current < lastY.current || current < 80) {
+        setVisible(true);
+      } else if (current > lastY.current + 6) {
+        setVisible(false);
+      }
+      lastY.current = current;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -31,13 +39,11 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-[#53284E]/10 shadow-[0_1px_0_rgba(83,40,78,0.06)]"
-            : ""
-        }`}
+          visible ? "translate-y-0" : "-translate-y-full"
+        } ${!atTop ? "border-b border-white/10" : ""}`}
         style={{
-          backgroundColor: scrolled ? NAV_BG : `${NAV_BG}e6`,
-          backdropFilter: scrolled ? "none" : "blur(12px)",
+          backgroundColor: atTop ? "transparent" : "rgba(58,31,43,0.96)",
+          backdropFilter: atTop ? "none" : "blur(12px)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[76px] flex items-center">
@@ -51,11 +57,11 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className="relative group type-nav text-[#53284E]/70 hover:text-[#53284E] transition-colors duration-200"
+                  className="relative group type-nav text-white/75 hover:text-white transition-colors duration-200"
                   style={{ fontSize: "0.78rem" }}
                 >
                   {label.toUpperCase()}
-                  <span className="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-[#53284E] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-white group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
             </div>
@@ -64,7 +70,7 @@ export default function Navbar() {
             <div className="flex justify-center">
               <Link href="/" aria-label="filly's anasayfa">
                 <Image
-                  src="/logo-plum.svg"
+                  src={atTop ? "/logo-plum.svg" : "/logo-warm.svg"}
                   alt="filly's"
                   width={110}
                   height={43}
@@ -80,16 +86,16 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className="relative group type-nav text-[#53284E]/70 hover:text-[#53284E] transition-colors duration-200"
+                  className="relative group type-nav text-white/75 hover:text-white transition-colors duration-200"
                   style={{ fontSize: "0.78rem" }}
                 >
                   {label.toUpperCase()}
-                  <span className="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-[#53284E] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute left-0 -bottom-0.5 h-[1.5px] w-0 bg-white group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
               <Link
                 href="/iletisim"
-                className="type-nav text-[#53284E]/60 border border-[#53284E]/25 px-4 py-[7px] hover:bg-[#53284E] hover:text-[#EAE5C4] hover:border-[#53284E] transition-colors duration-200"
+                className="type-nav text-white/70 border border-white/30 px-4 py-[7px] hover:bg-white hover:text-[#3A1F2B] hover:border-white transition-colors duration-200"
                 style={{ fontSize: "0.7rem" }}
               >
                 GİRİŞ YAP
@@ -100,16 +106,16 @@ export default function Navbar() {
           {/* ── Mobile: logo left + hamburger right ── */}
           <div className="flex md:hidden w-full items-center justify-between">
             <Link href="/" aria-label="filly's">
-              <Image src="/logo-plum.svg" alt="filly's" width={96} height={38} priority />
+              <Image src={atTop ? "/logo-plum.svg" : "/logo-warm.svg"} alt="filly's" width={96} height={38} priority />
             </Link>
             <button
               className="flex flex-col justify-center items-end gap-[6px] w-9 h-9"
               onClick={() => setOpen(true)}
               aria-label="Menüyü Aç"
             >
-              <span className="block w-6 h-[1.5px] bg-[#53284E]" />
-              <span className="block w-4 h-[1.5px] bg-[#53284E]" />
-              <span className="block w-6 h-[1.5px] bg-[#53284E]" />
+              <span className="block w-6 h-[1.5px] bg-white" />
+              <span className="block w-4 h-[1.5px] bg-white" />
+              <span className="block w-6 h-[1.5px] bg-white" />
             </button>
           </div>
 

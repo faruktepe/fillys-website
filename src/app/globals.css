@@ -185,3 +185,10 @@ p, a, span, li, button, input, textarea, nav, footer, h1, h2, h3, h4, h5, h6 {
 .marquee-track-reverse { animation: marqueeReverse 35s linear infinite; width: fit-content; will-change: transform; }
 .marquee-wrap:hover .marquee-track,
 .marquee-wrap:hover .marquee-track-reverse { animation-play-state: paused; }
+
+/* ─── Hero scroll indicator ─── */
+@keyframes scrollBar {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+.anim-scroll-bar { animation: scrollBar 2s ease-in-out infinite; }
