@@ -2,51 +2,64 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Hakkımızda — Filly's",
-  description: "Türkiye'de ilk aromalı şekersiz sıvı kahve kreması. Filly's hikayesi.",
+  title: "Hakkımızda — filly's",
+  description: "Türkiye'de ilk aromalı şekersiz sıvı kahve kreması. filly's hikayesi.",
 };
 
 export default function HakkimizdaPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-6xl mx-auto px-6 pt-36 pb-24">
-        <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-6xl font-semibold text-[#3D1A2E] mb-16 leading-tight">
-            Kahvene bir iz bırakmak için.
+      <main className="bg-[#D6D1C3] min-h-screen">
+        {/* Hero */}
+        <section className="max-w-6xl mx-auto px-6 pt-36 pb-24">
+          <p className="text-xs text-[#53284E]/40 uppercase tracking-[0.3em] mb-6">Hakkımızda</p>
+          <h1 className="heading-display text-5xl md:text-7xl text-[#53284E] mb-20 max-w-3xl leading-[0.9]">
+            Kahvene<br />bir iz<br />bırakmak için.
           </h1>
 
-          <div className="space-y-8 text-[#3D1A2E]/70 leading-relaxed text-lg">
-            <p>
-              Filly&apos;s, kahve kremasını yeniden tanımlamak için kuruldu.
-              Piyasadaki kremalara baktık: ya şeker, ya yapay aroma, ya da her ikisi.
-              Hiçbiri yeterli değildi.
-            </p>
-            <p>
-              Biz 5 aromada, ilave şekersiz, kapsül formatında sıvı kahve kreması ürettik.
-              Türkiye&apos;de bir ilk.
-            </p>
-            <p>
-              Üretim Konya&apos;da, ENKA Süt tesislerinde gerçekleşiyor.
-              Kapsüller Avrupa&apos;da üretiliyor.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <div className="space-y-7">
+              <p className="type-body text-[#53284E]/65 text-base">
+                filly&apos;s, kahve kremasını yeniden tanımlamak için kuruldu.
+                Piyasadaki kremalara baktık: ya şeker, ya yapay aroma, ya da her ikisi.
+                Hiçbiri yeterli değildi.
+              </p>
+              <p className="type-body text-[#53284E]/65 text-base">
+                Biz 5 aromada, ilave şekersiz, kapsül formatında sıvı kahve kreması ürettik.
+                Türkiye&apos;de bir ilk.
+              </p>
+              <p className="type-body text-[#53284E]/65 text-base">
+                Üretim Konya&apos;da, ENKA Süt tesislerinde gerçekleşiyor.
+                Kapsüller Avrupa&apos;da üretiliyor.
+              </p>
+            </div>
 
-          <div className="mt-20 grid grid-cols-3 gap-8 border-t border-[#3D1A2E]/10 pt-12">
-            <div>
-              <p className="text-3xl font-semibold text-[#3D1A2E]">5</p>
-              <p className="text-sm text-[#3D1A2E]/40 mt-1">Aroma</p>
-            </div>
-            <div>
-              <p className="text-3xl font-semibold text-[#3D1A2E]">0g</p>
-              <p className="text-sm text-[#3D1A2E]/40 mt-1">İlave Şeker</p>
-            </div>
-            <div>
-              <p className="text-3xl font-semibold text-[#3D1A2E]">15ml</p>
-              <p className="text-sm text-[#3D1A2E]/40 mt-1">Kapsül</p>
+            {/* Rakamlar */}
+            <div className="grid grid-cols-3 gap-px bg-[#53284E]/10">
+              {[
+                { value: "5", label: "Aroma" },
+                { value: "0g", label: "İlave Şeker" },
+                { value: "15ml", label: "Kapsül" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-[#D6D1C3] p-8">
+                  <p className="heading-display text-4xl text-[#53284E]">{stat.value}</p>
+                  <p className="text-xs text-[#53284E]/40 uppercase tracking-widest mt-2">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* Misyon */}
+        <section className="bg-[#53284E] py-24 px-6">
+          <div className="max-w-6xl mx-auto">
+            <p className="type-label text-[#C0A4B8] mb-8" style={{ fontSize: "0.6rem", letterSpacing: "0.3em" }}>MİSYON</p>
+            <p className="type-display text-[#D6D1C3] max-w-3xl" style={{ fontSize: "clamp(2rem, 5vw, 5rem)" }}>
+              Türkiye&apos;ye Avrupa ve Amerika&apos;nın niş gıda ürünlerini getirmek.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

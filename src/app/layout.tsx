@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Filly's — Şekersiz. Aromalı.",
-  description: "5 aromada şekersiz sıvı kahve kreması. Kahveni şımartmanın tek doğru yolu.",
+  title: "filly's — Flavoured. Not sweetened.",
+  description: "5 aromada şekersiz sıvı kahve kreması. Kapsül formatı. Türkiye'de ilk.",
   openGraph: {
-    title: "Filly's — Şekersiz. Aromalı.",
+    title: "filly's — Flavoured. Not sweetened.",
     description: "5 aromada şekersiz sıvı kahve kreması.",
     url: "https://fillys.com.tr",
-    siteName: "Filly's",
+    siteName: "filly's",
     locale: "tr_TR",
     type: "website",
   },
@@ -22,12 +16,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#F5EDD6] text-[#3D1A2E]">
+    <html lang="tr" className="h-full">
+      <head>
+        <link rel="preload" href="/fonts/ApfelGrotezk-Satt.woff2"   as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ApfelGrotezk-Fett.woff2"   as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ApfelGrotezk-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body className="min-h-full flex flex-col">
         {children}
       </body>
     </html>

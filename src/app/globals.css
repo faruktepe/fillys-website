@@ -1,36 +1,187 @@
 @import "tailwindcss";
 
+/* ─── Apfel Grotezk — font dosyaları /public/fonts/ klasörüne eklenecek ─── */
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('/fonts/ApfelGrotezk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('/fonts/ApfelGrotezk-Fett.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('/fonts/ApfelGrotezk-Satt.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Brand Tokens ─── */
 :root {
-  /* Filly's Brand Colors */
-  --warm-cream: #F5EDD6;
-  --deep-plum: #3D1A2E;
-  --lavender-silk: #C4B5D4;
+  --warm-cream:   #D6D1C3;
+  --deep-plum:    #53284E;
+  --lavender-silk:#C0A4B8;
 
-  /* Aroma Accent Colors */
-  --vanilla: #F3E5C0;
-  --pistachio: #B5C9A1;
-  --matcha: #8FA87A;
-  --caramel: #C4864A;
-  --white-choc: #EDD9C0;
+  /* Aroma accents */
+  --vanilla:      #E8D9B0;
+  --pistachio:    #B5C9A1;
+  --matcha:       #7A9E6E;
+  --caramel:      #B8743C;
+  --white-choc:   #DDD0B8;
 
-  --background: var(--warm-cream);
-  --foreground: var(--deep-plum);
+  --bg:  var(--warm-cream);
+  --fg:  var(--deep-plum);
+  --font-sans: 'Apfel Grotezk', 'Barlow', 'Inter', sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-warm-cream: var(--warm-cream);
-  --color-deep-plum: var(--deep-plum);
-  --color-lavender-silk: var(--lavender-silk);
-  --color-vanilla: var(--vanilla);
-  --color-pistachio: var(--pistachio);
-  --color-matcha: var(--matcha);
-  --color-caramel: var(--caramel);
-  --color-white-choc: var(--white-choc);
+  --color-cream:    #D6D1C3;
+  --color-plum:     #53284E;
+  --color-lavender: #C0A4B8;
+  --color-vanilla:  #E8D9B0;
+  --color-pistachio:#B5C9A1;
+  --color-matcha:   #7A9E6E;
+  --color-caramel:  #B8743C;
+  --color-white-choc:#DDD0B8;
+  --font-sans: 'Apfel Grotezk', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #D6D1C3;
+  color: #53284E;
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
 }
+
+/* Tailwind preflight'ın font reset'ini geç */
+p, a, span, li, button, input, textarea, nav, footer, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+
+/* ─── Global font güvencesi: hiçbir element system fallback'e düşmesin ─── */
+*, *::before, *::after {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+}
+
+/* ─── Display: Satt 900, ultra-sıkı ─── */
+.type-display {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+}
+
+/* ─── Nav linkleri — Satt 900, maksimum Apfel karakteri ─── */
+.type-nav {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+/* ─── Micro etiketler — Mittel 500, uppercase ─── */
+.type-label {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+/* ─── Gövde metin — Mittel 500 ─── */
+.type-body {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.012em;
+}
+
+/* ─── Ürün isimleri — Fett 700, uppercase ─── */
+.type-product {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+/* ─── Viewport-fill ─── */
+.type-fill {
+  font-family: 'Apfel Grotezk', system-ui, sans-serif;
+  font-weight: 900;
+  line-height: 0.9;
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+}
+
+/* ─── Abstract Flow SVG curves ─── */
+.flow-curve {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+/* ─── Legacy uyumluluk ─── */
+.heading-display { font-family: 'Apfel Grotezk', system-ui, sans-serif; font-weight: 900; line-height: 0.9; }
+.heading-sub     { font-family: 'Apfel Grotezk', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ─── Animasyonlar ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0px) rotate(-1deg); }
+  50%     { transform: translateY(-10px) rotate(0deg); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.anim-fadeup   { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-fadeup-2 { animation: fadeUp 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-fadeup-3 { animation: fadeUp 0.9s 0.3s  cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-float    { animation: floatSlow 7s ease-in-out infinite; }
+
+/* ─── Hover geçiş yardımcıları ─── */
+.img-zoom img, .img-zoom { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.img-zoom:hover img, .img-zoom:hover { transform: scale(1.04); }
+
+/* ─── Infinite marquee ─── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marqueeReverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track         { animation: marquee        28s linear infinite; width: fit-content; will-change: transform; }
+.marquee-track-reverse { animation: marqueeReverse 35s linear infinite; width: fit-content; will-change: transform; }
+.marquee-wrap:hover .marquee-track,
+.marquee-wrap:hover .marquee-track-reverse { animation-play-state: paused; }
