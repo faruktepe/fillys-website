@@ -29,10 +29,6 @@ export default function HakkimizdaPage() {
                 Biz 5 aromada, ilave şekersiz, kapsül formatında sıvı kahve kreması ürettik.
                 Türkiye&apos;de bir ilk.
               </p>
-              <p className="type-body text-[#53284E]/65 text-base">
-                Üretim Konya&apos;da, ENKA Süt tesislerinde gerçekleşiyor.
-                Kapsüller Avrupa&apos;da üretiliyor.
-              </p>
             </div>
 
             {/* Rakamlar */}
@@ -51,15 +47,6 @@ export default function HakkimizdaPage() {
           </div>
         </section>
 
-        {/* Misyon */}
-        <section className="bg-[#53284E] py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <p className="type-label text-[#C0A4B8] mb-8" style={{ fontSize: "0.6rem", letterSpacing: "0.3em" }}>MİSYON</p>
-            <p className="type-display text-[#D6D1C3] max-w-3xl" style={{ fontSize: "clamp(2rem, 5vw, 5rem)" }}>
-              Türkiye&apos;ye Avrupa ve Amerika&apos;nın niş gıda ürünlerini getirmek.
-            </p>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
