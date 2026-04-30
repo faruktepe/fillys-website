@@ -40,6 +40,7 @@ export default function Home() {
           fill
           className="object-cover object-center"
           sizes="100vw"
+          quality={95}
           priority
         />
 
