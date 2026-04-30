@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#53284E] overflow-hidden">
+    <footer className="bg-[#53284E] overflow-hidden" style={{ fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}>
 
       {/* ── Upper: Logo + tagline + social ── */}
       <div className="border-b border-[#D6D1C3]/8">
@@ -76,7 +76,7 @@ export default function Footer() {
                   key={href}
                   href={href}
                   className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
-                  style={{ fontSize: "0.82rem" }}
+                  style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
                 >
                   {label}
                 </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                   key={href}
                   href={href}
                   className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
-                  style={{ fontSize: "0.82rem" }}
+                  style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
                 >
                   {label}
                 </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
-                style={{ fontSize: "0.82rem" }}
+                style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 Instagram
               </a>
@@ -144,13 +144,13 @@ export default function Footer() {
             <div className="flex flex-col gap-3.5">
               <p
                 className="type-body text-[#D6D1C3]/35"
-                style={{ fontSize: "0.82rem" }}
+                style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 info@fillys.com.tr
               </p>
               <p
                 className="type-body text-[#D6D1C3]/25"
-                style={{ fontSize: "0.82rem" }}
+                style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 Türkiye&apos;de Üretildi
               </p>
