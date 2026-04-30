@@ -23,8 +23,11 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const current = window.scrollY;
+      const isMobile = window.innerWidth < 768;
       setAtTop(current < 8);
-      if (current < lastY.current || current < 80) {
+      if (isMobile) {
+        setVisible(true); // Mobilde navbar hiç kaybolmaz
+      } else if (current < lastY.current || current < 80) {
         setVisible(true);
       } else if (current > lastY.current + 6) {
         setVisible(false);
@@ -37,8 +40,9 @@ export default function Navbar() {
 
   return (
     <>
+      {/* ── Desktop navbar ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 hidden md:block ${
           visible ? "translate-y-0" : "-translate-y-full"
         } ${!atTop ? "border-b border-white/10" : ""}`}
         style={{
@@ -47,9 +51,7 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[76px] flex items-center">
-
-          {/* ── Desktop: 3-column centered layout ── */}
-          <div className="hidden md:grid grid-cols-3 w-full items-center">
+          <div className="grid grid-cols-3 w-full items-center">
 
             {/* Left nav */}
             <div className="flex items-center gap-9">
@@ -102,23 +104,42 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
+        </div>
+      </nav>
 
-          {/* ── Mobile: logo left + hamburger right ── */}
-          <div className="flex md:hidden w-full items-center justify-between">
-            <Link href="/" aria-label="filly's">
-              <Image src={atTop ? "/logo-plum.svg" : "/logo-warm.svg"} alt="filly's" width={96} height={38} priority />
-            </Link>
-            <button
-              className="flex flex-col justify-center items-end gap-[6px] w-9 h-9"
-              onClick={() => setOpen(true)}
-              aria-label="Menüyü Aç"
-            >
-              <span className="block w-6 h-[1.5px] bg-white" />
-              <span className="block w-4 h-[1.5px] bg-white" />
-              <span className="block w-6 h-[1.5px] bg-white" />
-            </button>
-          </div>
+      {/* ── Mobil navbar — her zaman görünür, beyaz arka plan, deep plum ── */}
+      <nav
+        className="fixed top-0 left-0 right-0 z-50 md:hidden border-b border-[#53284E]/8"
+        style={{ backgroundColor: "#fff" }}
+      >
+        <div className="h-[64px] px-5 flex items-center justify-between">
 
+          {/* Sol: Search ikonu */}
+          <button
+            aria-label="Ara"
+            className="w-10 h-10 flex items-center justify-center text-[#53284E]"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="8.5" cy="8.5" r="5.5" stroke="#53284E" strokeWidth="1.5"/>
+              <path d="M13 13L17 17" stroke="#53284E" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+
+          {/* Orta: Logo */}
+          <Link href="/" aria-label="filly's" className="absolute left-1/2 -translate-x-1/2">
+            <Image src="/logo-plum.svg" alt="filly's" width={90} height={36} priority />
+          </Link>
+
+          {/* Sağ: Hamburger */}
+          <button
+            className="w-10 h-10 flex flex-col justify-center items-center gap-[5px]"
+            onClick={() => setOpen(true)}
+            aria-label="Menüyü Aç"
+          >
+            <span className="block w-5 h-[1.5px] bg-[#53284E]" />
+            <span className="block w-3.5 h-[1.5px] bg-[#53284E]" />
+            <span className="block w-5 h-[1.5px] bg-[#53284E]" />
+          </button>
         </div>
       </nav>
 
@@ -132,10 +153,8 @@ export default function Navbar() {
         style={{ backgroundColor: "#53284E" }}
       >
         {/* Header */}
-        <div
-          className="flex items-center justify-between px-6 h-[76px] border-b border-[#D6D1C3]/8"
-        >
-          <Image src="/logo-warm.svg" alt="filly's" width={96} height={38} />
+        <div className="flex items-center justify-between px-6 h-[64px] border-b border-[#D6D1C3]/8">
+          <Image src="/logo-warm.svg" alt="filly's" width={90} height={36} />
           <button onClick={() => setOpen(false)} aria-label="Kapat" className="p-2">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M4 4L16 16M16 4L4 16" stroke="#D6D1C3" strokeWidth="1.5" strokeLinecap="round"/>

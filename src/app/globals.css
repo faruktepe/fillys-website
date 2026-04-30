@@ -192,3 +192,9 @@ p, a, span, li, button, input, textarea, nav, footer, h1, h2, h3, h4, h5, h6 {
   100% { transform: translateY(200%); }
 }
 .anim-scroll-bar { animation: scrollBar 2s ease-in-out infinite; }
+
+/* ─── Hero: mobilde sağ tarafa (ürünler), desktop'ta orta ─── */
+.hero-img-position { object-position: 72% center; }
+@media (min-width: 768px) {
+  .hero-img-position { object-position: center; }
+}
