@@ -28,11 +28,14 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           HERO — Full-bleed, text bottom-left
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section
+        className="relative overflow-hidden"
+        style={{ minHeight: "100svh" }}
+      >
 
         {/* Tam ekran fotoğraf */}
         <Image
-          src="/media/hero-beyaz-cikolata-2.png"
+          src="/media/hero-beyaz-cikolata-3.jpg"
           alt="filly's beyaz çikolata kahve kreması"
           fill
           className="object-cover object-center"
