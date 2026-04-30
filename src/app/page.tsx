@@ -294,32 +294,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          RAKAMLAR (Deep Plum)
-      ══════════════════════════════════════════ */}
-      <section className="bg-[#53284E]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#D6D1C3]/10">
-            {[
-              { value: "5",    label: "Aroma" },
-              { value: "0g",   label: "Şeker" },
-              { value: "20ml", label: "Kapsül" },
-              { value: "1.",   label: "Türkiye'de ilk" },
-            ].map((s) => (
-              <div key={s.label} className="py-14 px-6 md:px-10">
-                <p className="type-display text-[#D6D1C3]" style={{ fontSize: "clamp(2.5rem, 5vw, 6rem)" }}>
-                  {s.value}
-                </p>
-                <p className="type-body text-[#C0A4B8]/60 mt-3 text-sm">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
+{/* ══════════════════════════════════════════
           CTA (Cream)
       ══════════════════════════════════════════ */}
       <section className="bg-[#D6D1C3] py-36 px-6 relative overflow-hidden">
