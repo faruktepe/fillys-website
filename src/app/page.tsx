@@ -164,8 +164,17 @@ export default function Home() {
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <p
-                    className="type-product text-[0.9rem] transition-opacity duration-300 group-hover:opacity-60"
-                    style={{ color: product.accent, filter: "brightness(0.72)" }}
+                    className="transition-opacity duration-300 group-hover:opacity-60"
+                    style={{
+                      fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+                      fontWeight: 700,
+                      fontSize: "1.05rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      lineHeight: 1,
+                      color: product.accent,
+                      filter: "brightness(0.5) saturate(1.1)",
+                    }}
                   >
                     {product.name.toUpperCase()}
                   </p>
