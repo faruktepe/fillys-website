@@ -136,9 +136,15 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
             {products.map((product, i) => (
               <Link key={product.slug} href={`/urunler/${product.slug}`} className="group flex flex-col">
-                {/* Görsel — w-[75%] inner box ile boyut normalizasyonu */}
-                <div className="relative aspect-square overflow-hidden mb-5 flex items-center justify-center">
-                  <div className="relative w-[75%] h-[75%] group-hover:scale-[1.07] transition-transform duration-500">
+                {/* Görsel — aroma renkli dairesel hover + w-[75%] normalizasyonu */}
+                <div className="relative aspect-square mb-5 flex items-center justify-center">
+                  {/* Aroma hover dairesi */}
+                  <div
+                    className="absolute rounded-full w-[82%] h-[82%] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 ease-out"
+                    style={{ backgroundColor: product.accent }}
+                  />
+                  {/* Kapsül görseli */}
+                  <div className="relative w-[75%] h-[75%] group-hover:scale-[1.07] transition-transform duration-500 z-10">
                     <Image
                       src={product.image}
                       alt={`filly's ${product.name}`}
@@ -153,19 +159,19 @@ export default function Home() {
                 <div className="border-t border-[#53284E]/15 pt-4">
                   <p
                     className="type-label mb-2"
-                    style={{ fontSize: "0.42rem", letterSpacing: "0.22em", color: "#C0A4B8" }}
+                    style={{ fontSize: "0.44rem", letterSpacing: "0.28em", color: "#53284E", opacity: 0.35 }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <p
-                    className="type-product text-[0.88rem] transition-opacity duration-300 group-hover:opacity-60"
+                    className="type-product text-[0.9rem] transition-opacity duration-300 group-hover:opacity-50"
                     style={{ color: "#53284E" }}
                   >
                     {product.name.toUpperCase()}
                   </p>
                   <p
-                    className="type-body text-[0.75rem] italic mt-1"
-                    style={{ color: "#C0A4B8", opacity: 0.7 }}
+                    className="type-body text-[0.8rem] italic mt-2"
+                    style={{ color: "#53284E", opacity: 0.5 }}
                   >
                     {product.tagline}
                   </p>
