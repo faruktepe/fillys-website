@@ -136,11 +136,11 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
             {products.map((product, i) => (
               <Link key={product.slug} href={`/urunler/${product.slug}`} className="group flex flex-col">
-                {/* Görsel — aroma renkli dairesel hover + w-[75%] normalizasyonu */}
+                {/* Görsel — aroma renkli dairesel arka plan + hover büyümesi */}
                 <div className="relative aspect-square mb-5 flex items-center justify-center">
-                  {/* Aroma hover dairesi */}
+                  {/* Aroma dairesi — her zaman görünür, hover'da büyür */}
                   <div
-                    className="absolute rounded-full w-[82%] h-[82%] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 ease-out"
+                    className="absolute rounded-full w-[80%] h-[80%] scale-100 group-hover:scale-[1.18] transition-transform duration-500 ease-out"
                     style={{ backgroundColor: product.accent }}
                   />
                   {/* Kapsül görseli */}
@@ -156,7 +156,7 @@ export default function Home() {
                 </div>
 
                 {/* Metin */}
-                <div className="border-t border-[#53284E]/15 pt-4">
+                <div className="border-t pt-4" style={{ borderColor: `${product.accent}60` }}>
                   <p
                     className="type-label mb-2"
                     style={{ fontSize: "0.44rem", letterSpacing: "0.28em", color: "#53284E", opacity: 0.35 }}
@@ -164,8 +164,8 @@ export default function Home() {
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <p
-                    className="type-product text-[0.9rem] transition-opacity duration-300 group-hover:opacity-50"
-                    style={{ color: "#53284E" }}
+                    className="type-product text-[0.9rem] transition-opacity duration-300 group-hover:opacity-60"
+                    style={{ color: product.accent, filter: "brightness(0.72)" }}
                   >
                     {product.name.toUpperCase()}
                   </p>
