@@ -156,7 +156,7 @@ export default function Home() {
                 </div>
 
                 {/* Metin */}
-                <div className="border-t pt-4" style={{ borderColor: `${product.accent}60` }}>
+                <div className="border-t pt-4 pl-2" style={{ borderColor: `${product.accent}60` }}>
                   <p
                     className="type-label mb-2"
                     style={{ fontSize: "0.44rem", letterSpacing: "0.28em", color: "#53284E", opacity: 0.35 }}
@@ -252,14 +252,14 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           TAGLINE STRIP (Lavender Silk)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#C0A4B8] py-14 overflow-hidden border-y border-[#53284E]/8">
-        <div className="overflow-hidden marquee-wrap">
-          <div className="flex items-center gap-14 marquee-track">
+      <section className="bg-[#C0A4B8] py-14 overflow-x-hidden border-y border-[#53284E]/8">
+        <div className="marquee-wrap">
+          <div className="flex items-center gap-14 marquee-track py-2">
             {[...taglines, ...taglines, ...taglines, ...taglines].map((t, i) => (
               <span
                 key={i}
                 className="type-display text-[#53284E]/50 whitespace-nowrap flex-shrink-0"
-                style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.2rem)" }}
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.2rem)", lineHeight: 1.15 }}
               >
                 {t}
               </span>
