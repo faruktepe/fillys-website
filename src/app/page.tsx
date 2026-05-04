@@ -29,76 +29,40 @@ export default function Home() {
       <Navbar />
 
       {/* ══════════════════════════════════════════
-          HERO — Chobani tarzı, görsel sağda
+          HERO — görsel sağda küçük, yazı sol alt
       ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
         style={{ minHeight: "100svh", backgroundColor: "#E5A900" }}
       >
 
-        {/* Görsel — sağa yaslanmış, tam görünür */}
+        {/* Görsel — sağa yaslanmış, küçültülmüş */}
         <Image
           src="/media/yakinda-arka-plan-hero.png"
           alt="filly's kahve kreması"
           fill
-          className="object-contain object-right"
+          className="object-contain object-right object-bottom"
           sizes="100vw"
           quality={95}
           priority
-        />
-
-        {/* Sol sarı geçiş — metin alanını görselden ayırır */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "linear-gradient(to right, #E5A900 25%, rgba(229,169,0,0.75) 45%, rgba(229,169,0,0.1) 65%, transparent 80%)",
-          }}
+          style={{ transform: "scale(0.82)", transformOrigin: "right bottom" }}
         />
 
         {/* Metin — sol alt */}
         <div className="absolute bottom-0 left-0 px-8 md:px-14 lg:px-20 pb-12 lg:pb-16">
-          <div className="max-w-xl">
-
-            <h1
-              className="anim-fadeup"
-              style={{
-                fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(2.6rem, 6vw, 7rem)",
-                lineHeight: 0.92,
-                letterSpacing: "-0.03em",
-                color: "#53284E",
-              }}
-            >
-              Aynı ritüel,<br />
-              yepyeni bir<br />
-              deneyim.
-            </h1>
-
-            <div className="mt-8 anim-fadeup-2">
-              <Link
-                href="/urunler"
-                className="inline-flex items-center gap-2 bg-[#53284E] text-white px-8 py-4 hover:bg-[#3A1F2B] transition-colors duration-300 type-nav"
-                style={{ fontSize: "0.68rem", borderRadius: "2px" }}
-              >
-                DAHA FAZLA →
-              </Link>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Scroll hint — sağ alt */}
-        <div className="hidden lg:flex absolute bottom-8 right-10 items-center gap-3 opacity-40">
-          <div className="w-px h-10 bg-[#53284E]/60 overflow-hidden relative flex-shrink-0">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-[#53284E] anim-scroll-bar" />
-          </div>
-          <span
-            className="type-label text-[#53284E]"
-            style={{ fontSize: "0.46rem", letterSpacing: "0.28em" }}
+          <h1
+            style={{
+              fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(1.6rem, 3.2vw, 3.8rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#53284E",
+            }}
           >
-            SCROLL
-          </span>
+            Aynı ritüel,<br />
+            yepyeni bir deneyim.
+          </h1>
         </div>
 
       </section>
