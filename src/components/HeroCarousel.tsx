@@ -4,8 +4,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  { src: "/media/hero-yeni1.png", alt: "filly's kahve kreması" },
-  { src: "/media/hero-yeni2.png", alt: "filly's kahve kreması 2" },
+  {
+    desktop: "/media/hero-yeni1.png",
+    mobile: "/media/hero-yeni1.png",
+    alt: "filly's kahve kreması",
+  },
+  {
+    desktop: "/media/hero-yeni2.png",
+    mobile: "/media/hero-mobil-yeni2.png",
+    alt: "filly's kahve kreması 2",
+  },
 ];
 
 const words = ["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."];
@@ -23,18 +31,28 @@ export default function HeroCarousel() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "100svh" }}>
 
-      {/* Slides */}
       {slides.map((slide, i) => (
         <div
-          key={slide.src}
+          key={slide.desktop}
           className="absolute inset-0 transition-opacity duration-1000"
           style={{ opacity: i === current ? 1 : 0 }}
         >
+          {/* Mobil görsel */}
           <Image
-            src={slide.src}
+            src={slide.mobile}
             alt={slide.alt}
             fill
-            className="object-cover object-center"
+            className="object-cover object-center block md:hidden"
+            sizes="100vw"
+            quality={95}
+            priority={i === 0}
+          />
+          {/* Desktop görsel */}
+          <Image
+            src={slide.desktop}
+            alt={slide.alt}
+            fill
+            className="object-cover object-center hidden md:block"
             sizes="100vw"
             quality={95}
             priority={i === 0}
@@ -51,7 +69,7 @@ export default function HeroCarousel() {
         }}
       />
 
-      {/* Text — sol alt */}
+      {/* Metin — sol alt */}
       <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-12 md:pb-16 z-20">
         {words.map((word) => (
           <span
