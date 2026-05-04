@@ -29,54 +29,53 @@ export default function Home() {
       <Navbar />
 
       {/* ══════════════════════════════════════════
-          HERO — Full-bleed, text bottom-left
+          HERO — Chobani tarzı, görsel sağda
       ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "100svh" }}
+        style={{ minHeight: "100svh", backgroundColor: "#E5A900" }}
       >
 
-        {/* Tam ekran fotoğraf */}
+        {/* Görsel — sağa yaslanmış, tam görünür */}
         <Image
           src="/media/yakinda-arka-plan-hero.png"
           alt="filly's kahve kreması"
           fill
-          className="object-contain object-center"
+          className="object-contain object-right"
           sizes="100vw"
           quality={95}
           priority
         />
 
-        {/* Sol alt gradient — sadece metin alanı için, fotoğrafı öldürmez */}
+        {/* Sol sarı geçiş — metin alanını görselden ayırır */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(to top, rgba(83,40,78,0.45) 0%, rgba(83,40,78,0.15) 35%, transparent 60%)",
+            background: "linear-gradient(to right, #E5A900 25%, rgba(229,169,0,0.75) 45%, rgba(229,169,0,0.1) 65%, transparent 80%)",
           }}
         />
 
-        {/* Metin — mobilde orta, desktop sol alt */}
-        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-14 lg:px-20 pb-8 lg:pb-10">
-          <div className="max-w-2xl mx-auto md:mx-0 text-center md:text-left">
+        {/* Metin — sol alt */}
+        <div className="absolute bottom-0 left-0 px-8 md:px-14 lg:px-20 pb-12 lg:pb-16">
+          <div className="max-w-xl">
 
-            {/* Başlık */}
             <h1
               className="anim-fadeup"
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(2.6rem, 6.5vw, 7.5rem)",
+                fontSize: "clamp(2.6rem, 6vw, 7rem)",
                 lineHeight: 0.92,
                 letterSpacing: "-0.03em",
-                color: "#fff",
+                color: "#53284E",
               }}
             >
               Aynı ritüel,<br />
-              yepyeni bir deneyim.
+              yepyeni bir<br />
+              deneyim.
             </h1>
 
-            {/* CTA butonu */}
-            <div className="mt-6 anim-fadeup-2 flex justify-center md:justify-start">
+            <div className="mt-8 anim-fadeup-2">
               <Link
                 href="/urunler"
                 className="inline-flex items-center gap-2 bg-[#53284E] text-white px-8 py-4 hover:bg-[#3A1F2B] transition-colors duration-300 type-nav"
@@ -91,11 +90,11 @@ export default function Home() {
 
         {/* Scroll hint — sağ alt */}
         <div className="hidden lg:flex absolute bottom-8 right-10 items-center gap-3 opacity-40">
-          <div className="w-px h-10 bg-white/60 overflow-hidden relative flex-shrink-0">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-white anim-scroll-bar" />
+          <div className="w-px h-10 bg-[#53284E]/60 overflow-hidden relative flex-shrink-0">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-[#53284E] anim-scroll-bar" />
           </div>
           <span
-            className="type-label text-white"
+            className="type-label text-[#53284E]"
             style={{ fontSize: "0.46rem", letterSpacing: "0.28em" }}
           >
             SCROLL
