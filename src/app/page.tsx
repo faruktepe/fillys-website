@@ -32,46 +32,12 @@ export default function Home() {
           HERO — beyaz bg, görsel sağ 82%, yazı sol
       ══════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden bg-white md:min-h-screen"
+        className="relative overflow-hidden"
+        style={{ minHeight: "100svh", backgroundColor: "#fff" }}
       >
 
-        {/* ── MOBİL HERO (< md) ── */}
-        <div className="flex flex-col md:hidden" style={{ paddingTop: "64px" }}>
-          {/* Görsel — navbar hemen altına yapışık */}
-          <div className="relative w-full" style={{ height: "55svh" }}>
-            <Image
-              src="/media/hero-beyaz-cikolata-2.jpg"
-              alt="filly's beyaz çikolata kahve kreması"
-              fill
-              className="object-contain object-center"
-              sizes="100vw"
-              quality={95}
-              priority
-            />
-          </div>
-          {/* Metin — görsel hemen altında, hepsi bold */}
-          <div className="flex flex-col gap-0.5 px-6 pt-3 pb-10">
-            {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((text) => (
-              <span
-                key={text}
-                style={{
-                  display: "block",
-                  fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "2.6rem",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.03em",
-                  color: "#53284E",
-                }}
-              >
-                {text}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ── DESKTOP HERO (≥ md) ── */}
-        <div className="hidden md:block absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
+        {/* Görsel — sağ %82 sütun, navbar altından başlar, alta yaslı */}
+        <div className="absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
           <Image
             src="/media/hero-beyaz-cikolata-2.jpg"
             alt="filly's beyaz çikolata kahve kreması"
@@ -82,30 +48,26 @@ export default function Home() {
             priority
           />
         </div>
+
+        {/* Metin — sol %18 sütun, üstten alta dolar */}
         <div
-          className="hidden md:flex absolute left-0 flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
+          className="absolute left-0 flex flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
           style={{ width: "18%", top: "76px", bottom: 0 }}
         >
-          {[
-            { text: "aynı",      size: "clamp(0.75rem, 1.4vw, 2rem)",   weight: 400, color: "#C0A4B8" },
-            { text: "RİTÜEL,",  size: "clamp(1.5rem, 3.8vw, 5.6rem)",  weight: 700, color: "#53284E" },
-            { text: "YEPYENİ",  size: "clamp(1.2rem, 3vw, 4.4rem)",    weight: 700, color: "#53284E" },
-            { text: "bir",       size: "clamp(0.65rem, 1.1vw, 1.6rem)", weight: 400, color: "#93945C" },
-            { text: "DENEYİM.", size: "clamp(1.4rem, 3.5vw, 5rem)",    weight: 700, color: "#53284E" },
-          ].map(({ text, size, weight, color }) => (
+          {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((word) => (
             <span
-              key={text}
+              key={word}
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                fontWeight: weight,
-                fontSize: size,
-                lineHeight: 0.9,
-                letterSpacing: "-0.025em",
-                color,
+                fontWeight: 700,
+                fontSize: "clamp(1.4rem, 3.6vw, 5.2rem)",
+                lineHeight: 0.88,
+                letterSpacing: "-0.03em",
+                color: "#53284E",
                 display: "block",
               }}
             >
-              {text}
+              {word}
             </span>
           ))}
         </div>
