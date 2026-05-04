@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EmailForm from "@/components/EmailForm";
 import AromaGrid from "@/components/AromaGrid";
+import HeroCarousel from "@/components/HeroCarousel";
 
 const igImages = [
   { src: "/media/matcha-site-2.png",         alt: "filly's matcha" },
@@ -28,54 +29,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* ══════════════════════════════════════════
-          HERO — tam sayfa görsel, sol alt yazı
-      ══════════════════════════════════════════ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ minHeight: "100svh" }}
-      >
-
-        {/* Görsel — tam sayfa kaplar */}
-        <Image
-          src="/media/hero-yeni1.png"
-          alt="filly's kahve kreması"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          quality={95}
-          priority
-        />
-
-        {/* Karartma — yazı okunabilirliği */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)",
-          }}
-        />
-
-        {/* Metin — sol alt köşe */}
-        <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-12 md:pb-16 z-10">
-          {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((word) => (
-            <span
-              key={word}
-              style={{
-                fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(2.2rem, 6vw, 8rem)",
-                lineHeight: 0.88,
-                letterSpacing: "-0.03em",
-                color: "#fff",
-                display: "block",
-              }}
-            >
-              {word}
-            </span>
-          ))}
-        </div>
-
-      </section>
+      <HeroCarousel />
 
       {/* ══════════════════════════════════════════
           5 AROMA GRID
