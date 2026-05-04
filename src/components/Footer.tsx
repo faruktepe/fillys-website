@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white overflow-hidden" style={{ fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}>
+    <footer className="bg-[#C0A4B8] overflow-hidden" style={{ fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}>
 
       {/* ── Upper: Logo + tagline + social ── */}
       <div className="border-b border-[#53284E]/10">
