@@ -49,25 +49,27 @@ export default function Home() {
           />
         </div>
 
-        {/* Metin — sol %18 sütun, alt */}
+        {/* Metin — sol %18 sütun, üstten alta dolar */}
         <div
-          className="absolute bottom-0 left-0 pb-12 lg:pb-16 px-5 lg:px-8"
-          style={{ width: "18%" }}
+          className="absolute left-0 flex flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
+          style={{ width: "18%", top: "76px", bottom: 0 }}
         >
-          <h1
-            style={{
-              fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.1rem, 2vw, 2.6rem)",
-              lineHeight: 1.15,
-              letterSpacing: "-0.02em",
-              color: "#53284E",
-            }}
-          >
-            Aynı ritüel,<br />
-            yepyeni bir<br />
-            deneyim.
-          </h1>
+          {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((word) => (
+            <span
+              key={word}
+              style={{
+                fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.4rem, 3.6vw, 5.2rem)",
+                lineHeight: 0.88,
+                letterSpacing: "-0.03em",
+                color: "#53284E",
+                display: "block",
+              }}
+            >
+              {word}
+            </span>
+          ))}
         </div>
 
       </section>
