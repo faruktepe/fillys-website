@@ -2,14 +2,17 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import EmailForm from "@/components/EmailForm";
 import { products } from "@/data/products";
 
 const igImages = [
-  { src: "/media/instagram/matcha-1.jpg",   alt: "filly's matcha" },
-  { src: "/media/instagram/matcha-2.jpg",   alt: "filly's matcha servis" },
-  { src: "/media/instagram/branded.png",    alt: "filly's" },
-  { src: "/media/instagram/matcha-3.jpg",   alt: "filly's matcha atmosfer" },
-  { src: "/media/instagram/tum-kapsul.png", alt: "filly's 5 aroma" },
+  { src: "/media/matcha-site-2.png",         alt: "filly's matcha" },
+  { src: "/media/instagram/branded.png",     alt: "filly's" },
+  { src: "/media/instagram/matcha-3.jpg",    alt: "filly's matcha atmosfer" },
+  { src: "/media/instagram/tum-kapsul.png",  alt: "filly's 5 aroma" },
+  { src: "/media/kayit-ol2.png",             alt: "filly's kapsül kahve kreması" },
+  { src: "/media/hover-1.png",               alt: "filly's" },
+  { src: "/media/hover-2.jpg",               alt: "filly's" },
 ];
 
 const taglines = [
@@ -104,18 +107,63 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           5 AROMA GRID
       ══════════════════════════════════════════ */}
-      <section className="bg-[#C0A4B8] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28 relative overflow-hidden">
+
+        {/* ── Abstract Flow curves — 5 Aroma sütununa özel ── */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.11]"
+          viewBox="0 0 1400 760"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+          aria-hidden="true"
+        >
+          {/* DALGA 1 — header alanında büyük süpürme, sol üstten sağ üste */}
+          <path
+            d="M-120 80 C 200 -30, 520 190, 780 70 C 1040 -50, 1280 170, 1520 50"
+            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* DALGA 2 — biraz daha aşağıda, metnin dibinden geçer */}
+          <path
+            d="M-100 200 C 240 90, 540 295, 800 175 C 1060 55, 1300 245, 1520 150"
+            stroke="#53284E" strokeWidth="38" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SOL KENAR KÖPRÜSÜ — dalga 1'den çıkıp sol kenar boyunca aşağı iner */}
+          <path
+            d="M-120 80 C -150 200, -110 360, -140 530"
+            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SAĞ KENAR KÖPRÜSÜ — dalga 1'in sağ ucundan aşağı iner */}
+          <path
+            d="M1520 50 C 1560 190, 1540 370, 1560 530"
+            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* ORTA DİAGONAL — kart sütunları arasından geçer, 3. sütun boşluğundan görünür */}
+          <path
+            d="M780 70 C 720 210, 810 390, 730 550"
+            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* ALT DALGA — tüm köprülerin birleştiği çıkış dalgası */}
+          <path
+            d="M-140 680 C 220 580, 520 760, 800 660 C 1080 560, 1320 730, 1560 650"
+            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SOL BAĞLANTI — sol kenar köprüsünü alt dalgaya bağlar */}
+          <path
+            d="M-140 530 C -150 600, -140 650, -140 680"
+            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SAĞ BAĞLANTI — sağ kenar köprüsünü alt dalgaya bağlar */}
+          <path
+            d="M1560 530 C 1570 590, 1560 630, 1560 650"
+            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
+          />
+        </svg>
+
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
           {/* Başlık satırı */}
           <div className="flex items-end justify-between mb-12 pb-6 border-b border-[#53284E]/20">
             <div>
-              <p
-                className="type-label mb-3"
-                style={{ fontSize: "0.5rem", letterSpacing: "0.35em", color: "#C0A4B8" }}
-              >
-                AROMALAR
-              </p>
               <p
                 className="type-display text-[#53284E]"
                 style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
@@ -133,58 +181,59 @@ export default function Home() {
           </div>
 
           {/* Ürün grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8">
             {products.map((product, i) => (
               <Link key={product.slug} href={`/urunler/${product.slug}`} className="group flex flex-col">
-                {/* Görsel — aroma renkli dairesel arka plan + hover büyümesi */}
-                <div className="relative aspect-square mb-5 flex items-center justify-center">
-                  {/* Aroma dairesi — her zaman görünür, hover'da büyür */}
-                  <div
-                    className="absolute rounded-full w-[80%] h-[80%] scale-100 group-hover:scale-[1.18] transition-transform duration-500 ease-out"
-                    style={{ backgroundColor: product.accent }}
-                  />
+
+                {/* Kart — renkli arka plan, kapsül içinde */}
+                <div
+                  className="relative aspect-[3/4] flex items-center justify-center overflow-hidden mb-4 transition-transform duration-500 group-hover:scale-[1.02]"
+                  style={{ backgroundColor: product.accent, borderRadius: "12px" }}
+                >
+                  {/* Numara — sol üst */}
+                  <span
+                    className="absolute top-3 left-4 type-label text-white/50"
+                    style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  {/* Tagline — sağ üst, döndürülmüş */}
+                  <span
+                    className="absolute top-5 right-[-28px] type-label text-white/40 rotate-90 origin-right whitespace-nowrap"
+                    style={{ fontSize: "0.38rem", letterSpacing: "0.22em" }}
+                  >
+                    {product.tagline.toUpperCase()}
+                  </span>
+
                   {/* Kapsül görseli */}
-                  <div className="relative w-[75%] h-[75%] group-hover:scale-[1.07] transition-transform duration-500 z-10">
+                  <div className="relative w-[72%] h-[72%] group-hover:scale-[1.08] group-hover:-rotate-3 transition-all duration-500 z-10">
                     <Image
                       src={product.image}
                       alt={`filly's ${product.name}`}
                       fill
-                      className="object-contain object-center"
+                      className="object-contain object-center drop-shadow-lg"
                       sizes="(max-width: 768px) 40vw, (max-width: 1024px) 27vw, 16vw"
                     />
                   </div>
                 </div>
 
-                {/* Metin */}
-                <div className="border-t pt-4 pl-2" style={{ borderColor: `${product.accent}60` }}>
+                {/* Metin altında */}
+                <div className="px-1">
                   <p
-                    className="type-label mb-2"
-                    style={{ fontSize: "0.44rem", letterSpacing: "0.28em", color: "#53284E", opacity: 0.35 }}
+                    className="type-display text-[#53284E] leading-none"
+                    style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.45rem)" }}
                   >
-                    {String(i + 1).padStart(2, "0")}
+                    {product.name}
                   </p>
                   <p
-                    className="transition-opacity duration-300 group-hover:opacity-60"
-                    style={{
-                      fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "1.05rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      lineHeight: 1,
-                      color: product.accent,
-                      filter: "brightness(0.5) saturate(1.1)",
-                    }}
-                  >
-                    {product.name.toUpperCase()}
-                  </p>
-                  <p
-                    className="type-body text-[0.8rem] italic mt-2"
-                    style={{ color: "#53284E", opacity: 0.5 }}
+                    className="type-body italic mt-1.5"
+                    style={{ fontSize: "0.78rem", color: product.accent, filter: "brightness(0.7)" }}
                   >
                     {product.tagline}
                   </p>
                 </div>
+
               </Link>
             ))}
           </div>
@@ -271,8 +320,49 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           @FILLYS.CO — Instagram marquee (Cream)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#D6D1C3] py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-12 flex items-baseline justify-between">
+      <section className="bg-white py-20 overflow-hidden relative">
+
+        {/* ── Abstract Flow curves — @fillys.co sütununa özel ── */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.11]"
+          viewBox="0 0 1400 900"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+          aria-hidden="true"
+        >
+          {/* ANA DALGA — header alanında tam genişlikte, metnin üstünden süpürür */}
+          <path
+            d="M-120 60 C 180 -40, 500 200, 760 60 C 1020 -80, 1260 180, 1520 40"
+            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* İKİNCİ DALGA — metnin hemen altından geçen, biraz daha içeride */}
+          <path
+            d="M-100 175 C 220 80, 520 280, 800 160 C 1080 40, 1320 240, 1520 140"
+            stroke="#53284E" strokeWidth="38" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SOL KÖPRÜ — header'dan sol kenar boyunca görsel şeritlerinin arkasına dalar */}
+          <path
+            d="M180 -40 C 80 80, -60 200, -100 400"
+            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SAĞ KÖPRÜ — sağ taraftan görsel şeritlerinin arkasına dalar */}
+          <path
+            d="M1260 180 C 1380 300, 1520 380, 1500 540"
+            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* ALT ÇIKIŞ DALGASI — görsel şeritlerinin altından çıkar, alt padding'de belirginleşir */}
+          <path
+            d="M-120 820 C 220 710, 520 900, 820 790 C 1100 680, 1320 860, 1520 780"
+            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
+          />
+          {/* SOL-ALTTA BAĞLANTI — sol köprüyü alt dalgayla birleştirir */}
+          <path
+            d="M-100 400 C -80 580, -60 700, -120 820"
+            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
+          />
+        </svg>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-12 relative flex items-end justify-center">
           <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(2.5rem, 5vw, 5.5rem)" }}>
             @fillys.co
           </p>
@@ -280,10 +370,14 @@ export default function Home() {
             href="https://instagram.com/fillys.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="type-nav text-[#53284E]/35 hover:text-[#53284E] transition-colors"
-            style={{ fontSize: "0.62rem" }}
+            className="group absolute right-6 lg:right-10 bottom-0 flex-shrink-0 flex items-center gap-2.5 bg-[#53284E] text-[#D6D1C3] rounded-full px-5 py-3 hover:bg-[#3A1F2B] transition-colors duration-300 mb-2"
           >
-            TAKİP ET →
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="opacity-80">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+            <span className="type-nav" style={{ fontSize: "0.65rem" }}>TAKİP ET</span>
           </a>
         </div>
 
@@ -309,27 +403,114 @@ export default function Home() {
       </section>
 
 {/* ══════════════════════════════════════════
-          CTA (Cream)
+          KAYIT OL
       ══════════════════════════════════════════ */}
-      <section className="bg-[#D6D1C3] py-36 px-6 relative overflow-hidden">
-        <div className="relative max-w-7xl mx-auto text-center">
-          <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(4rem, 11vw, 13rem)" }}>
+      <section className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden" style={{ minHeight: "80vh" }}>
+
+        {/* Sol — görsel */}
+        <div className="relative min-h-[60vw] lg:min-h-0 order-2 lg:order-1 bg-white py-12 lg:py-16">
+          <Image
+            src="/media/kayit-ol2.png"
+            alt="filly's 5 aroma kapsül kahve kreması"
+            fill
+            className="object-contain object-center"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+
+        {/* Sağ — metin + form */}
+        <div className="order-1 lg:order-2 relative flex flex-col justify-between px-8 md:px-14 lg:px-16 pt-16 lg:pt-20 pb-6 lg:pb-8 bg-white">
+
+          {/* ── Abstract Flow curves — sağ kolona gömülü, soldan sağa ── */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.11]"
+            viewBox="0 0 700 800"
+            preserveAspectRatio="xMidYMid slice"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M-60 110 C 120 20, 340 210, 560 100 C 680 40, 760 160, 800 90"
+              stroke="#53284E" strokeWidth="40" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <path
+              d="M-60 300 C 140 200, 360 400, 580 280 C 700 210, 780 340, 800 270"
+              stroke="#53284E" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <path
+              d="M-60 500 C 160 400, 380 590, 600 470 C 720 400, 790 510, 800 460"
+              stroke="#53284E" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <path
+              d="M-60 700 C 140 610, 360 790, 580 680 C 700 620, 780 730, 800 670"
+              stroke="#53284E" strokeWidth="40" strokeLinecap="round" strokeLinejoin="round"
+            />
+          </svg>
+
+          {/* İçerik — SVG'nin önünde */}
+          <div className="relative z-[1]">
+            <h2 className="type-display" style={{ fontSize: "clamp(4.5rem, 8.5vw, 10.5rem)", lineHeight: 0.82, color: "#93945C" }}>
+              Deneyime
+              <br />
+              ortak
+              <br />
+              ol.
+            </h2>
+
+            <div className="mt-9">
+              <p className="type-display text-[#C0A4B8]/90" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+                Yeni aromalar,
+              </p>
+              <p className="type-display text-[#C0A4B8]/65" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+                sürpriz kampanyalar,
+              </p>
+              <p className="type-display text-[#C0A4B8]/40" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+                yeni deneyimler.
+              </p>
+            </div>
+
+            <EmailForm />
+          </div>
+
+          {/* Alt köşe — logo */}
+          <Image src="/logo-plum.svg" alt="filly's" width={120} height={47} className="opacity-50 mt-10 relative z-[1]" />
+
+        </div>
+
+      </section>
+
+      {/* ══════════════════════════════════════════
+          CTA (Yakında arka plan)
+      ══════════════════════════════════════════ */}
+      <section className="relative py-36 px-6 overflow-hidden">
+        {/* Arka plan görseli */}
+        <Image
+          src="/media/yakinda-arka-plan.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={100}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <p className="type-display text-white" style={{ fontSize: "clamp(4rem, 11vw, 13rem)" }}>
             Yakında.
           </p>
-          <p className="type-body text-[#53284E]/45 mt-6 mb-14 text-lg italic">
+          <p className="type-display text-white" style={{ fontSize: "clamp(0.9rem, 1.6vw, 1.4rem)", fontWeight: 400, fontStyle: "italic", marginTop: "1.5rem", marginBottom: "3.5rem", textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}>
             Satış kanalları çok yakında açılıyor.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/iletisim"
-              className="type-nav bg-[#53284E] text-[#D6D1C3] px-10 py-4 hover:bg-[#53284E]/80 transition-colors"
+              className="type-nav bg-white text-[#53284E] px-10 py-4 hover:bg-[#D6D1C3] transition-colors"
               style={{ fontSize: "0.68rem" }}
             >
               HABERDAR OL
             </Link>
             <Link
               href="/urunler"
-              className="type-nav border border-[#53284E]/30 text-[#53284E] px-10 py-4 hover:border-[#53284E] transition-colors"
+              className="type-nav border border-white/50 text-white px-10 py-4 hover:bg-white/10 transition-colors"
               style={{ fontSize: "0.68rem" }}
             >
               AROMALARA BAK →
