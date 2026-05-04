@@ -29,41 +29,44 @@ export default function Home() {
       <Navbar />
 
       {/* ══════════════════════════════════════════
-          HERO — beyaz bg, görsel sağ 82%, yazı sol
+          HERO — tam sayfa görsel, sol alt yazı
       ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "100svh", backgroundColor: "#fff" }}
+        style={{ minHeight: "100svh" }}
       >
 
-        {/* Görsel — sağ %82 sütun, navbar altından başlar, alta yaslı */}
-        <div className="absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
-          <Image
-            src="/media/hero-beyaz-cikolata-2.jpg"
-            alt="filly's beyaz çikolata kahve kreması"
-            fill
-            className="object-cover object-right object-top"
-            sizes="82vw"
-            quality={95}
-            priority
-          />
-        </div>
+        {/* Görsel — tam sayfa kaplar */}
+        <Image
+          src="/media/hero-yeni1.png"
+          alt="filly's kahve kreması"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={95}
+          priority
+        />
 
-        {/* Metin — sol %18 sütun, üstten alta dolar */}
+        {/* Karartma — yazı okunabilirliği */}
         <div
-          className="absolute left-0 flex flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
-          style={{ width: "18%", top: "76px", bottom: 0 }}
-        >
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)",
+          }}
+        />
+
+        {/* Metin — sol alt köşe */}
+        <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-12 md:pb-16 z-10">
           {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((word) => (
             <span
               key={word}
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(1.4rem, 3.6vw, 5.2rem)",
+                fontSize: "clamp(2.2rem, 6vw, 8rem)",
                 lineHeight: 0.88,
                 letterSpacing: "-0.03em",
-                color: "#53284E",
+                color: "#fff",
                 display: "block",
               }}
             >
