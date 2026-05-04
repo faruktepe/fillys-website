@@ -5,14 +5,9 @@ import Image from "next/image";
 
 const slides = [
   {
-    desktop: "/media/hero-yeni1.png",
-    mobile: "/media/hero-yeni1.png",
-    alt: "filly's kahve kreması",
-  },
-  {
     desktop: "/media/hero-yeni2.png",
     mobile: "/media/hero-mobil-yeni2.png",
-    alt: "filly's kahve kreması 2",
+    alt: "filly's kahve kreması",
   },
 ];
 
