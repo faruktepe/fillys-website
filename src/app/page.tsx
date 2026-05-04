@@ -29,39 +29,44 @@ export default function Home() {
       <Navbar />
 
       {/* ══════════════════════════════════════════
-          HERO — görsel sağda küçük, yazı sol alt
+          HERO — beyaz bg, görsel sağ 82%, yazı sol
       ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "100svh", backgroundColor: "#F0B80A" }}
+        style={{ minHeight: "100svh", backgroundColor: "#fff" }}
       >
 
-        {/* Görsel — sağa yaslanmış, küçültülmüş */}
-        <Image
-          src="/media/hero-beyaz-cikolata-2.jpg"
-          alt="filly's beyaz çikolata kahve kreması"
-          fill
-          className="object-contain object-right object-bottom"
-          sizes="100vw"
-          quality={95}
-          priority
-          style={{ transform: "scale(0.82)", transformOrigin: "right bottom" }}
-        />
+        {/* Görsel — sağ %82 sütun, alta yaslı */}
+        <div className="absolute right-0 top-0 bottom-0" style={{ width: "82%" }}>
+          <Image
+            src="/media/hero-beyaz-cikolata-2.jpg"
+            alt="filly's beyaz çikolata kahve kreması"
+            fill
+            className="object-contain object-right object-bottom"
+            sizes="82vw"
+            quality={95}
+            priority
+          />
+        </div>
 
-        {/* Metin — sol alt */}
-        <div className="absolute bottom-0 left-0 px-8 md:px-14 lg:px-20 pb-12 lg:pb-16">
+        {/* Metin — sol %18 sütun, alt */}
+        <div
+          className="absolute bottom-0 left-0 pb-12 lg:pb-16 px-5 lg:px-8"
+          style={{ width: "18%" }}
+        >
           <h1
             style={{
               fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(1.6rem, 3.2vw, 3.8rem)",
-              lineHeight: 1.05,
+              fontSize: "clamp(0.9rem, 1.5vw, 1.8rem)",
+              lineHeight: 1.15,
               letterSpacing: "-0.02em",
               color: "#53284E",
             }}
           >
             Aynı ritüel,<br />
-            yepyeni bir deneyim.
+            yepyeni bir<br />
+            deneyim.
           </h1>
         </div>
 
