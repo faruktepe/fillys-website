@@ -46,7 +46,7 @@ export default function Navbar() {
           visible ? "translate-y-0" : "-translate-y-full"
         } ${!atTop ? "border-b border-white/10" : ""}`}
         style={{
-          backgroundColor: atTop ? "transparent" : "rgba(58,31,43,0.96)",
+          backgroundColor: atTop ? "transparent" : "rgba(83,40,78,0.96)",
           backdropFilter: atTop ? "none" : "blur(12px)",
         }}
       >
