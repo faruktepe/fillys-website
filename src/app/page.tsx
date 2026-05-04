@@ -36,8 +36,8 @@ export default function Home() {
         style={{ minHeight: "100svh", backgroundColor: "#fff" }}
       >
 
-        {/* Görsel — sağ %82 sütun, alta yaslı */}
-        <div className="absolute right-0 top-0 bottom-0" style={{ width: "82%" }}>
+        {/* Görsel — sağ %82 sütun, navbar altından başlar, alta yaslı */}
+        <div className="absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
           <Image
             src="/media/hero-beyaz-cikolata-2.jpg"
             alt="filly's beyaz çikolata kahve kreması"
@@ -58,7 +58,7 @@ export default function Home() {
             style={{
               fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(0.9rem, 1.5vw, 1.8rem)",
+              fontSize: "clamp(1.1rem, 2vw, 2.6rem)",
               lineHeight: 1.15,
               letterSpacing: "-0.02em",
               color: "#53284E",
