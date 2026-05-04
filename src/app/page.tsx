@@ -33,13 +33,13 @@ export default function Home() {
       ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "100svh", backgroundColor: "#E5A900" }}
+        style={{ minHeight: "100svh", backgroundColor: "#F0B80A" }}
       >
 
         {/* Görsel — sağa yaslanmış, küçültülmüş */}
         <Image
-          src="/media/yakinda-arka-plan-hero.png"
-          alt="filly's kahve kreması"
+          src="/media/hero-beyaz-cikolata-2.jpg"
+          alt="filly's beyaz çikolata kahve kreması"
           fill
           className="object-contain object-right object-bottom"
           sizes="100vw"
@@ -53,7 +53,7 @@ export default function Home() {
           <h1
             style={{
               fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-              fontWeight: 500,
+              fontWeight: 700,
               fontSize: "clamp(1.6rem, 3.2vw, 3.8rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
