@@ -247,8 +247,19 @@ export default function Home() {
       <section className="bg-[#C1D8E4] overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
 
-          {/* Sol — metin */}
-          <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-20 lg:py-28">
+          {/* Sol — görsel tam sütun */}
+          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-2 lg:order-1">
+            <Image
+              src="/media/matcha-site-2.png"
+              alt="filly's matcha kahve kreması"
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+
+          {/* Sağ — metin */}
+          <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-20 lg:py-28 order-1 lg:order-2">
             <h2
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
@@ -282,17 +293,6 @@ export default function Home() {
                 HİKAYEMİZ →
               </Link>
             </div>
-          </div>
-
-          {/* Sağ — görsel tam sütun */}
-          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4]">
-            <Image
-              src="/media/matcha-site-2.png"
-              alt="filly's matcha kahve kreması"
-              fill
-              className="object-contain object-center"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
           </div>
 
         </div>
