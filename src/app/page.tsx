@@ -54,20 +54,26 @@ export default function Home() {
           className="absolute left-0 flex flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
           style={{ width: "18%", top: "76px", bottom: 0 }}
         >
-          {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((word) => (
+          {[
+            { text: "aynı",      size: "clamp(0.75rem, 1.4vw, 2rem)",   weight: 400, color: "#C0A4B8" },
+            { text: "RİTÜEL,",  size: "clamp(1.5rem, 3.8vw, 5.6rem)",  weight: 700, color: "#53284E" },
+            { text: "YEPYENİ",  size: "clamp(1.2rem, 3vw, 4.4rem)",    weight: 700, color: "#53284E" },
+            { text: "bir",       size: "clamp(0.65rem, 1.1vw, 1.6rem)", weight: 400, color: "#93945C" },
+            { text: "DENEYİM.", size: "clamp(1.4rem, 3.5vw, 5rem)",    weight: 700, color: "#53284E" },
+          ].map(({ text, size, weight, color }) => (
             <span
-              key={word}
+              key={text}
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.4rem, 3.6vw, 5.2rem)",
-                lineHeight: 0.88,
-                letterSpacing: "-0.03em",
-                color: "#53284E",
+                fontWeight: weight,
+                fontSize: size,
+                lineHeight: 0.9,
+                letterSpacing: "-0.025em",
+                color,
                 display: "block",
               }}
             >
-              {word}
+              {text}
             </span>
           ))}
         </div>
