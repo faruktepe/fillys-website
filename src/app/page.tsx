@@ -36,55 +36,6 @@ export default function Home() {
       ══════════════════════════════════════════ */}
       <section className="bg-white py-10 md:py-20 lg:py-28 relative overflow-hidden">
 
-        {/* ── Abstract Flow curves — 5 Aroma sütununa özel ── */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.11]"
-          viewBox="0 0 1400 760"
-          preserveAspectRatio="xMidYMid slice"
-          fill="none"
-          aria-hidden="true"
-        >
-          {/* DALGA 1 — header alanında büyük süpürme, sol üstten sağ üste */}
-          <path
-            d="M-120 80 C 200 -30, 520 190, 780 70 C 1040 -50, 1280 170, 1520 50"
-            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* DALGA 2 — biraz daha aşağıda, metnin dibinden geçer */}
-          <path
-            d="M-100 200 C 240 90, 540 295, 800 175 C 1060 55, 1300 245, 1520 150"
-            stroke="#53284E" strokeWidth="38" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* SOL KENAR KÖPRÜSÜ — dalga 1'den çıkıp sol kenar boyunca aşağı iner */}
-          <path
-            d="M-120 80 C -150 200, -110 360, -140 530"
-            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* SAĞ KENAR KÖPRÜSÜ — dalga 1'in sağ ucundan aşağı iner */}
-          <path
-            d="M1520 50 C 1560 190, 1540 370, 1560 530"
-            stroke="#53284E" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* ORTA DİAGONAL — kart sütunları arasından geçer, 3. sütun boşluğundan görünür */}
-          <path
-            d="M780 70 C 720 210, 810 390, 730 550"
-            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* ALT DALGA — tüm köprülerin birleştiği çıkış dalgası */}
-          <path
-            d="M-140 680 C 220 580, 520 760, 800 660 C 1080 560, 1320 730, 1560 650"
-            stroke="#53284E" strokeWidth="42" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* SOL BAĞLANTI — sol kenar köprüsünü alt dalgaya bağlar */}
-          <path
-            d="M-140 530 C -150 600, -140 650, -140 680"
-            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
-          />
-          {/* SAĞ BAĞLANTI — sağ kenar köprüsünü alt dalgaya bağlar */}
-          <path
-            d="M1560 530 C 1570 590, 1560 630, 1560 650"
-            stroke="#53284E" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round"
-          />
-        </svg>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
