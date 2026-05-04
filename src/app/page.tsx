@@ -222,7 +222,7 @@ export default function Home() {
                 <div className="px-1">
                   <p
                     className="type-display text-[#53284E] leading-none"
-                    style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.45rem)" }}
+                    style={{ fontSize: "clamp(1.15rem, 1.8vw, 1.45rem)" }}
                   >
                     {product.name}
                   </p>
@@ -287,7 +287,7 @@ export default function Home() {
           {/* Sağ — görsel tam sütun */}
           <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4]">
             <Image
-              src="/media/matcha-site-2.png"
+              src="/media/matcha-site-3.png"
               alt="filly's matcha kahve kreması"
               fill
               className="object-contain object-center"
@@ -362,30 +362,32 @@ export default function Home() {
           />
         </svg>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-12 relative flex items-end justify-center">
-          <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(2.5rem, 5vw, 5.5rem)" }}>
-            @fillys.co
-          </p>
-          <a
-            href="https://instagram.com/fillys.co"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group absolute right-6 lg:right-10 bottom-0 flex-shrink-0 flex items-center gap-2.5 bg-[#53284E] text-[#D6D1C3] rounded-full px-5 py-3 hover:bg-[#3A1F2B] transition-colors duration-300 mb-2"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="opacity-80">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg>
-            <span className="type-nav" style={{ fontSize: "0.65rem" }}>TAKİP ET</span>
-          </a>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-8 sm:mb-12 relative">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(2.5rem, 5vw, 5.5rem)" }}>
+              @fillys.co
+            </p>
+            <a
+              href="https://instagram.com/fillys.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex-shrink-0 flex items-center gap-2.5 bg-[#53284E] text-[#D6D1C3] rounded-full px-5 py-3 hover:bg-[#3A1F2B] transition-colors duration-300"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="opacity-80">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              <span className="type-nav" style={{ fontSize: "0.65rem" }}>TAKİP ET</span>
+            </a>
+          </div>
         </div>
 
         <div className="overflow-hidden mb-2 marquee-wrap">
           <div className="flex gap-2 marquee-track">
             {[...igImages, ...igImages, ...igImages].map((img, i) => (
-              <div key={i} className="relative flex-shrink-0 w-72 h-72 overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="288px" />
+              <div key={i} className="relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 overflow-hidden">
+                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" />
               </div>
             ))}
           </div>
@@ -394,8 +396,8 @@ export default function Home() {
         <div className="overflow-hidden marquee-wrap">
           <div className="flex gap-2 marquee-track-reverse">
             {[...[...igImages].reverse(), ...[...igImages].reverse(), ...[...igImages].reverse()].map((img, i) => (
-              <div key={i} className="relative flex-shrink-0 w-72 h-72 overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="288px" />
+              <div key={i} className="relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 overflow-hidden">
+                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" />
               </div>
             ))}
           </div>
@@ -449,7 +451,7 @@ export default function Home() {
 
           {/* İçerik — SVG'nin önünde */}
           <div className="relative z-[1]">
-            <h2 className="type-display" style={{ fontSize: "clamp(4.5rem, 8.5vw, 10.5rem)", lineHeight: 0.82, color: "#93945C" }}>
+            <h2 className="type-display" style={{ fontSize: "clamp(3rem, 8.5vw, 10.5rem)", lineHeight: 0.82, color: "#93945C" }}>
               Deneyime
               <br />
               ortak
@@ -458,13 +460,13 @@ export default function Home() {
             </h2>
 
             <div className="mt-9">
-              <p className="type-display text-[#C0A4B8]/90" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+              <p className="type-display text-[#C0A4B8]" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
                 Yeni aromalar,
               </p>
-              <p className="type-display text-[#C0A4B8]/65" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+              <p className="type-display text-[#C0A4B8]/85" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
                 sürpriz kampanyalar,
               </p>
-              <p className="type-display text-[#C0A4B8]/40" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
+              <p className="type-display text-[#C0A4B8]/70" style={{ fontSize: "clamp(1.35rem, 2.6vw, 2.8rem)", lineHeight: 1.1 }}>
                 yeni deneyimler.
               </p>
             </div>
@@ -473,7 +475,7 @@ export default function Home() {
           </div>
 
           {/* Alt köşe — logo */}
-          <Image src="/logo-plum.svg" alt="filly's" width={120} height={47} className="opacity-50 mt-10 relative z-[1]" />
+          <Image src="/logo-plum.svg" alt="filly's" width={120} height={47} className="opacity-75 mt-10 relative z-[1]" />
 
         </div>
 
@@ -482,7 +484,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           CTA (Yakında arka plan)
       ══════════════════════════════════════════ */}
-      <section className="relative py-36 px-6 overflow-hidden">
+      <section className="relative py-20 md:py-28 lg:py-36 px-6 overflow-hidden">
         {/* Arka plan görseli */}
         <Image
           src="/media/yakinda-arka-plan.png"
@@ -497,7 +499,7 @@ export default function Home() {
           <p className="type-display text-white" style={{ fontSize: "clamp(4rem, 11vw, 13rem)" }}>
             Yakında.
           </p>
-          <p className="type-display text-white" style={{ fontSize: "clamp(0.9rem, 1.6vw, 1.4rem)", fontWeight: 400, fontStyle: "italic", marginTop: "1.5rem", marginBottom: "3.5rem", textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}>
+          <p className="type-display text-white" style={{ fontSize: "clamp(1rem, 1.6vw, 1.4rem)", fontWeight: 400, fontStyle: "italic", marginTop: "1.5rem", marginBottom: "3.5rem", textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}>
             Satış kanalları çok yakında açılıyor.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
