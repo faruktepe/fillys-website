@@ -32,12 +32,53 @@ export default function Home() {
           HERO — beyaz bg, görsel sağ 82%, yazı sol
       ══════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden"
-        style={{ minHeight: "100svh", backgroundColor: "#fff" }}
+        className="relative overflow-hidden bg-white"
+        style={{ minHeight: "100svh" }}
       >
 
-        {/* Görsel — sağ %82 sütun, navbar altından başlar, alta yaslı */}
-        <div className="absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
+        {/* ── MOBİL HERO (< md) ── */}
+        <div className="flex flex-col md:hidden" style={{ minHeight: "100svh", paddingTop: "64px" }}>
+          {/* Görsel — ekranın üst ~55'i */}
+          <div className="relative w-full" style={{ height: "55svh" }}>
+            <Image
+              src="/media/hero-beyaz-cikolata-2.jpg"
+              alt="filly's beyaz çikolata kahve kreması"
+              fill
+              className="object-contain object-center object-bottom"
+              sizes="100vw"
+              quality={95}
+              priority
+            />
+          </div>
+          {/* Metin — görsel altında, editorial */}
+          <div className="flex-1 flex flex-col justify-end px-6 pb-10 gap-1">
+            {[
+              { text: "aynı",      fs: "1.05rem", fw: 400, c: "#C0A4B8" },
+              { text: "RİTÜEL,",  fs: "3.2rem",  fw: 700, c: "#53284E" },
+              { text: "YEPYENİ",  fs: "2.5rem",  fw: 700, c: "#53284E" },
+              { text: "bir",       fs: "0.9rem",  fw: 400, c: "#93945C" },
+              { text: "DENEYİM.", fs: "2.9rem",  fw: 700, c: "#53284E" },
+            ].map(({ text, fs, fw, c }) => (
+              <span
+                key={text}
+                style={{
+                  display: "block",
+                  fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+                  fontWeight: fw,
+                  fontSize: fs,
+                  lineHeight: 0.92,
+                  letterSpacing: "-0.025em",
+                  color: c,
+                }}
+              >
+                {text}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ── DESKTOP HERO (≥ md) ── */}
+        <div className="hidden md:block absolute right-0 bottom-0" style={{ width: "82%", top: "76px" }}>
           <Image
             src="/media/hero-beyaz-cikolata-2.jpg"
             alt="filly's beyaz çikolata kahve kreması"
@@ -48,10 +89,8 @@ export default function Home() {
             priority
           />
         </div>
-
-        {/* Metin — sol %18 sütun, üstten alta dolar */}
         <div
-          className="absolute left-0 flex flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
+          className="hidden md:flex absolute left-0 flex-col justify-between px-5 lg:px-7 py-6 lg:py-8"
           style={{ width: "18%", top: "76px", bottom: 0 }}
         >
           {[
@@ -138,7 +177,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
           {/* Başlık satırı */}
-          <div className="flex items-end justify-between mb-12 pb-6 border-b border-[#53284E]/20">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-12 pb-6 border-b border-[#53284E]/20">
             <div>
               <p
                 className="type-display text-[#53284E]"
@@ -224,7 +263,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
 
           {/* Sol — görsel sola yaslı, orijinal boyut */}
-          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-1">
+          <div className="relative min-h-[78vw] lg:min-h-0 bg-[#C1D8E4] order-1">
             <Image
               src="/media/matcha-site-6.png"
               alt="filly's matcha kahve kreması"
@@ -235,7 +274,7 @@ export default function Home() {
           </div>
 
           {/* Sağ — metin */}
-          <div className="flex flex-col justify-center px-12 md:px-20 lg:px-28 py-20 lg:py-28 order-2">
+          <div className="flex flex-col justify-center px-6 md:px-16 lg:px-28 py-10 md:py-20 lg:py-28 order-2">
             <h2
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
@@ -339,7 +378,7 @@ export default function Home() {
         </svg>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-8 sm:mb-12 relative">
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
             <p className="type-display text-[#53284E]" style={{ fontSize: "clamp(2.5rem, 5vw, 5.5rem)" }}>
               @fillys.co
             </p>
@@ -386,7 +425,7 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden" style={{ minHeight: "80vh" }}>
 
         {/* Sol — görsel */}
-        <div className="relative min-h-[60vw] lg:min-h-0 order-2 lg:order-1 bg-white py-12 lg:py-16">
+        <div className="relative min-h-[82vw] lg:min-h-0 order-1 bg-white py-4 lg:py-16">
           <Image
             src="/media/kayit-ol2.png"
             alt="filly's 5 aroma kapsül kahve kreması"
@@ -397,7 +436,7 @@ export default function Home() {
         </div>
 
         {/* Sağ — metin + form */}
-        <div className="order-1 lg:order-2 relative flex flex-col justify-between px-8 md:px-14 lg:px-16 pt-16 lg:pt-20 pb-6 lg:pb-8 bg-white">
+        <div className="order-2 relative flex flex-col justify-between px-6 md:px-14 lg:px-16 pt-10 md:pt-16 lg:pt-20 pb-6 lg:pb-8 bg-white">
 
           {/* ── Abstract Flow curves — sağ kolona gömülü, soldan sağa ── */}
           <svg
@@ -460,7 +499,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           CTA (Yakında arka plan)
       ══════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 lg:py-36 px-6 overflow-hidden">
+      <section className="relative py-24 md:py-32 lg:py-40 px-6 overflow-hidden">
         {/* Arka plan görseli */}
         <Image
           src="/media/yakinda-arka-plan.png"
