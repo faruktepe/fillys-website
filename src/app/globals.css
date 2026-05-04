@@ -186,6 +186,22 @@ p, a, span, li, button, input, textarea, nav, footer, h1, h2, h3, h4, h5, h6 {
 .marquee-wrap:hover .marquee-track,
 .marquee-wrap:hover .marquee-track-reverse { animation-play-state: paused; }
 
+/* ── 5 Aroma: sb1 hover ikonları — :has() ile JS'siz ── */
+.aroma-sb1 {
+  opacity: 0;
+  transform: rotate(var(--ar, 0deg)) scale(0.8);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+.aroma-section:has(.aroma-vanilya:hover)    .aroma-sb1-vanilya,
+.aroma-section:has(.aroma-pistachio:hover)  .aroma-sb1-pistachio,
+.aroma-section:has(.aroma-beyaz:hover)      .aroma-sb1-beyaz,
+.aroma-section:has(.aroma-karamel:hover)    .aroma-sb1-karamel,
+.aroma-section:has(.aroma-matcha:hover)     .aroma-sb1-matcha {
+  opacity: 1;
+  transform: rotate(var(--ar, 0deg)) scale(1);
+}
+
 /* ─── Hero scroll indicator ─── */
 @keyframes scrollBar {
   0%   { transform: translateY(-100%); }

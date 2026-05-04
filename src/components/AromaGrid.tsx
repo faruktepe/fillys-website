@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 
 const items = [
   {
@@ -12,8 +9,11 @@ const items = [
     tagline: "Soft start.",
     image: "/media/kapsul/vanilya-4.png",
     sb1: "/media/sb1-vanilya.png",
-    sb1Style: { top: "6%", right: "18%" },
-    sb1Rotate: "-5deg",
+    // Grid'in ÜSTÜNDE beyaz alanda — sol köşe
+    sb1Pos: { top: "10px", left: "2%" },
+    sb1Rotate: "-6deg",
+    cardClass: "aroma-vanilya",
+    iconClass: "aroma-sb1-vanilya",
   },
   {
     slug: "pistachio",
@@ -22,8 +22,11 @@ const items = [
     tagline: "Weird is working.",
     image: "/media/kapsul/pistachio-4.png",
     sb1: "/media/sb1-pistachio.png",
-    sb1Style: { bottom: "4%", left: "2%" },
+    // Grid'in ALTINDA beyaz alanda — sol-orta
+    sb1Pos: { bottom: "8px", left: "6%" },
     sb1Rotate: "4deg",
+    cardClass: "aroma-pistachio",
+    iconClass: "aroma-sb1-pistachio",
   },
   {
     slug: "beyaz-cikolata",
@@ -32,8 +35,11 @@ const items = [
     tagline: "Guilty? Never.",
     image: "/media/kapsul/beyaz-cikolata-4.png",
     sb1: "/media/sb1-beyaz-cikolata.png",
-    sb1Style: { top: "3%", left: "4%" },
-    sb1Rotate: "-3deg",
+    // Grid'in ÜSTÜNDE — sağ taraf
+    sb1Pos: { top: "14px", right: "5%" },
+    sb1Rotate: "5deg",
+    cardClass: "aroma-beyaz",
+    iconClass: "aroma-sb1-beyaz",
   },
   {
     slug: "karamel",
@@ -42,8 +48,11 @@ const items = [
     tagline: "İkinci fincana gerek yok.",
     image: "/media/kapsul/karamel-4.png",
     sb1: "/media/sb1-caramel.png",
-    sb1Style: { bottom: "5%", right: "3%" },
-    sb1Rotate: "6deg",
+    // Grid'in ALTINDA — sağ köşe
+    sb1Pos: { bottom: "6px", right: "3%" },
+    sb1Rotate: "-5deg",
+    cardClass: "aroma-karamel",
+    iconClass: "aroma-sb1-karamel",
   },
   {
     slug: "matcha",
@@ -52,49 +61,53 @@ const items = [
     tagline: "Dingin. Güçlü.",
     image: "/media/kapsul/matcha-4.png",
     sb1: "/media/sb1-matcha.png",
-    sb1Style: { bottom: "6%", left: "38%" },
-    sb1Rotate: "-4deg",
+    // Grid'in ALTINDA — orta
+    sb1Pos: { bottom: "10px", left: "42%" },
+    sb1Rotate: "-3deg",
+    cardClass: "aroma-matcha",
+    iconClass: "aroma-sb1-matcha",
   },
 ];
 
 export default function AromaGrid() {
-  const [hovered, setHovered] = useState<string | null>(null);
-
   return (
-    <div className="relative">
+    /*
+     * aroma-section: CSS :has() hedefi
+     * pt-28 pb-20 (lg): grid üstünde ~112px, altında ~80px beyaz alan — ikonlar buraya
+     */
+    <div
+      className="aroma-section relative pt-8 md:pt-16 lg:pt-28 pb-6 md:pb-12 lg:pb-20"
+    >
 
-      {/* ── Scattered sb1 ikonları — sadece desktop, hover ile görünür ── */}
+      {/* ── Sb1 ikonları: grid'in üst/alt beyaz alanlarında dağınık, lg'de görünür ── */}
       {items.map((item) => (
         <div
           key={`sb1-${item.slug}`}
           aria-hidden="true"
-          className="absolute pointer-events-none hidden md:block z-0 transition-all duration-500"
+          className={`aroma-sb1 ${item.iconClass} absolute hidden lg:block`}
           style={{
-            ...(item.sb1Style as React.CSSProperties),
-            width: "175px",
-            opacity: hovered === item.slug ? 1 : 0,
-            transform: `rotate(${item.sb1Rotate}) scale(${hovered === item.slug ? 1 : 0.82})`,
-          }}
+            ...(item.sb1Pos as React.CSSProperties),
+            width: "150px",
+            "--ar": item.sb1Rotate,
+          } as React.CSSProperties}
         >
           <Image
             src={item.sb1}
             alt=""
-            width={175}
-            height={233}
+            width={150}
+            height={200}
             className="object-contain drop-shadow-2xl"
           />
         </div>
       ))}
 
-      {/* ── Kapsül grid — her zaman görünür ── */}
+      {/* ── Kapsül grid: her zaman görünür, z-10 (ikonların önünde) ── */}
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8">
         {items.map((item, i) => (
           <Link
             key={item.slug}
             href={`/urunler/${item.slug}`}
-            className="group flex flex-col"
-            onMouseEnter={() => setHovered(item.slug)}
-            onMouseLeave={() => setHovered(null)}
+            className={`${item.cardClass} group flex flex-col`}
           >
             {/* Kart */}
             <div
