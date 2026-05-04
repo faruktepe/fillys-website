@@ -16,7 +16,8 @@ const slides = [
   },
 ];
 
-const words = ["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."];
+const label = "Şeker İlavesiz";
+const headline = ["Ritüel aynı,", "deneyim farklı."];
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
@@ -71,20 +72,36 @@ export default function HeroCarousel() {
 
       {/* Metin — sol alt */}
       <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-12 md:pb-16 z-20">
-        {words.map((word) => (
+        {/* Küçük etiket — Apfel 900 */}
+        <span
+          style={{
+            fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(0.65rem, 1vw, 0.95rem)",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.75)",
+            display: "block",
+            marginBottom: "0.6em",
+          }}
+        >
+          {label}
+        </span>
+        {/* Ana başlık — Apfel 500 */}
+        {headline.map((line) => (
           <span
-            key={word}
+            key={line}
             style={{
               fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
               fontWeight: 500,
-              fontSize: "clamp(1.6rem, 4.2vw, 5.8rem)",
-              lineHeight: 0.9,
+              fontSize: "clamp(2rem, 5.2vw, 7.2rem)",
+              lineHeight: 0.92,
               letterSpacing: "-0.025em",
               color: "#fff",
               display: "block",
             }}
           >
-            {word}
+            {line}
           </span>
         ))}
       </div>
