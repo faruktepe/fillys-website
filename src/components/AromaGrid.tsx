@@ -48,36 +48,46 @@ const illos = [
   {
     slug: "vanilya" as Slug,
     src: "/media/sb1-vanilya.png",
-    pos: { top: "-20px", left: "-3%" },
-    w: 260,
+    desktopPos: { top: "-20px", left: "-3%" },
+    desktopW: 260,
+    mobilePos: { top: "-10px", left: "-8px" },
+    mobileW: 130,
     rot: "-7deg",
   },
   {
     slug: "beyaz-cikolata" as Slug,
     src: "/media/sb1-beyaz-cikolata.png",
-    pos: { top: "-14px", right: "-2%" },
-    w: 290,
+    desktopPos: { top: "-14px", right: "-2%" },
+    desktopW: 290,
+    mobilePos: { top: "-10px", right: "-8px" },
+    mobileW: 145,
     rot: "5deg",
   },
   {
     slug: "karamel" as Slug,
     src: "/media/sb1-caramel.png",
-    pos: { bottom: "-16px", left: "-2%" },
-    w: 255,
+    desktopPos: { bottom: "-16px", left: "-2%" },
+    desktopW: 255,
+    mobilePos: { bottom: "-10px", left: "-8px" },
+    mobileW: 128,
     rot: "-5deg",
   },
   {
     slug: "pistachio" as Slug,
     src: "/media/sb1-pistachio.png",
-    pos: { bottom: "-14px", right: "-3%" },
-    w: 270,
+    desktopPos: { bottom: "-14px", right: "-3%" },
+    desktopW: 270,
+    mobilePos: { bottom: "-10px", right: "-8px" },
+    mobileW: 135,
     rot: "6deg",
   },
   {
     slug: "matcha" as Slug,
     src: "/media/sb1-matcha.png",
-    pos: { bottom: "-18px", left: "calc(50% - 120px)" },
-    w: 240,
+    desktopPos: { bottom: "-18px", left: "calc(50% - 120px)" },
+    desktopW: 240,
+    mobilePos: { bottom: "-10px", left: "calc(50% - 60px)" },
+    mobileW: 120,
     rot: "-3deg",
   },
 ];
@@ -102,15 +112,39 @@ export default function AromaGrid() {
       className="relative pt-20 pb-24 md:pt-28 md:pb-32"
       onMouseLeave={() => setActive(null)}
     >
-      {/* Watercolor illustrations — edge-cropped, z-5 */}
-      {illos.map(({ slug, src, pos, w, rot }) => (
+      {/* Mobile illustrations — static, fixed opacity, smaller */}
+      {illos.map(({ slug, src, mobilePos, mobileW, rot }) => (
         <div
-          key={`illo-${slug}`}
+          key={`mob-illo-${slug}`}
+          aria-hidden="true"
+          className="absolute block md:hidden pointer-events-none"
+          style={{
+            ...(mobilePos as React.CSSProperties),
+            width: `${mobileW}px`,
+            zIndex: 5,
+            opacity: 0.2,
+            transform: `rotate(${rot})`,
+          }}
+        >
+          <Image
+            src={src}
+            alt=""
+            width={mobileW}
+            height={Math.round((mobileW * 4) / 3)}
+            className="object-contain"
+          />
+        </div>
+      ))}
+
+      {/* Desktop illustrations — hover-interactive */}
+      {illos.map(({ slug, src, desktopPos, desktopW, rot }) => (
+        <div
+          key={`desk-illo-${slug}`}
           aria-hidden="true"
           className="absolute hidden md:block pointer-events-none"
           style={{
-            ...(pos as React.CSSProperties),
-            width: `${w}px`,
+            ...(desktopPos as React.CSSProperties),
+            width: `${desktopW}px`,
             zIndex: 5,
             opacity: illoOpacity(slug, active),
             transform: illoTransform(slug, active, rot),
@@ -120,14 +154,14 @@ export default function AromaGrid() {
           <Image
             src={src}
             alt=""
-            width={w}
-            height={Math.round((w * 4) / 3)}
+            width={desktopW}
+            height={Math.round((desktopW * 4) / 3)}
             className="object-contain"
           />
         </div>
       ))}
 
-      {/* Capsule grid — no colored backgrounds, z-10 */}
+      {/* Capsule grid */}
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
         {products.map((p, i) => (
           <Link
@@ -136,7 +170,6 @@ export default function AromaGrid() {
             className="group flex flex-col items-center text-center"
             onMouseEnter={() => setActive(p.slug)}
           >
-            {/* Floating capsule — no card background */}
             <div
               className="relative w-full"
               style={{ height: "clamp(170px, 18vw, 250px)" }}
@@ -150,7 +183,6 @@ export default function AromaGrid() {
               />
             </div>
 
-            {/* Index + name + tagline */}
             <p
               className="type-label text-[#53284E]/25 mt-4 mb-1"
               style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
@@ -165,10 +197,7 @@ export default function AromaGrid() {
             </p>
             <p
               className="type-body italic mt-1.5"
-              style={{
-                fontSize: "0.76rem",
-                color: p.accent,
-              }}
+              style={{ fontSize: "0.76rem", color: p.accent }}
             >
               {p.tagline}
             </p>
