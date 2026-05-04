@@ -297,7 +297,7 @@ export default function Home() {
           </div>
 
           {/* Alt köşe — logo */}
-          <Image src="/logo-plum.svg" alt="filly's" width={120} height={47} className="opacity-75 mt-10 relative z-[1]" />
+          <Image src="/logo-plum.svg" alt="filly's" width={120} height={47} className="opacity-75 mt-10 relative z-[1] hidden md:block" />
 
         </div>
 
