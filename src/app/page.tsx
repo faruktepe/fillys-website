@@ -248,7 +248,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
 
           {/* Sol — görsel sola yaslı, orijinal boyut */}
-          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-2 lg:order-1">
+          <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-1">
             <Image
               src="/media/matcha-site-6.png"
               alt="filly's matcha kahve kreması"
@@ -259,7 +259,7 @@ export default function Home() {
           </div>
 
           {/* Sağ — metin */}
-          <div className="flex flex-col justify-center px-12 md:px-20 lg:px-28 py-20 lg:py-28 order-1 lg:order-2">
+          <div className="flex flex-col justify-center px-12 md:px-20 lg:px-28 py-20 lg:py-28 order-2">
             <h2
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
