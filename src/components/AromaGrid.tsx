@@ -1,161 +1,180 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const items = [
+type Slug = "vanilya" | "pistachio" | "beyaz-cikolata" | "karamel" | "matcha";
+
+const products = [
   {
-    slug: "vanilya",
+    slug: "vanilya" as Slug,
     name: "Vanilya",
-    accent: "#D4A843",
+    accent: "#C49A30",
     tagline: "Soft start.",
-    image: "/media/kapsul/vanilya-4.png",
-    sb1: "/media/sb1-vanilya.png",
-    // Grid'in ÜSTÜNDE beyaz alanda — sol köşe
-    sb1Pos: { top: "10px", left: "2%" },
-    sb1Rotate: "-6deg",
-    cardClass: "aroma-vanilya",
-    iconClass: "aroma-sb1-vanilya",
+    capsule: "/media/kapsul/vanilya-4.png",
   },
   {
-    slug: "pistachio",
+    slug: "pistachio" as Slug,
     name: "Pistachio",
-    accent: "#6FA05A",
+    accent: "#4E8A38",
     tagline: "Weird is working.",
-    image: "/media/kapsul/pistachio-4.png",
-    sb1: "/media/sb1-pistachio.png",
-    // Grid'in ALTINDA beyaz alanda — sol-orta
-    sb1Pos: { bottom: "8px", left: "6%" },
-    sb1Rotate: "4deg",
-    cardClass: "aroma-pistachio",
-    iconClass: "aroma-sb1-pistachio",
+    capsule: "/media/kapsul/pistachio-4.png",
   },
   {
-    slug: "beyaz-cikolata",
+    slug: "beyaz-cikolata" as Slug,
     name: "Beyaz Çikolata",
-    accent: "#E8A87C",
+    accent: "#C07840",
     tagline: "Guilty? Never.",
-    image: "/media/kapsul/beyaz-cikolata-4.png",
-    sb1: "/media/sb1-beyaz-cikolata.png",
-    // Grid'in ÜSTÜNDE — sağ taraf
-    sb1Pos: { top: "14px", right: "5%" },
-    sb1Rotate: "5deg",
-    cardClass: "aroma-beyaz",
-    iconClass: "aroma-sb1-beyaz",
+    capsule: "/media/kapsul/beyaz-cikolata-4.png",
   },
   {
-    slug: "karamel",
+    slug: "karamel" as Slug,
     name: "Karamel",
-    accent: "#B86030",
+    accent: "#A04820",
     tagline: "İkinci fincana gerek yok.",
-    image: "/media/kapsul/karamel-4.png",
-    sb1: "/media/sb1-caramel.png",
-    // Grid'in ALTINDA — sağ köşe
-    sb1Pos: { bottom: "6px", right: "3%" },
-    sb1Rotate: "-5deg",
-    cardClass: "aroma-karamel",
-    iconClass: "aroma-sb1-karamel",
+    capsule: "/media/kapsul/karamel-4.png",
   },
   {
-    slug: "matcha",
+    slug: "matcha" as Slug,
     name: "Matcha",
-    accent: "#4A7C55",
+    accent: "#2E6040",
     tagline: "Dingin. Güçlü.",
-    image: "/media/kapsul/matcha-4.png",
-    sb1: "/media/sb1-matcha.png",
-    // Grid'in ALTINDA — orta
-    sb1Pos: { bottom: "10px", left: "42%" },
-    sb1Rotate: "-3deg",
-    cardClass: "aroma-matcha",
-    iconClass: "aroma-sb1-matcha",
+    capsule: "/media/kapsul/matcha-4.png",
   },
 ];
 
-export default function AromaGrid() {
-  return (
-    /*
-     * aroma-section: CSS :has() hedefi
-     * pt-28 pb-20 (lg): grid üstünde ~112px, altında ~80px beyaz alan — ikonlar buraya
-     */
-    <div
-      className="aroma-section relative pt-8 md:pt-16 lg:pt-28 pb-6 md:pb-12 lg:pb-20"
-    >
+const illos = [
+  {
+    slug: "vanilya" as Slug,
+    src: "/media/sb1-vanilya.png",
+    pos: { top: "-20px", left: "-3%" },
+    w: 260,
+    rot: "-7deg",
+  },
+  {
+    slug: "beyaz-cikolata" as Slug,
+    src: "/media/sb1-beyaz-cikolata.png",
+    pos: { top: "-14px", right: "-2%" },
+    w: 290,
+    rot: "5deg",
+  },
+  {
+    slug: "karamel" as Slug,
+    src: "/media/sb1-caramel.png",
+    pos: { bottom: "-16px", left: "-2%" },
+    w: 255,
+    rot: "-5deg",
+  },
+  {
+    slug: "pistachio" as Slug,
+    src: "/media/sb1-pistachio.png",
+    pos: { bottom: "-14px", right: "-3%" },
+    w: 270,
+    rot: "6deg",
+  },
+  {
+    slug: "matcha" as Slug,
+    src: "/media/sb1-matcha.png",
+    pos: { bottom: "-18px", left: "calc(50% - 120px)" },
+    w: 240,
+    rot: "-3deg",
+  },
+];
 
-      {/* ── Sb1 ikonları: grid'in üst/alt beyaz alanlarında dağınık, lg'de görünür ── */}
-      {items.map((item) => (
+function illoOpacity(slug: Slug, active: Slug | null): number {
+  if (active === null) return 0.22;
+  return active === slug ? 0.9 : 0;
+}
+
+function illoTransform(slug: Slug, active: Slug | null, rot: string): string {
+  const base = `rotate(${rot})`;
+  if (active === slug) return `${base} scale(1.06) translateY(-8px)`;
+  if (active !== null) return `${base} scale(0.96)`;
+  return base;
+}
+
+export default function AromaGrid() {
+  const [active, setActive] = useState<Slug | null>(null);
+
+  return (
+    <div
+      className="relative pt-20 pb-24 md:pt-28 md:pb-32"
+      onMouseLeave={() => setActive(null)}
+    >
+      {/* Watercolor illustrations — edge-cropped, z-5 */}
+      {illos.map(({ slug, src, pos, w, rot }) => (
         <div
-          key={`sb1-${item.slug}`}
+          key={`illo-${slug}`}
           aria-hidden="true"
-          className={`aroma-sb1 ${item.iconClass} absolute hidden lg:block`}
+          className="absolute hidden md:block pointer-events-none"
           style={{
-            ...(item.sb1Pos as React.CSSProperties),
-            width: "150px",
-            "--ar": item.sb1Rotate,
-          } as React.CSSProperties}
+            ...(pos as React.CSSProperties),
+            width: `${w}px`,
+            zIndex: 5,
+            opacity: illoOpacity(slug, active),
+            transform: illoTransform(slug, active, rot),
+            transition: "opacity 0.5s ease, transform 0.55s ease",
+          }}
         >
           <Image
-            src={item.sb1}
+            src={src}
             alt=""
-            width={150}
-            height={200}
-            className="object-contain drop-shadow-2xl"
+            width={w}
+            height={Math.round((w * 4) / 3)}
+            className="object-contain"
           />
         </div>
       ))}
 
-      {/* ── Kapsül grid: her zaman görünür, z-10 (ikonların önünde) ── */}
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8">
-        {items.map((item, i) => (
+      {/* Capsule grid — no colored backgrounds, z-10 */}
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
+        {products.map((p, i) => (
           <Link
-            key={item.slug}
-            href={`/urunler/${item.slug}`}
-            className={`${item.cardClass} group flex flex-col`}
+            key={p.slug}
+            href={`/urunler/${p.slug}`}
+            className="group flex flex-col items-center text-center"
+            onMouseEnter={() => setActive(p.slug)}
           >
-            {/* Kart */}
+            {/* Floating capsule — no card background */}
             <div
-              className="relative aspect-[3/4] flex items-center justify-center overflow-hidden mb-4 transition-transform duration-500 group-hover:scale-[1.02]"
-              style={{ backgroundColor: item.accent, borderRadius: "12px" }}
+              className="relative w-full"
+              style={{ height: "clamp(170px, 18vw, 250px)" }}
             >
-              <span
-                className="absolute top-3 left-4 type-label text-white/50"
-                style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span
-                className="absolute top-5 right-[-28px] type-label text-white/40 rotate-90 origin-right whitespace-nowrap"
-                style={{ fontSize: "0.38rem", letterSpacing: "0.22em" }}
-              >
-                {item.tagline.toUpperCase()}
-              </span>
-              <div className="relative w-[72%] h-[72%] group-hover:scale-[1.08] group-hover:-rotate-3 transition-all duration-500 z-10">
-                <Image
-                  src={item.image}
-                  alt={`filly's ${item.name}`}
-                  fill
-                  className="object-contain object-center drop-shadow-lg"
-                  sizes="(max-width: 768px) 40vw, (max-width: 1024px) 27vw, 16vw"
-                />
-              </div>
+              <Image
+                src={p.capsule}
+                alt={`filly's ${p.name}`}
+                fill
+                className="object-contain drop-shadow-lg transition-all duration-500 group-hover:scale-[1.07] group-hover:-rotate-3"
+                sizes="(max-width: 768px) 42vw, (max-width: 1024px) 28vw, 16vw"
+              />
             </div>
 
-            {/* İsim + tagline */}
-            <div className="px-1">
-              <p
-                className="type-display text-[#53284E] leading-none"
-                style={{ fontSize: "clamp(1.15rem, 1.8vw, 1.45rem)" }}
-              >
-                {item.name}
-              </p>
-              <p
-                className="type-body italic mt-1.5"
-                style={{ fontSize: "0.78rem", color: item.accent, filter: "brightness(0.7)" }}
-              >
-                {item.tagline}
-              </p>
-            </div>
+            {/* Index + name + tagline */}
+            <p
+              className="type-label text-[#53284E]/25 mt-4 mb-1"
+              style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </p>
+            <p
+              className="type-display text-[#53284E] leading-none"
+              style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)" }}
+            >
+              {p.name}
+            </p>
+            <p
+              className="type-body italic mt-1.5"
+              style={{
+                fontSize: "0.76rem",
+                color: p.accent,
+              }}
+            >
+              {p.tagline}
+            </p>
           </Link>
         ))}
       </div>
-
     </div>
   );
 }
