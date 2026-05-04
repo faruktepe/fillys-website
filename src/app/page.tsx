@@ -42,7 +42,7 @@ export default function Home() {
             src="/media/hero-beyaz-cikolata-2.jpg"
             alt="filly's beyaz çikolata kahve kreması"
             fill
-            className="object-contain object-right object-bottom"
+            className="object-cover object-right object-top"
             sizes="82vw"
             quality={95}
             priority
