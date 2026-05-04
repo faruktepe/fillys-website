@@ -3,7 +3,6 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EmailForm from "@/components/EmailForm";
-import { products } from "@/data/products";
 
 const igImages = [
   { src: "/media/matcha-site-2.png",         alt: "filly's matcha" },
@@ -188,62 +187,83 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Ürün grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8">
-            {products.map((product, i) => (
-              <Link key={product.slug} href={`/urunler/${product.slug}`} className="group flex flex-col">
+          {/* ── Ürün dağınık yerleşim — Chobani stili ── */}
 
-                {/* Kart — renkli arka plan, kapsül içinde */}
-                <div
-                  className="relative aspect-[3/4] flex items-center justify-center overflow-hidden mb-4 transition-transform duration-500 group-hover:scale-[1.02]"
-                  style={{ backgroundColor: product.accent, borderRadius: "12px" }}
-                >
-                  {/* Numara — sol üst */}
-                  <span
-                    className="absolute top-3 left-4 type-label text-white/50"
-                    style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+          {/* DESKTOP: Dağınık, yüksek-alçak ritimli */}
+          <div className="hidden md:block relative" style={{ height: "clamp(500px, 54vw, 700px)" }}>
 
-                  {/* Tagline — sağ üst, döndürülmüş */}
-                  <span
-                    className="absolute top-5 right-[-28px] type-label text-white/40 rotate-90 origin-right whitespace-nowrap"
-                    style={{ fontSize: "0.38rem", letterSpacing: "0.22em" }}
-                  >
-                    {product.tagline.toUpperCase()}
-                  </span>
+            {/* 1 — Vanilya: Sol köşe, alçak */}
+            <Link href="/urunler/vanilya" className="absolute group" style={{ left: "1%", bottom: "6%", width: "17%" }}>
+              <div className="transition-all duration-500 -rotate-2 group-hover:rotate-0 group-hover:scale-[1.04]">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src="/media/sb1-vanilya.png" alt="filly's vanilya" fill className="object-contain drop-shadow-2xl" sizes="17vw" />
+                </div>
+                <p className="type-display text-center mt-3" style={{ fontSize: "1rem", color: "#D4A843" }}>Vanilya</p>
+              </div>
+            </Link>
 
-                  {/* Kapsül görseli */}
-                  <div className="relative w-[72%] h-[72%] group-hover:scale-[1.08] group-hover:-rotate-3 transition-all duration-500 z-10">
-                    <Image
-                      src={product.image}
-                      alt={`filly's ${product.name}`}
-                      fill
-                      className="object-contain object-center drop-shadow-lg"
-                      sizes="(max-width: 768px) 40vw, (max-width: 1024px) 27vw, 16vw"
-                    />
+            {/* 2 — Pistachio: Sol-orta, yüksek */}
+            <Link href="/urunler/pistachio" className="absolute group" style={{ left: "18%", top: "2%", width: "22%" }}>
+              <div className="transition-all duration-500 rotate-2 group-hover:rotate-0 group-hover:scale-[1.04]">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src="/media/sb1-pistachio.png" alt="filly's pistachio" fill className="object-contain drop-shadow-2xl" sizes="22vw" />
+                </div>
+                <p className="type-display text-center mt-3" style={{ fontSize: "1rem", color: "#6FA05A" }}>Pistachio</p>
+              </div>
+            </Link>
+
+            {/* 3 — Beyaz Çikolata: Merkez, orta yüksek */}
+            <Link href="/urunler/beyaz-cikolata" className="absolute group" style={{ left: "38%", top: "20%", width: "19%" }}>
+              <div className="transition-all duration-500 -rotate-1 group-hover:rotate-0 group-hover:scale-[1.04]">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src="/media/sb1-beyaz-cikolata.png" alt="filly's beyaz çikolata" fill className="object-contain drop-shadow-2xl" sizes="19vw" />
+                </div>
+                <p className="type-display text-center mt-3" style={{ fontSize: "1rem", color: "#E8A87C" }}>Beyaz Çikolata</p>
+              </div>
+            </Link>
+
+            {/* 4 — Karamel: Sağ-orta, yüksek */}
+            <Link href="/urunler/karamel" className="absolute group" style={{ left: "58%", top: "1%", width: "21%" }}>
+              <div className="transition-all duration-500 rotate-3 group-hover:rotate-0 group-hover:scale-[1.04]">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src="/media/sb1-caramel.png" alt="filly's karamel" fill className="object-contain drop-shadow-2xl" sizes="21vw" />
+                </div>
+                <p className="type-display text-center mt-3" style={{ fontSize: "1rem", color: "#B86030" }}>Karamel</p>
+              </div>
+            </Link>
+
+            {/* 5 — Matcha: Sağ köşe, alçak */}
+            <Link href="/urunler/matcha" className="absolute group" style={{ left: "79%", bottom: "4%", width: "18%" }}>
+              <div className="transition-all duration-500 -rotate-2 group-hover:rotate-0 group-hover:scale-[1.04]">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image src="/media/sb1-matcha.png" alt="filly's matcha" fill className="object-contain drop-shadow-2xl" sizes="18vw" />
+                </div>
+                <p className="type-display text-center mt-3" style={{ fontSize: "1rem", color: "#4A7C55" }}>Matcha</p>
+              </div>
+            </Link>
+
+          </div>
+
+          {/* MOBİL: Yatay kaydırmalı raf */}
+          <div className="md:hidden overflow-x-auto -mx-6 pb-6">
+            <div className="flex gap-5 px-6" style={{ width: "max-content" }}>
+              {[
+                { slug: "vanilya",        name: "Vanilya",        src: "/media/sb1-vanilya.png",        accent: "#D4A843" },
+                { slug: "pistachio",      name: "Pistachio",      src: "/media/sb1-pistachio.png",      accent: "#6FA05A" },
+                { slug: "beyaz-cikolata", name: "Beyaz Çikolata", src: "/media/sb1-beyaz-cikolata.png", accent: "#E8A87C" },
+                { slug: "karamel",        name: "Karamel",        src: "/media/sb1-caramel.png",        accent: "#B86030" },
+                { slug: "matcha",         name: "Matcha",         src: "/media/sb1-matcha.png",         accent: "#4A7C55" },
+              ].map(({ slug, name, src, accent }) => (
+                <Link key={slug} href={`/urunler/${slug}`} className="flex-shrink-0 group" style={{ width: "155px" }}>
+                  <div className="relative w-full transition-transform duration-300 group-hover:scale-[1.04]" style={{ height: "200px" }}>
+                    <Image src={src} alt={`filly's ${name}`} fill className="object-contain drop-shadow-lg" sizes="155px" />
                   </div>
-                </div>
-
-                {/* Metin altında */}
-                <div className="px-1">
-                  <p
-                    className="type-display text-[#53284E] leading-none"
-                    style={{ fontSize: "clamp(1.15rem, 1.8vw, 1.45rem)" }}
-                  >
-                    {product.name}
+                  <p className="type-display text-center mt-2" style={{ fontSize: "0.88rem", color: accent }}>
+                    {name}
                   </p>
-                  <p
-                    className="type-body italic mt-1.5"
-                    style={{ fontSize: "0.78rem", color: product.accent, filter: "brightness(0.7)" }}
-                  >
-                    {product.tagline}
-                  </p>
-                </div>
-
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
 
         </div>
