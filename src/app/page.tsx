@@ -32,43 +32,36 @@ export default function Home() {
           HERO — beyaz bg, görsel sağ 82%, yazı sol
       ══════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden bg-white"
-        style={{ minHeight: "100svh" }}
+        className="relative overflow-hidden bg-white md:min-h-screen"
       >
 
         {/* ── MOBİL HERO (< md) ── */}
-        <div className="flex flex-col md:hidden" style={{ minHeight: "100svh", paddingTop: "64px" }}>
-          {/* Görsel — ekranın üst ~55'i */}
+        <div className="flex flex-col md:hidden" style={{ paddingTop: "64px" }}>
+          {/* Görsel — navbar hemen altına yapışık */}
           <div className="relative w-full" style={{ height: "55svh" }}>
             <Image
               src="/media/hero-beyaz-cikolata-2.jpg"
               alt="filly's beyaz çikolata kahve kreması"
               fill
-              className="object-contain object-center object-bottom"
+              className="object-contain object-center"
               sizes="100vw"
               quality={95}
               priority
             />
           </div>
-          {/* Metin — görsel altında, editorial */}
-          <div className="flex-1 flex flex-col justify-end px-6 pb-10 gap-1">
-            {[
-              { text: "aynı",      fs: "1.05rem", fw: 400, c: "#C0A4B8" },
-              { text: "RİTÜEL,",  fs: "3.2rem",  fw: 700, c: "#53284E" },
-              { text: "YEPYENİ",  fs: "2.5rem",  fw: 700, c: "#53284E" },
-              { text: "bir",       fs: "0.9rem",  fw: 400, c: "#93945C" },
-              { text: "DENEYİM.", fs: "2.9rem",  fw: 700, c: "#53284E" },
-            ].map(({ text, fs, fw, c }) => (
+          {/* Metin — görsel hemen altında, hepsi bold */}
+          <div className="flex flex-col gap-0.5 px-6 pt-3 pb-10">
+            {["AYNI", "RİTÜEL,", "YEPYENİ", "BİR", "DENEYİM."].map((text) => (
               <span
                 key={text}
                 style={{
                   display: "block",
                   fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-                  fontWeight: fw,
-                  fontSize: fs,
-                  lineHeight: 0.92,
-                  letterSpacing: "-0.025em",
-                  color: c,
+                  fontWeight: 700,
+                  fontSize: "2.6rem",
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.03em",
+                  color: "#53284E",
                 }}
               >
                 {text}
@@ -122,7 +115,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           5 AROMA GRID
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-white py-10 md:py-20 lg:py-28 relative overflow-hidden">
 
         {/* ── Abstract Flow curves — 5 Aroma sütununa özel ── */}
         <svg

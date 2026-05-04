@@ -7,8 +7,8 @@ export default function Footer() {
 
       {/* ── Upper: Logo + tagline + social ── */}
       <div className="border-b border-[#53284E]/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-          <div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-14 flex flex-col items-center md:flex-row md:items-end md:justify-between gap-10">
+          <div className="flex flex-col items-center md:items-start">
             <Image
               src="/logo-plum.svg"
               alt="filly's"
@@ -17,7 +17,7 @@ export default function Footer() {
               className="mb-5 opacity-90"
             />
             <p
-              className="type-display text-[#53284E]/10"
+              className="type-display text-[#53284E]/10 text-center md:text-left"
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)" }}
             >
               Flavoured. Not sweetened.
