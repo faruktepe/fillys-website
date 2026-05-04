@@ -247,24 +247,24 @@ export default function Home() {
       <section className="bg-[#C1D8E4] overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
 
-          {/* Sol — görsel tam sütun */}
+          {/* Sol — görsel sola yaslı, orijinal boyut */}
           <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-2 lg:order-1">
             <Image
               src="/media/matcha-site-6.png"
               alt="filly's matcha kahve kreması"
               fill
-              className="object-cover object-center"
+              className="object-contain object-left"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
 
           {/* Sağ — metin */}
-          <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-20 lg:py-28 order-1 lg:order-2">
+          <div className="flex flex-col justify-center px-12 md:px-20 lg:px-28 py-20 lg:py-28 order-1 lg:order-2">
             <h2
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(2.2rem, 4.5vw, 5rem)",
+                fontSize: "clamp(2.6rem, 5.2vw, 6rem)",
                 lineHeight: 0.92,
                 letterSpacing: "-0.03em",
                 color: "#53284E",
@@ -281,7 +281,7 @@ export default function Home() {
                 but faster.
               </span>
             </h2>
-            <p className="type-body text-[#53284E]/55 mt-8 max-w-sm leading-relaxed" style={{ fontSize: "0.95rem" }}>
+            <p className="type-body text-[#53284E]/55 mt-8 max-w-sm leading-relaxed" style={{ fontSize: "1.05rem" }}>
               Matcha kapsülünü aç, kahvene dök — ritüelin tadı, hazırlığın derdi olmadan.
             </p>
             <div className="mt-8">
