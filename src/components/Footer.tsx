@@ -3,21 +3,21 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#53284E] overflow-hidden" style={{ fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}>
+    <footer className="bg-white overflow-hidden" style={{ fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}>
 
       {/* ── Upper: Logo + tagline + social ── */}
-      <div className="border-b border-[#D6D1C3]/8">
+      <div className="border-b border-[#53284E]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <div>
             <Image
-              src="/logo-warm.svg"
+              src="/logo-plum.svg"
               alt="filly's"
               width={200}
               height={78}
               className="mb-5 opacity-90"
             />
             <p
-              className="type-display text-[#D6D1C3]/10"
+              className="type-display text-[#53284E]/10"
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)" }}
             >
               Flavoured. Not sweetened.
@@ -29,7 +29,7 @@ export default function Footer() {
             href="https://instagram.com/fillys.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 group border border-[#D6D1C3]/15 px-6 py-3 hover:border-[#D6D1C3]/40 transition-colors self-start md:self-auto"
+            className="inline-flex items-center gap-3 group border border-[#53284E]/15 px-6 py-3 hover:border-[#53284E]/40 transition-colors self-start md:self-auto"
           >
             <svg
               width="15"
@@ -38,14 +38,14 @@ export default function Footer() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="text-[#D6D1C3]/35 group-hover:text-[#D6D1C3]/70 transition-colors"
+              className="text-[#53284E]/35 group-hover:text-[#53284E]/70 transition-colors"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
             </svg>
             <span
-              className="type-label text-[#D6D1C3]/35 group-hover:text-[#D6D1C3]/70 transition-colors"
+              className="type-label text-[#53284E]/35 group-hover:text-[#53284E]/70 transition-colors"
               style={{ fontSize: "0.52rem", letterSpacing: "0.25em" }}
             >
               @FILLYS.CO
@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Keşfedin */}
           <div>
             <p
-              className="type-label text-[#D6D1C3]/20 mb-6"
+              className="type-label text-[#53284E]/25 mb-6"
               style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
             >
               KEŞFEDİN
@@ -75,7 +75,7 @@ export default function Footer() {
                 <Link
                   key={href}
                   href={href}
-                  className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
+                  className="type-body text-[#53284E]/45 hover:text-[#53284E]/80 transition-colors"
                   style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
                 >
                   {label}
@@ -87,7 +87,7 @@ export default function Footer() {
           {/* Aromalar */}
           <div>
             <p
-              className="type-label text-[#D6D1C3]/20 mb-6"
+              className="type-label text-[#53284E]/25 mb-6"
               style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
             >
               AROMALAR
@@ -103,7 +103,7 @@ export default function Footer() {
                 <Link
                   key={href}
                   href={href}
-                  className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
+                  className="type-body text-[#53284E]/45 hover:text-[#53284E]/80 transition-colors"
                   style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
                 >
                   {label}
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Sosyal */}
           <div>
             <p
-              className="type-label text-[#D6D1C3]/20 mb-6"
+              className="type-label text-[#53284E]/25 mb-6"
               style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
             >
               TAKİP EDİN
@@ -125,7 +125,7 @@ export default function Footer() {
                 href="https://instagram.com/fillys.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="type-body text-[#D6D1C3]/40 hover:text-[#D6D1C3]/75 transition-colors"
+                className="type-body text-[#53284E]/45 hover:text-[#53284E]/80 transition-colors"
                 style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 Instagram
@@ -136,20 +136,20 @@ export default function Footer() {
           {/* İletişim */}
           <div>
             <p
-              className="type-label text-[#D6D1C3]/20 mb-6"
+              className="type-label text-[#53284E]/25 mb-6"
               style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
             >
               İLETİŞİM
             </p>
             <div className="flex flex-col gap-3.5">
               <p
-                className="type-body text-[#D6D1C3]/35"
+                className="type-body text-[#53284E]/40"
                 style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 info@fillys.com.tr
               </p>
               <p
-                className="type-body text-[#D6D1C3]/25"
+                className="type-body text-[#53284E]/25"
                 style={{ fontSize: "0.82rem", fontFamily: "'Apfel Grotezk', system-ui, sans-serif" }}
               >
                 Türkiye&apos;de Üretildi
@@ -161,10 +161,10 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom strip ── */}
-      <div className="border-t border-[#D6D1C3]/8">
+      <div className="border-t border-[#53284E]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p
-            className="type-label text-[#D6D1C3]/20"
+            className="type-label text-[#53284E]/25"
             style={{ fontSize: "0.46rem", letterSpacing: "0.22em" }}
           >
             © {new Date().getFullYear()} FILLY&apos;S — TÜM HAKLARI SAKLIDIR
@@ -177,7 +177,7 @@ export default function Footer() {
               <Link
                 key={label}
                 href={href}
-                className="type-label text-[#D6D1C3]/20 hover:text-[#D6D1C3]/45 transition-colors"
+                className="type-label text-[#53284E]/25 hover:text-[#53284E]/50 transition-colors"
                 style={{ fontSize: "0.46rem", letterSpacing: "0.18em" }}
               >
                 {label}
