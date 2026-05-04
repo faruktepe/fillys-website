@@ -287,7 +287,7 @@ export default function Home() {
           {/* Sağ — görsel tam sütun */}
           <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4]">
             <Image
-              src="/media/matcha-site-4.png"
+              src="/media/matcha-site-2.png"
               alt="filly's matcha kahve kreması"
               fill
               className="object-contain object-center"
