@@ -250,10 +250,10 @@ export default function Home() {
           {/* Sol — görsel tam sütun */}
           <div className="relative min-h-[60vw] lg:min-h-0 bg-[#C1D8E4] order-2 lg:order-1">
             <Image
-              src="/media/matcha-site-2.png"
+              src="/media/matcha-site-6.png"
               alt="filly's matcha kahve kreması"
               fill
-              className="object-contain object-center"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
