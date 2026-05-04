@@ -38,10 +38,10 @@ export default function Home() {
 
         {/* Tam ekran fotoğraf */}
         <Image
-          src="/media/hero-beyaz-cikolata-6.png"
-          alt="filly's beyaz çikolata kahve kreması"
+          src="/media/yakinda-arka-plan-hero.png"
+          alt="filly's kahve kreması"
           fill
-          className="object-cover hero-img-position"
+          className="object-contain object-center"
           sizes="100vw"
           quality={95}
           priority
