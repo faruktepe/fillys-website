@@ -309,7 +309,7 @@ export default function Home() {
       <section className="relative py-24 md:py-32 lg:py-40 px-6 overflow-hidden">
         {/* Arka plan görseli */}
         <Image
-          src="/media/yakinda-arka-plan.png"
+          src="/media/kayit-ol1.png"
           alt=""
           fill
           className="object-cover object-center"
