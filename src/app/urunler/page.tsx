@@ -25,33 +25,34 @@ export default function UrunlerPage() {
 
         {/* ── HEADER ── */}
         <section className="relative overflow-hidden pt-36 pb-16 px-6 md:px-16 lg:px-24">
-          <div className="absolute right-[-4%] top-0 bottom-0 w-[55%] pointer-events-none select-none">
+          {/* tum-kapsul — tam section alanını kaplar */}
+          <div className="absolute inset-0 pointer-events-none select-none">
             <Image
               src="/media/kapsul/tum-kapsul.png"
               alt=""
               fill
-              className="object-contain object-right"
+              className="object-cover object-center"
               style={{ opacity: 0.06 }}
-              sizes="55vw"
+              sizes="100vw"
             />
           </div>
 
-          <h1 style={{ lineHeight: 0.85 }}>
+          <h1 className="relative z-10" style={{ lineHeight: 0.88 }}>
             <span
               className="type-display text-[#53284E] block"
-              style={{ fontSize: "clamp(3.5rem, 11vw, 13rem)", fontWeight: 700 }}
+              style={{ fontSize: "clamp(2.4rem, 7vw, 8.5rem)", fontWeight: 700 }}
             >
               Kahve Kremaları
             </span>
             <span
               className="type-body text-[#53284E]/50 block"
-              style={{ fontSize: "clamp(1.8rem, 5.5vw, 7rem)", fontStyle: "italic", fontWeight: 500, marginTop: "0.1em" }}
+              style={{ fontSize: "clamp(1.3rem, 3.8vw, 4.6rem)", fontStyle: "italic", fontWeight: 500, marginTop: "0.08em" }}
             >
               Coffee Creamer
             </span>
           </h1>
 
-          <div className="mt-20 border-t border-[#53284E]/12" />
+          <div className="relative z-10 mt-16 border-t border-[#53284E]/12" />
         </section>
 
         {/* ── ÜRÜN SATIRLARI ── */}
@@ -175,7 +176,7 @@ export default function UrunlerPage() {
         {/* ── ALT NOT ── */}
         <div className="px-6 md:px-16 py-20 border-t border-[#53284E]/10">
           <p
-            className="type-display text-[#53284E]/15 text-center"
+            className="type-display text-[#53284E] text-center"
             style={{ fontSize: "clamp(1.2rem, 2.5vw, 2.2rem)" }}
           >
             Hepsi şekersiz. Hepsi doğal aromalı.
