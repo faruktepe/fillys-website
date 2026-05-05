@@ -75,7 +75,7 @@ export default function HeroCarousel() {
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                 fontWeight: 900,
-                fontSize: "clamp(0.65rem, 1vw, 0.95rem)",
+                fontSize: "clamp(0.85rem, 1.3vw, 1.2rem)",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "rgba(255,255,255,0.75)",
@@ -83,7 +83,7 @@ export default function HeroCarousel() {
                 marginBottom: "0.6em",
               }}
             >
-              {slide.label}
+              {slide.label}*
             </span>
             {slide.headline.map((line) => (
               <span
