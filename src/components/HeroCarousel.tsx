@@ -31,7 +31,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "100svh" }}>
+    <section className="relative overflow-hidden" style={{ minHeight: "115svh" }}>
 
       {slides.map((slide, i) => (
         <div
