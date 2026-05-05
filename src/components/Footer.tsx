@@ -29,7 +29,7 @@ export default function Footer() {
             href="https://instagram.com/fillys.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 group border border-[#53284E]/15 px-6 py-3 hover:border-[#53284E]/40 transition-colors self-start md:self-auto"
+            className="inline-flex items-center gap-3 group border border-[#53284E] bg-[#53284E] px-6 py-3 hover:bg-[#53284E]/85 transition-colors self-start md:self-auto"
           >
             <svg
               width="15"
@@ -38,14 +38,14 @@ export default function Footer() {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              className="text-[#53284E]/35 group-hover:text-[#53284E]/70 transition-colors"
+              className="text-[#D6D1C3]"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
             </svg>
             <span
-              className="type-label text-[#53284E]/35 group-hover:text-[#53284E]/70 transition-colors"
+              className="type-label text-[#D6D1C3]"
               style={{ fontSize: "0.52rem", letterSpacing: "0.25em" }}
             >
               @FILLYS.CO
