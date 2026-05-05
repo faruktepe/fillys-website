@@ -10,7 +10,6 @@ export const metadata = {
 };
 
 const sb1Map: Record<string, string> = {
-  pistachio:        "/media/sb1-pistachio.png",
   "beyaz-cikolata": "/media/sb1-beyaz-cikolata.png",
   karamel:          "/media/sb1-caramel.png",
   matcha:           "/media/sb1-matcha.png",
@@ -25,13 +24,18 @@ const sb1OpacityMap: Record<string, { mobile: number; desktop: number }> = {
 };
 
 const rowBgMap: Record<string, string> = {
-  vanilya: "#CCD9EE",
+  vanilya:   "#CCD9EE",
+  pistachio: "#ffffff",
 };
 
 const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
   vanilya: {
     il1: "/media/vanilya-il1.png",
     il2: "/media/vanilya-il2.png",
+  },
+  pistachio: {
+    il1: "/media/pistachio-il1.png",
+    il2: "/media/pistachio-il2.png",
   },
 };
 
