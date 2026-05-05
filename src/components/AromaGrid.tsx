@@ -33,10 +33,10 @@ export default function AromaGrid() {
 
   return (
     <div
-      className="relative pt-40 pb-40 md:pt-48 md:pb-48"
+      className="relative pt-20 pb-14 md:pt-44 md:pb-44"
       onMouseLeave={() => setActive(null)}
     >
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-16">
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-24 md:gap-y-16">
         {products.map((p) => {
           const cfg = illoConfig[p.slug];
           const isActive = active === p.slug;
@@ -44,11 +44,35 @@ export default function AromaGrid() {
           const illoOpacity = hasActive ? (isActive ? 0.9 : 0) : 0.22;
           const half1 = Math.round(cfg.il1Size / 2);
           const half2 = Math.round(cfg.il2Size / 2);
+          const mobileHalf = 39; // 78px / 2
 
           return (
             <div key={p.slug} className="relative">
 
-              {/* il1 — sütunun üstünde */}
+              {/* Mobil il1 — sütunun üstünde, sabit opacity */}
+              <div
+                aria-hidden="true"
+                className="absolute pointer-events-none block md:hidden"
+                style={{
+                  top: "-62px",
+                  left: "50%",
+                  marginLeft: `-${mobileHalf}px`,
+                  width: "78px",
+                  opacity: 0.3,
+                  transform: `rotate(${cfg.il1Rot})`,
+                  zIndex: 5,
+                }}
+              >
+                <Image
+                  src={cfg.il1}
+                  alt=""
+                  width={78}
+                  height={104}
+                  className="object-contain"
+                />
+              </div>
+
+              {/* Desktop il1 — sütunun üstünde, hover-interactive */}
               <div
                 aria-hidden="true"
                 className="absolute pointer-events-none hidden md:block"
@@ -72,7 +96,7 @@ export default function AromaGrid() {
                 />
               </div>
 
-              {/* il2 — sütunun altında */}
+              {/* Desktop il2 — sütunun altında */}
               <div
                 aria-hidden="true"
                 className="absolute pointer-events-none hidden md:block"
