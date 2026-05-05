@@ -42,7 +42,7 @@ export default function UrunlerPage() {
       <main className="bg-[#D6D1C3]">
 
         {/* ── HEADER ── */}
-        <section className="relative overflow-hidden pt-36 pb-16 px-6 md:px-16 lg:px-24">
+        <section className="relative overflow-hidden pt-36 pb-16 px-6 md:px-16 lg:px-24 bg-white">
           {/* tum-kapsul — tam section alanını kaplar */}
           <div className="absolute inset-0 pointer-events-none select-none">
             <Image
