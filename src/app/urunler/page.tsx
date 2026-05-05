@@ -10,9 +10,8 @@ export const metadata = {
 };
 
 const sb1Map: Record<string, string> = {
-  "beyaz-cikolata": "/media/sb1-beyaz-cikolata.png",
-  karamel:          "/media/sb1-caramel.png",
-  matcha:           "/media/sb1-matcha.png",
+  karamel: "/media/sb1-caramel.png",
+  matcha:  "/media/sb1-matcha.png",
 };
 
 const sb1WidthMap: Record<string, string> = {
@@ -24,8 +23,9 @@ const sb1OpacityMap: Record<string, { mobile: number; desktop: number }> = {
 };
 
 const rowBgMap: Record<string, string> = {
-  vanilya:   "#CCD9EE",
-  pistachio: "#ffffff",
+  vanilya:          "#CCD9EE",
+  pistachio:        "#ffffff",
+  "beyaz-cikolata": "#CCD9EE",
 };
 
 const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
@@ -36,6 +36,10 @@ const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
   pistachio: {
     il1: "/media/pistachio-il1.png",
     il2: "/media/pistachio-il2.png",
+  },
+  "beyaz-cikolata": {
+    il1: "/media/beyaz-il1.png",
+    il2: "/media/beyaz-il2.png",
   },
 };
 
