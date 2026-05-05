@@ -5,18 +5,20 @@ import Image from "next/image";
 
 const slides = [
   {
-    desktop: "/media/hero-pistachio1.png",
-    mobile:  "/media/hero-pistachio1-mobil.png",
-    alt:     "filly's pistachio kahve kreması",
-    label:   "Doğal Aromalı",
-    headline: ["Kahvende", "bir şey eksik!"],
+    desktop:    "/media/hero-pistachio1.png",
+    mobile:     "/media/hero-pistachio1-mobil.png",
+    alt:        "filly's pistachio kahve kreması",
+    label:      "Doğal Aromalı",
+    labelColor: "#53284E",
+    headline:   ["Kahvende", "bir şey eksik!"],
   },
   {
-    desktop: "/media/hero-yeni2.png",
-    mobile:  "/media/hero-mobil-yeni2.png",
-    alt:     "filly's kahve kreması",
-    label:   "Şeker İlavesiz",
-    headline: ["Ritüel aynı,", "deneyim farklı."],
+    desktop:    "/media/hero-yeni2.png",
+    mobile:     "/media/hero-mobil-yeni2.png",
+    alt:        "filly's kahve kreması",
+    label:      "Şeker İlavesiz",
+    labelColor: "#ffffff",
+    headline:   ["Ritüel aynı,", "deneyim farklı."],
   },
 ];
 
@@ -78,7 +80,7 @@ export default function HeroCarousel() {
                 fontSize: "clamp(0.85rem, 1.3vw, 1.2rem)",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#53284E",
+                color: slide.labelColor,
                 display: "block",
                 marginBottom: "0.6em",
               }}
