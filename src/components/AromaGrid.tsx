@@ -60,7 +60,7 @@ const illos = [
     desktopPos: { top: "-14px", right: "-2%" },
     desktopW: 290,
     mobilePos: { top: "29%", right: "-10px" },
-    mobileW: 145,
+    mobileW: 210,
     rot: "5deg",
   },
   {
@@ -172,10 +172,7 @@ export default function AromaGrid() {
           >
             <div
               className="relative w-full rounded-xl"
-              style={{
-                height: "clamp(170px, 18vw, 250px)",
-                backgroundColor: p.slug === "beyaz-cikolata" ? "rgba(83,40,78,0.05)" : "transparent",
-              }}
+              style={{ height: "clamp(170px, 18vw, 250px)" }}
             >
               <Image
                 src={p.capsule}
