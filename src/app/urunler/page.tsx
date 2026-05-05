@@ -10,11 +10,19 @@ export const metadata = {
 };
 
 const sb1Map: Record<string, string> = {
-  vanilya:        "/media/sb1-vanilya.png",
-  pistachio:      "/media/sb1-pistachio.png",
+  vanilya:          "/media/sb1-vanilya.png",
+  pistachio:        "/media/sb1-pistachio.png",
   "beyaz-cikolata": "/media/sb1-beyaz-cikolata.png",
-  karamel:        "/media/sb1-caramel.png",
-  matcha:         "/media/sb1-matcha.png",
+  karamel:          "/media/sb1-caramel.png",
+  matcha:           "/media/sb1-matcha.png",
+};
+
+const sb1WidthMap: Record<string, string> = {
+  "beyaz-cikolata": "350%",
+};
+
+const sb1OpacityMap: Record<string, { mobile: number; desktop: number }> = {
+  "beyaz-cikolata": { mobile: 0.55, desktop: 0.38 },
 };
 
 export default function UrunlerPage() {
@@ -78,8 +86,11 @@ export default function UrunlerPage() {
                     style={{ justifyContent: isEven ? "flex-end" : "flex-start" }}
                   >
                     <div
-                      className="relative h-full opacity-[0.22] md:opacity-[0.10]"
-                      style={{ width: "75%" }}
+                      className="relative h-full"
+                      style={{
+                        width: sb1WidthMap[product.slug] ?? "75%",
+                        opacity: sb1OpacityMap[product.slug]?.desktop ?? 0.15,
+                      }}
                     >
                       <Image
                         src={illoSrc}
