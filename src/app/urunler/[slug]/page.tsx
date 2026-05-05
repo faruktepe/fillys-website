@@ -5,6 +5,22 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { products, getProduct } from "@/data/products";
 
+const rowBgMap: Record<string, string> = {
+  vanilya:          "#CCD9EE",
+  pistachio:        "#ffffff",
+  "beyaz-cikolata": "#CCD9EE",
+  karamel:          "#ffffff",
+  matcha:           "#CCD9EE",
+};
+
+const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
+  vanilya:          { il1: "/media/vanilya-il1.png",   il2: "/media/vanilya-il2.png" },
+  pistachio:        { il1: "/media/pistachio-il1.png", il2: "/media/pistachio-il2.png" },
+  "beyaz-cikolata": { il1: "/media/beyaz-il1.png",     il2: "/media/beyaz-il2.png" },
+  karamel:          { il1: "/media/karamel-il1.png",   il2: "/media/karamel-il2.png" },
+  matcha:           { il1: "/media/matcha-il1.png",    il2: "/media/matcha-il2.png" },
+};
+
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -24,12 +40,14 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
   const product = getProduct(slug);
   if (!product) notFound();
 
-  const index = products.findIndex((p) => p.slug === product.slug);
+  const capsuleIllos = capsuleIlloMap[product.slug];
+  const rowBg = rowBgMap[product.slug] ?? "#D6D1C3";
 
   return (
     <>
       <Navbar />
       <main className="bg-[#D6D1C3] min-h-screen">
+
         {/* Back nav */}
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-0">
           <Link
@@ -41,23 +59,45 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
           </Link>
         </div>
 
-        {/* Hero: image left / info right */}
+        {/* Hero: görsel sol / bilgi sağ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-          {/* Product image panel */}
+
+          {/* Görsel panel */}
           <div
             className="relative flex items-center justify-center overflow-hidden"
-            style={{ backgroundColor: product.imageBg, minHeight: "55vw" }}
+            style={{ backgroundColor: rowBg, minHeight: "55vw" }}
           >
-            {/* Index number watermark */}
-            <span
-              className="absolute top-8 left-8 type-display text-white/10 select-none pointer-events-none"
-              style={{ fontSize: "clamp(6rem, 15vw, 18rem)", lineHeight: 1 }}
-              aria-hidden="true"
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
+            {/* İllüstrasyonlar */}
+            {capsuleIllos && (
+              <>
+                <div
+                  className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none select-none"
+                  style={{ width: "clamp(120px, 18vw, 240px)", opacity: 0.88 }}
+                >
+                  <Image
+                    src={capsuleIllos.il1}
+                    alt=""
+                    width={240}
+                    height={240}
+                    className="object-contain drop-shadow-md"
+                  />
+                </div>
+                <div
+                  className="absolute bottom-4 right-4 md:bottom-8 md:right-8 pointer-events-none select-none"
+                  style={{ width: "clamp(120px, 18vw, 240px)", opacity: 0.88 }}
+                >
+                  <Image
+                    src={capsuleIllos.il2}
+                    alt=""
+                    width={240}
+                    height={240}
+                    className="object-contain drop-shadow-md"
+                  />
+                </div>
+              </>
+            )}
 
-            {/* Capsule image — trim edilmiş şeffaf PNG, minimal padding */}
+            {/* Kapsül görseli */}
             <div className="relative w-full h-full" style={{ minHeight: "55vw" }}>
               <Image
                 src={product.image}
@@ -70,10 +110,10 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
               />
             </div>
 
-            {/* Bottom label */}
+            {/* Alt aksanlı şerit */}
             <div className="absolute bottom-6 left-8 right-8 flex items-end justify-between">
               <span
-                className="type-label text-white/20"
+                className="type-label text-[#53284E]/20"
                 style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
               >
                 filly&apos;s
@@ -82,72 +122,48 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
             </div>
           </div>
 
-          {/* Info panel */}
+          {/* Bilgi paneli */}
           <div className="flex flex-col justify-center px-10 py-16 lg:px-20 lg:py-24 bg-[#D6D1C3]">
-            {/* Aroma number */}
-            <p
-              className="type-label text-[#53284E]/20 mb-6"
-              style={{ fontSize: "0.55rem", letterSpacing: "0.3em" }}
-            >
-              AROMA {String(index + 1).padStart(2, "0")} / 05
-            </p>
 
-            {/* Product name */}
             <h1
-              className="type-display text-[#53284E] mb-3"
-              style={{ fontSize: "clamp(3rem, 6vw, 7rem)" }}
+              className="type-display text-[#53284E]"
+              style={{ fontSize: "clamp(3rem, 6vw, 7rem)", lineHeight: 0.88 }}
             >
-              {product.name.toUpperCase()}
+              {product.name}
             </h1>
 
-            {/* Tagline */}
-            <p className="type-body text-[#53284E]/45 text-xl italic mb-12">
+            <p
+              className="type-body italic mt-5 mb-10"
+              style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)", color: product.accent }}
+            >
               {product.tagline}
             </p>
 
-            {/* Description */}
-            <p className="type-body text-[#53284E]/70 text-base leading-relaxed mb-12 max-w-sm">
+            <p
+              className="type-body text-[#53284E]/60 mb-12 max-w-sm"
+              style={{ fontSize: "clamp(0.88rem, 1.05vw, 1rem)", lineHeight: 1.85 }}
+            >
               {product.description}
             </p>
 
-            {/* Specs */}
+            {/* Özellikler */}
             <div className="border-t border-[#53284E]/10 pt-8 mb-12 grid grid-cols-2 gap-8">
-              <div>
-                <p
-                  className="type-label text-[#53284E]/30 mb-2"
-                  style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
-                >
-                  FORMAT
-                </p>
-                <p className="type-body text-[#53284E]/65 text-sm">20ml kapsül</p>
-              </div>
-              <div>
-                <p
-                  className="type-label text-[#53284E]/30 mb-2"
-                  style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
-                >
-                  ŞEKER
-                </p>
-                <p className="type-body text-[#53284E]/65 text-sm">İlave şeker yok</p>
-              </div>
-              <div>
-                <p
-                  className="type-label text-[#53284E]/30 mb-2"
-                  style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
-                >
-                  İÇERİK
-                </p>
-                <p className="type-body text-[#53284E]/65 text-sm">Laktozsuz · Glutensiz</p>
-              </div>
-              <div>
-                <p
-                  className="type-label text-[#53284E]/30 mb-2"
-                  style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
-                >
-                  AROMA
-                </p>
-                <p className="type-body text-[#53284E]/65 text-sm">Doğal Aromalı</p>
-              </div>
+              {[
+                ["FORMAT",  "20ml kapsül"],
+                ["ŞEKER",   "İlave şeker yok"],
+                ["İÇERİK",  "Laktozsuz · Glutensiz"],
+                ["AROMA",   "Doğal Aromalı"],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <p
+                    className="type-label text-[#53284E]/30 mb-2"
+                    style={{ fontSize: "0.5rem", letterSpacing: "0.25em" }}
+                  >
+                    {label}
+                  </p>
+                  <p className="type-body text-[#53284E]/65 text-sm">{value}</p>
+                </div>
+              ))}
             </div>
 
             {/* CTA */}
@@ -180,30 +196,27 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
                   href={`/urunler/${p.slug}`}
                   className="group bg-[#D6D1C3] hover:bg-[#53284E] transition-colors duration-500 flex flex-col overflow-hidden"
                 >
-                  {/* Mini image */}
                   <div
                     className="relative overflow-hidden"
-                    style={{ aspectRatio: "1/1", backgroundColor: p.imageBg }}
+                    style={{ aspectRatio: "1/1", backgroundColor: rowBgMap[p.slug] ?? "#D6D1C3" }}
                   >
                     <Image
                       src={p.image}
                       alt={`filly's ${p.name}`}
                       fill
                       className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
-                    style={{ padding: "6%" }}
+                      style={{ padding: "6%" }}
                       sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   </div>
-                  {/* Name */}
                   <div className="p-5">
                     <p
-                      className="type-product text-[#53284E] group-hover:text-[#D6D1C3] transition-colors text-xs"
+                      className="type-display text-[#53284E] group-hover:text-[#D6D1C3] transition-colors"
+                      style={{ fontSize: "1rem" }}
                     >
-                      {p.name.toUpperCase()}
+                      {p.name}
                     </p>
-                    <p
-                      className="type-body text-[#53284E]/40 group-hover:text-[#D6D1C3]/40 transition-colors text-xs italic mt-1"
-                    >
+                    <p className="type-body text-[#53284E]/40 group-hover:text-[#D6D1C3]/40 transition-colors text-xs italic mt-1">
                       {p.tagline}
                     </p>
                   </div>
@@ -211,6 +224,7 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
               ))}
           </div>
         </div>
+
       </main>
       <Footer />
     </>
