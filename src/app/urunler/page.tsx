@@ -192,8 +192,8 @@ export default function UrunlerPage() {
                   </p>
 
                   <p
-                    className="type-label text-[#53284E]/18 mt-8"
-                    style={{ fontSize: "0.45rem", letterSpacing: "0.18em" }}
+                    className="type-label text-[#53284E]/50 mt-8"
+                    style={{ fontSize: "0.6rem", letterSpacing: "0.15em" }}
                   >
                     {product.volume}
                   </p>
