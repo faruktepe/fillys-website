@@ -26,7 +26,7 @@ export default function HeroCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 9000);
     return () => clearInterval(timer);
   }, []);
 
@@ -70,7 +70,7 @@ export default function HeroCarousel() {
           />
 
           {/* Metin — sol alt */}
-          <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-12 md:pb-16 z-20">
+          <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-6 md:pb-16 z-20">
             <span
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
