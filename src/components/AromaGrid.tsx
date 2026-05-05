@@ -59,7 +59,7 @@ const illos = [
     src: "/media/sb1-beyaz-cikolata.png",
     desktopPos: { top: "-14px", right: "-2%" },
     desktopW: 290,
-    mobilePos: { top: "8%", right: "-10px" },
+    mobilePos: { top: "29%", right: "-10px" },
     mobileW: 145,
     rot: "5deg",
   },
