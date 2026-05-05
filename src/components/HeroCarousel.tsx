@@ -13,10 +13,10 @@ const slides = [
   },
   {
     desktop: "/media/hero-pistachio1.png",
-    mobile:  "/media/hero-pistachio1.png",
+    mobile:  "/media/hero-pistachio1-mobil.png",
     alt:     "filly's pistachio kahve kreması",
     label:   "Doğal Aromalı",
-    headline: ["Kahvende bir şey eksik"],
+    headline: ["Kahvende", "bir şey eksik!"],
   },
 ];
 
