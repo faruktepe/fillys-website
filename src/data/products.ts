@@ -47,7 +47,7 @@ export const products: Product[] = [
     accent: "#B86030",
     imageBg: "transparent",
     volume: "20ml kapsül · Laktozsuz · Glutensiz · Doğal Aromalı",
-    description: "Hedonist ama şekersiz. İkisi bir arada olabileceğini biz kanıtladık.",
+    description: "Şekersiz tatlı.",
     image: "/media/kapsul/karamel-4.png",
   },
   {
