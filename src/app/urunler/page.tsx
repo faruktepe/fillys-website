@@ -9,9 +9,7 @@ export const metadata = {
   description: "Vanilya, Pistachio, Beyaz Çikolata, Karamel, Matcha. 5 aromada şekersiz sıvı kahve kreması.",
 };
 
-const sb1Map: Record<string, string> = {
-  matcha: "/media/sb1-matcha.png",
-};
+const sb1Map: Record<string, string> = {};
 
 const sb1WidthMap: Record<string, string> = {
   "beyaz-cikolata": "350%",
@@ -26,6 +24,7 @@ const rowBgMap: Record<string, string> = {
   pistachio:        "#ffffff",
   "beyaz-cikolata": "#CCD9EE",
   karamel:          "#ffffff",
+  matcha:           "#CCD9EE",
 };
 
 const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
@@ -44,6 +43,10 @@ const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
   karamel: {
     il1: "/media/karamel-il1.png",
     il2: "/media/karamel-il2.png",
+  },
+  matcha: {
+    il1: "/media/matcha-il1.png",
+    il2: "/media/matcha-il2.png",
   },
 };
 
