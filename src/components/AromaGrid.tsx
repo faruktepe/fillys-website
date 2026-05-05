@@ -163,7 +163,7 @@ export default function AromaGrid() {
 
       {/* Capsule grid */}
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
-        {products.map((p, i) => (
+        {products.map((p) => (
           <Link
             key={p.slug}
             href={`/urunler/${p.slug}`}
@@ -171,8 +171,11 @@ export default function AromaGrid() {
             onMouseEnter={() => setActive(p.slug)}
           >
             <div
-              className="relative w-full"
-              style={{ height: "clamp(170px, 18vw, 250px)" }}
+              className="relative w-full rounded-xl"
+              style={{
+                height: "clamp(170px, 18vw, 250px)",
+                backgroundColor: p.slug === "beyaz-cikolata" ? "rgba(83,40,78,0.05)" : "transparent",
+              }}
             >
               <Image
                 src={p.capsule}
@@ -182,13 +185,6 @@ export default function AromaGrid() {
                 sizes="(max-width: 768px) 42vw, (max-width: 1024px) 28vw, 16vw"
               />
             </div>
-
-            <p
-              className="type-label text-[#53284E]/25 mt-4 mb-1"
-              style={{ fontSize: "0.42rem", letterSpacing: "0.3em" }}
-            >
-              {String(i + 1).padStart(2, "0")}
-            </p>
             <p
               className="type-display text-[#53284E] leading-none"
               style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)" }}
