@@ -36,24 +36,20 @@ export default function UrunlerPage() {
             />
           </div>
 
-          <p
-            className="type-label text-[#53284E]/30 mb-8"
-            style={{ fontSize: "0.52rem", letterSpacing: "0.38em" }}
-          >
-            ÜRÜNLER
-          </p>
-          <h1
-            className="type-display text-[#53284E]"
-            style={{ fontSize: "clamp(4.5rem, 14vw, 16rem)", lineHeight: 0.82 }}
-          >
-            5<br />Aroma.
+          <h1 style={{ lineHeight: 0.85 }}>
+            <span
+              className="type-display text-[#53284E] block"
+              style={{ fontSize: "clamp(3.5rem, 11vw, 13rem)", fontWeight: 700 }}
+            >
+              Kahve Kremaları
+            </span>
+            <span
+              className="type-body text-[#53284E]/50 block"
+              style={{ fontSize: "clamp(1.8rem, 5.5vw, 7rem)", fontStyle: "italic", fontWeight: 500, marginTop: "0.1em" }}
+            >
+              Coffee Creamer
+            </span>
           </h1>
-          <p
-            className="type-body italic text-[#53284E]/35 mt-8"
-            style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.3rem)" }}
-          >
-            Flavoured. Not sweetened.
-          </p>
 
           <div className="mt-20 border-t border-[#53284E]/12" />
         </section>
@@ -77,40 +73,24 @@ export default function UrunlerPage() {
                 {/* sb1 arka plan illustration */}
                 {illoSrc && (
                   <div
-                    className="absolute pointer-events-none select-none"
-                    style={{
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: isEven ? "flex-end" : "flex-start",
-                    }}
+                    className="absolute inset-0 pointer-events-none select-none flex items-center"
+                    style={{ justifyContent: isEven ? "flex-end" : "flex-start" }}
                   >
-                    <div className="relative w-[55%] h-full" style={{ opacity: 0.1 }}>
+                    <div
+                      className="relative h-full opacity-[0.22] md:opacity-[0.10]"
+                      style={{ width: "75%" }}
+                    >
                       <Image
                         src={illoSrc}
                         alt=""
                         fill
                         className="object-contain"
                         style={{ objectPosition: isEven ? "right center" : "left center" }}
-                        sizes="55vw"
+                        sizes="(max-width: 768px) 75vw, 55vw"
                       />
                     </div>
                   </div>
                 )}
-
-                {/* Büyük faded numara */}
-                <span
-                  className="absolute pointer-events-none select-none type-display text-[#53284E]"
-                  style={{
-                    fontSize: "clamp(10rem, 22vw, 28rem)",
-                    lineHeight: 1,
-                    top: "-0.1em",
-                    [isEven ? "right" : "left"]: "-0.05em",
-                    opacity: 0.04,
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
 
                 {/* Kapsül görsel tarafı */}
                 <div className="relative flex-1 flex items-center justify-center p-10 md:p-16 lg:p-20">
@@ -130,13 +110,6 @@ export default function UrunlerPage() {
 
                 {/* Metin tarafı */}
                 <div className="relative flex-1 flex flex-col justify-center px-8 md:px-14 lg:px-20 py-12 lg:py-0 z-10">
-                  <p
-                    className="type-label text-[#53284E]/25 mb-6"
-                    style={{ fontSize: "0.48rem", letterSpacing: "0.35em" }}
-                  >
-                    AROMA {String(i + 1).padStart(2, "0")} / 05
-                  </p>
-
                   <h2
                     className="type-display text-[#53284E]"
                     style={{ fontSize: "clamp(3rem, 6vw, 8rem)", lineHeight: 0.85 }}
