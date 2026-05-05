@@ -5,18 +5,18 @@ import Image from "next/image";
 
 const slides = [
   {
-    desktop: "/media/hero-yeni2.png",
-    mobile:  "/media/hero-mobil-yeni2.png",
-    alt:     "filly's kahve kreması",
-    label:   "Şeker İlavesiz",
-    headline: ["Ritüel aynı,", "deneyim farklı."],
-  },
-  {
     desktop: "/media/hero-pistachio1.png",
     mobile:  "/media/hero-pistachio1-mobil.png",
     alt:     "filly's pistachio kahve kreması",
     label:   "Doğal Aromalı",
     headline: ["Kahvende", "bir şey eksik!"],
+  },
+  {
+    desktop: "/media/hero-yeni2.png",
+    mobile:  "/media/hero-mobil-yeni2.png",
+    alt:     "filly's kahve kreması",
+    label:   "Şeker İlavesiz",
+    headline: ["Ritüel aynı,", "deneyim farklı."],
   },
 ];
 
