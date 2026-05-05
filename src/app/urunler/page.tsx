@@ -10,7 +10,6 @@ export const metadata = {
 };
 
 const sb1Map: Record<string, string> = {
-  vanilya:          "/media/sb1-vanilya.png",
   pistachio:        "/media/sb1-pistachio.png",
   "beyaz-cikolata": "/media/sb1-beyaz-cikolata.png",
   karamel:          "/media/sb1-caramel.png",
@@ -23,6 +22,17 @@ const sb1WidthMap: Record<string, string> = {
 
 const sb1OpacityMap: Record<string, { mobile: number; desktop: number }> = {
   "beyaz-cikolata": { mobile: 0.55, desktop: 0.38 },
+};
+
+const rowBgMap: Record<string, string> = {
+  vanilya: "#CCD9EE",
+};
+
+const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
+  vanilya: {
+    il1: "/media/vanilya-il1.png",
+    il2: "/media/vanilya-il2.png",
+  },
 };
 
 export default function UrunlerPage() {
@@ -68,11 +78,15 @@ export default function UrunlerPage() {
           const isEven = i % 2 === 0;
           const illoSrc = sb1Map[product.slug];
 
+          const capsuleIllos = capsuleIlloMap[product.slug];
+          const rowBg = rowBgMap[product.slug];
+
           return (
             <Link
               key={product.slug}
               href={`/urunler/${product.slug}`}
               className="group block border-b border-[#53284E]/10 hover:bg-[#53284E]/[0.03] transition-colors duration-500"
+              style={rowBg ? { backgroundColor: rowBg } : undefined}
             >
               <div
                 className={`relative overflow-hidden flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"}`}
@@ -106,6 +120,17 @@ export default function UrunlerPage() {
 
                 {/* Kapsül görsel tarafı */}
                 <div className="relative flex-1 flex items-center justify-center p-10 md:p-16 lg:p-20">
+                  {/* Kapsüle özgü illüstrasyonlar — sol üst + sağ alt */}
+                  {capsuleIllos && (
+                    <>
+                      <div className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none" style={{ width: "clamp(70px, 10vw, 130px)", opacity: 0.88 }}>
+                        <Image src={capsuleIllos.il1} alt="" width={130} height={130} className="object-contain drop-shadow-md" />
+                      </div>
+                      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 pointer-events-none" style={{ width: "clamp(70px, 10vw, 130px)", opacity: 0.88 }}>
+                        <Image src={capsuleIllos.il2} alt="" width={130} height={130} className="object-contain drop-shadow-md" />
+                      </div>
+                    </>
+                  )}
                   <div
                     className="relative group-hover:scale-[1.04] group-hover:-rotate-2 transition-all duration-700"
                     style={{ width: "clamp(200px, 28vw, 380px)", aspectRatio: "3/4" }}
