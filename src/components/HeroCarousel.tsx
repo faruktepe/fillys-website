@@ -92,7 +92,7 @@ export default function HeroCarousel() {
                   fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                   fontWeight: 500,
                   fontStyle: "italic",
-                  fontSize: "clamp(1.6rem, 4.2vw, 5.8rem)",
+                  fontSize: "clamp(2rem, 4.6vw, 6.2rem)",
                   lineHeight: 0.92,
                   letterSpacing: "-0.025em",
                   color: "#fff",
