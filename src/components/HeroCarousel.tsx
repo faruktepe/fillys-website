@@ -70,7 +70,7 @@ export default function HeroCarousel() {
           />
 
           {/* Metin — sol alt */}
-          <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-6 md:pb-16 z-20">
+          <div className="absolute left-0 bottom-0 px-8 md:px-14 lg:px-20 pb-16 md:pb-16 z-20">
             <span
               style={{
                 fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
@@ -92,7 +92,7 @@ export default function HeroCarousel() {
                   fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
                   fontWeight: 500,
                   fontStyle: "italic",
-                  fontSize: "clamp(2rem, 4.6vw, 6.2rem)",
+                  fontSize: "clamp(2.8rem, 4.6vw, 6.2rem)",
                   lineHeight: 0.92,
                   letterSpacing: "-0.025em",
                   color: "#fff",
