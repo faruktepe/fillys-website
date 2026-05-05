@@ -88,7 +88,7 @@ export default function HeroCarousel() {
             key={line}
             style={{
               fontFamily: "'Apfel Grotezk', system-ui, sans-serif",
-              fontWeight: 500,
+              fontWeight: 700,
               fontSize: "clamp(2rem, 5.2vw, 7.2rem)",
               lineHeight: 0.92,
               letterSpacing: "-0.025em",
