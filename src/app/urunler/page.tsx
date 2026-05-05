@@ -123,11 +123,11 @@ export default function UrunlerPage() {
                   {/* Kapsüle özgü illüstrasyonlar — sol üst + sağ alt */}
                   {capsuleIllos && (
                     <>
-                      <div className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none" style={{ width: "clamp(70px, 10vw, 130px)", opacity: 0.88 }}>
-                        <Image src={capsuleIllos.il1} alt="" width={130} height={130} className="object-contain drop-shadow-md" />
+                      <div className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none" style={{ width: "clamp(140px, 20vw, 260px)", opacity: 0.88 }}>
+                        <Image src={capsuleIllos.il1} alt="" width={260} height={260} className="object-contain drop-shadow-md" />
                       </div>
-                      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 pointer-events-none" style={{ width: "clamp(70px, 10vw, 130px)", opacity: 0.88 }}>
-                        <Image src={capsuleIllos.il2} alt="" width={130} height={130} className="object-contain drop-shadow-md" />
+                      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 pointer-events-none" style={{ width: "clamp(140px, 20vw, 260px)", opacity: 0.88 }}>
+                        <Image src={capsuleIllos.il2} alt="" width={260} height={260} className="object-contain drop-shadow-md" />
                       </div>
                     </>
                   )}
