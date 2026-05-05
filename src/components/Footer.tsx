@@ -17,7 +17,7 @@ export default function Footer() {
               className="mb-5 opacity-90"
             />
             <p
-              className="type-display text-[#53284E]/10 text-center md:text-left"
+              className="type-display text-[#53284E] text-center md:text-left"
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)" }}
             >
               #HerLezzetteBirİz
