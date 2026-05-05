@@ -20,7 +20,7 @@ export default function Footer() {
               className="type-display text-[#53284E]/10 text-center md:text-left"
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)" }}
             >
-              Flavoured. Not sweetened.
+              #HerLezzetteBirİz
             </p>
           </div>
 
