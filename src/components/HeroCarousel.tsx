@@ -78,12 +78,12 @@ export default function HeroCarousel() {
                 fontSize: "clamp(0.85rem, 1.3vw, 1.2rem)",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.75)",
+                color: "#53284E",
                 display: "block",
                 marginBottom: "0.6em",
               }}
             >
-              {slide.label}*
+              {slide.label}
             </span>
             {slide.headline.map((line) => (
               <span
