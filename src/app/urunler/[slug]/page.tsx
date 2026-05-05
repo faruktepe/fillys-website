@@ -149,7 +149,7 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
             {/* Özellikler */}
             <div className="border-t border-[#53284E]/10 pt-8 mb-12 grid grid-cols-2 gap-8">
               {[
-                ["FORMAT",  "20ml kapsül"],
+                ["FORMAT",  "15ml kapsül"],
                 ["ŞEKER",   "İlave şeker yok"],
                 ["İÇERİK",  "Laktozsuz · Glutensiz"],
                 ["AROMA",   "Doğal Aromalı"],
