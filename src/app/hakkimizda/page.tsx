@@ -80,10 +80,10 @@ export default function HakkimizdaPage() {
             </p>
           </div>
 
-          {/* Sağ: editorial görsel */}
-          <div className="relative" style={{ minHeight: "clamp(300px, 55vw, 700px)" }}>
+          {/* Sağ: yakında görseli */}
+          <div className="relative" style={{ minHeight: "clamp(300px, 55vw, 700px)", backgroundColor: "#CCD9EE" }}>
             <Image
-              src="/media/editorial/impasto.png"
+              src="/media/kayit-ol1.png"
               alt="filly's"
               fill
               className="object-cover object-center"
@@ -94,12 +94,6 @@ export default function HakkimizdaPage() {
 
         {/* ── MARKA DNA ── */}
         <section className="bg-[#53284E] px-8 md:px-16 lg:px-24 py-24">
-          <p
-            className="type-label text-[#C0A4B8]"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.38em" }}
-          >
-            MARKA KİMLİĞİ
-          </p>
           <p
             className="type-display text-[#D6D1C3] mt-8"
             style={{ fontSize: "clamp(2.2rem, 7vw, 8.5rem)", lineHeight: 0.86 }}
@@ -122,12 +116,6 @@ export default function HakkimizdaPage() {
 
         {/* ── 5 MOMENT ── */}
         <section className="px-8 md:px-16 lg:px-24 py-24 border-b border-[#53284E]/10">
-          <p
-            className="type-label text-[#53284E]/30 mb-16"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.38em" }}
-          >
-            5 AN · 5 AROMA
-          </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
             {moments.map((m) => (
               <Link
