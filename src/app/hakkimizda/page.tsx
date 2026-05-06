@@ -52,7 +52,7 @@ export default function HakkimizdaPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#53284E]/10">
 
           {/* Sol: metin + istatistikler */}
-          <div className="px-8 md:px-16 py-20 border-b lg:border-b-0 lg:border-r border-[#53284E]/10 flex flex-col justify-center">
+          <div className="px-8 md:px-16 py-20 border-b lg:border-b-0 lg:border-r border-[#53284E]/10 flex flex-col justify-center" style={{ backgroundColor: "#CCD9EE" }}>
             <div className="grid grid-cols-3 border border-[#53284E]/10 mb-14">
               {[
                 { v: "5",    l: "Aroma" },
