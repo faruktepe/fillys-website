@@ -19,7 +19,7 @@ const moments = [
 export default function HakkimizdaPage() {
   return (
     <>
-      <Navbar />
+      <Navbar theme="dark" />
       <main className="bg-[#D6D1C3]">
 
         {/* ── HERO ── */}

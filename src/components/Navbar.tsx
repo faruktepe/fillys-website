@@ -14,7 +14,7 @@ const rightLinks = [
   { label: "Etki", href: "/etki" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme = "light" }: { theme?: "light" | "dark" }) {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
@@ -59,11 +59,11 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className={`relative group type-nav transition-colors duration-200 ${atTop ? "text-[#53284E]/75 hover:text-[#53284E]" : "text-white/75 hover:text-white"}`}
+                  className={`relative group type-nav transition-colors duration-200 ${atTop && theme === "light" ? "text-[#53284E]/75 hover:text-[#53284E]" : "text-white/75 hover:text-white"}`}
                   style={{ fontSize: "0.78rem" }}
                 >
                   {label.toUpperCase()}
-                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] w-0 group-hover:w-full transition-all duration-300 ${atTop ? "bg-[#53284E]" : "bg-white"}`} />
+                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] w-0 group-hover:w-full transition-all duration-300 ${atTop && theme === "light" ? "bg-[#53284E]" : "bg-white"}`} />
                 </Link>
               ))}
             </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
             <div className="flex justify-center">
               <Link href="/" aria-label="filly's anasayfa">
                 <Image
-                  src={atTop ? "/logo-plum.svg" : "/logo-warm.svg"}
+                  src={atTop && theme === "light" ? "/logo-plum.svg" : "/logo-warm.svg"}
                   alt="filly's"
                   width={110}
                   height={43}
@@ -88,16 +88,16 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className={`relative group type-nav transition-colors duration-200 ${atTop ? "text-[#53284E]/75 hover:text-[#53284E]" : "text-white/75 hover:text-white"}`}
+                  className={`relative group type-nav transition-colors duration-200 ${atTop && theme === "light" ? "text-[#53284E]/75 hover:text-[#53284E]" : "text-white/75 hover:text-white"}`}
                   style={{ fontSize: "0.78rem" }}
                 >
                   {label.toUpperCase()}
-                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] w-0 group-hover:w-full transition-all duration-300 ${atTop ? "bg-[#53284E]" : "bg-white"}`} />
+                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] w-0 group-hover:w-full transition-all duration-300 ${atTop && theme === "light" ? "bg-[#53284E]" : "bg-white"}`} />
                 </Link>
               ))}
               <Link
                 href="/iletisim"
-                className={`type-nav border px-4 py-[7px] transition-colors duration-200 ${atTop ? "text-[#53284E]/75 border-[#53284E]/30 hover:bg-[#53284E] hover:text-white hover:border-[#53284E]" : "text-white/70 border-white/30 hover:bg-white hover:text-[#3A1F2B] hover:border-white"}`}
+                className={`type-nav border px-4 py-[7px] transition-colors duration-200 ${atTop && theme === "light" ? "text-[#53284E]/75 border-[#53284E]/30 hover:bg-[#53284E] hover:text-white hover:border-[#53284E]" : "text-white/70 border-white/30 hover:bg-white hover:text-[#3A1F2B] hover:border-white"}`}
                 style={{ fontSize: "0.7rem" }}
               >
                 GİRİŞ YAP
