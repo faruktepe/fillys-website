@@ -147,7 +147,7 @@ export default function HakkimizdaPage() {
         </section>
 
         {/* ── EDİTORYAL FULL-BLEED ── */}
-        <section className="relative overflow-hidden" style={{ height: "clamp(280px, 50vw, 680px)" }}>
+        <section className="relative overflow-hidden" style={{ height: "clamp(420px, 65svh, 680px)" }}>
           <Image
             src="/media/hero-pistachio1.png"
             alt="filly's"
@@ -164,9 +164,9 @@ export default function HakkimizdaPage() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(83,40,78,0.65) 0%, rgba(83,40,78,0.1) 65%, transparent 100%)" }}
+            style={{ background: "linear-gradient(to top, rgba(83,40,78,0.72) 0%, rgba(83,40,78,0.25) 50%, transparent 100%)" }}
           />
-          <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
+          <div className="absolute left-0 bottom-0 right-0 flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-10 md:pb-16">
             <p
               className="type-display text-[#D6D1C3]"
               style={{ fontSize: "clamp(2rem, 6vw, 7rem)", lineHeight: 0.88 }}
