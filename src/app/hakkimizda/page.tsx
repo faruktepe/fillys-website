@@ -149,10 +149,17 @@ export default function HakkimizdaPage() {
         {/* ── EDİTORYAL FULL-BLEED ── */}
         <section className="relative overflow-hidden" style={{ height: "clamp(280px, 50vw, 680px)" }}>
           <Image
-            src="/media/editorial/branded.png"
+            src="/media/hero-pistachio1.png"
             alt="filly's"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center hidden md:block"
+            sizes="100vw"
+          />
+          <Image
+            src="/media/hero-pistachio1-mobil.png"
+            alt="filly's"
+            fill
+            className="object-cover object-center block md:hidden"
             sizes="100vw"
           />
           <div
