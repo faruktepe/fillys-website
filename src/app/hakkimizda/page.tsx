@@ -34,17 +34,11 @@ export default function HakkimizdaPage() {
               sizes="100vw"
             />
           </div>
-          <p
-            className="type-label text-[#C0A4B8] relative z-10"
-            style={{ fontSize: "0.52rem", letterSpacing: "0.38em" }}
-          >
-            HAKKIMIZDA
-          </p>
           <h1
-            className="type-display text-[#D6D1C3] relative z-10 mt-6"
-            style={{ fontSize: "clamp(2.8rem, 9vw, 11rem)", lineHeight: 0.86 }}
+            className="type-display text-[#D6D1C3] relative z-10"
+            style={{ fontSize: "clamp(2.8rem, 9vw, 11rem)", lineHeight: 1.05 }}
           >
-            Şeker koymadık.<br />Kaldı mı ki?
+            Her Lezzette<br />Bir İz
           </h1>
           <p
             className="type-body text-[#C0A4B8] relative z-10 mt-10 max-w-xl"
