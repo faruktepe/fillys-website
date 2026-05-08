@@ -303,7 +303,7 @@ export default function Home() {
 
       </section>
 
-      <div className="py-12 md:py-20 bg-[#D6D1C3]" />
+      <div className="py-12 md:py-20 bg-white" />
 
       {/* ══════════════════════════════════════════
           CTA (Yakında arka plan)
