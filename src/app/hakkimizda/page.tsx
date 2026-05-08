@@ -83,7 +83,7 @@ export default function HakkimizdaPage() {
           {/* Sağ: yakında görseli */}
           <div className="relative" style={{ minHeight: "clamp(300px, 55vw, 700px)", backgroundColor: "#CCD9EE" }}>
             <Image
-              src="/media/kayit-ol1.png"
+              src="/media/lavender-tum-kapsul.png"
               alt="filly's"
               fill
               className="object-cover object-center"
