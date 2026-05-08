@@ -10,7 +10,6 @@ const igImages = [
   { src: "/media/matcha-site-2.png",         alt: "filly's matcha" },
   { src: "/media/instagram/branded.png",     alt: "filly's" },
   { src: "/media/instagram/matcha-3.jpg",    alt: "filly's matcha atmosfer" },
-  { src: "/media/instagram/tum-kapsul.png",  alt: "filly's 5 aroma" },
   { src: "/media/lavender-tum-kapsul.png",   alt: "filly's kapsül kahve kreması" },
   { src: "/media/hover-1.png",               alt: "filly's" },
   { src: "/media/hover-2.jpg",               alt: "filly's" },
@@ -209,7 +208,7 @@ export default function Home() {
           <div className="flex gap-2 marquee-track">
             {[...igImages, ...igImages, ...igImages].map((img, i) => (
               <div key={i} className="relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" quality={95} />
               </div>
             ))}
           </div>
@@ -219,7 +218,7 @@ export default function Home() {
           <div className="flex gap-2 marquee-track-reverse">
             {[...[...igImages].reverse(), ...[...igImages].reverse(), ...[...igImages].reverse()].map((img, i) => (
               <div key={i} className="relative flex-shrink-0 w-44 h-44 sm:w-56 sm:h-56 md:w-72 md:h-72 overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 288px" quality={95} />
               </div>
             ))}
           </div>
