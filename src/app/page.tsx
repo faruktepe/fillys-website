@@ -303,7 +303,19 @@ export default function Home() {
 
       </section>
 
-      <div className="py-12 md:py-20 bg-white" />
+      <div className="relative py-12 md:py-20 bg-white overflow-hidden">
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1440 160"
+          preserveAspectRatio="none"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M-40 40 C 200 10, 500 80, 800 35 C 1060 0, 1280 60, 1480 30" stroke="#53284E" strokeWidth="28" strokeLinecap="round" opacity="0.07" />
+          <path d="M-40 90 C 180 55, 460 120, 760 80 C 1040 45, 1280 110, 1480 75" stroke="#53284E" strokeWidth="22" strokeLinecap="round" opacity="0.05" />
+          <path d="M-40 135 C 220 100, 520 158, 820 118 C 1080 85, 1300 148, 1480 115" stroke="#53284E" strokeWidth="18" strokeLinecap="round" opacity="0.04" />
+        </svg>
+      </div>
 
       {/* ══════════════════════════════════════════
           CTA (Yakında arka plan)
