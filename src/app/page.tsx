@@ -232,14 +232,19 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden" style={{ minHeight: "80vh" }}>
 
         {/* Sol — görsel */}
-        <div className="relative min-h-[100vw] lg:min-h-0 order-1" style={{ backgroundColor: "#C4B5D4" }}>
-          <Image
-            src="/media/yeni-kayit-ol2.png"
-            alt="filly's kapsül kahve kreması"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        <div className="relative order-1 lg:min-h-0" style={{ backgroundColor: "#C4B5D4", minHeight: "clamp(320px, 85vw, 600px)" }}>
+          <div className="absolute inset-0 px-8 py-6 lg:p-0">
+            <div className="relative w-full h-full">
+              <Image
+                src="/media/yeni-kayit-ol2.png"
+                alt="filly's kapsül kahve kreması"
+                fill
+                className="object-cover object-center lg:object-cover"
+                style={{ borderRadius: "4px" }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Sağ — metin + form */}
