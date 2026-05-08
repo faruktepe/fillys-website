@@ -234,8 +234,8 @@ export default function Home() {
         {/* Sol — görsel */}
         <div className="relative min-h-[100vw] lg:min-h-0 order-1" style={{ backgroundColor: "#C4B5D4" }}>
           <Image
-            src="/media/yeni-lavender.png"
-            alt="filly's pistachio kahve kreması servis arabası"
+            src="/media/yeni-kayit-ol2.png"
+            alt="filly's kapsül kahve kreması"
             fill
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 50vw"
