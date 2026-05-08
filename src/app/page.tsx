@@ -234,7 +234,7 @@ export default function Home() {
         {/* Sol — görsel */}
         <div className="relative min-h-[82vw] lg:min-h-0 order-1 bg-white py-4 lg:py-16">
           <Image
-            src="/media/kayit-ol2.png"
+            src="/media/lavender-tum-kapsul.png"
             alt="filly's 5 aroma kapsül kahve kreması"
             fill
             className="object-contain object-center"
