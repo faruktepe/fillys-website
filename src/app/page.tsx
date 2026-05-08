@@ -232,12 +232,12 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden" style={{ minHeight: "80vh" }}>
 
         {/* Sol — görsel */}
-        <div className="relative min-h-[82vw] lg:min-h-0 order-1 bg-white py-4 lg:py-16">
+        <div className="relative min-h-[100vw] lg:min-h-0 order-1" style={{ backgroundColor: "#C4B5D4" }}>
           <Image
-            src="/media/lavender-tum-kapsul.png"
-            alt="filly's 5 aroma kapsül kahve kreması"
+            src="/media/yeni-lavender.png"
+            alt="filly's pistachio kahve kreması servis arabası"
             fill
-            className="object-contain object-center"
+            className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
