@@ -11,7 +11,7 @@ const igImages = [
   { src: "/media/instagram/branded.png",     alt: "filly's" },
   { src: "/media/instagram/matcha-3.jpg",    alt: "filly's matcha atmosfer" },
   { src: "/media/instagram/tum-kapsul.png",  alt: "filly's 5 aroma" },
-  { src: "/media/kayit-ol2.png",             alt: "filly's kapsül kahve kreması" },
+  { src: "/media/lavender-tum-kapsul.png",   alt: "filly's kapsül kahve kreması" },
   { src: "/media/hover-1.png",               alt: "filly's" },
   { src: "/media/hover-2.jpg",               alt: "filly's" },
 ];
