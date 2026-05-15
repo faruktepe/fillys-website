@@ -13,9 +13,9 @@ const slides = [
     headline:   ["Kahvende", "bir şey eksik!"],
   },
   {
-    desktop:    "/media/hero-yeni2.png",
-    mobile:     "/media/hero-mobil-yeni2.png",
-    alt:        "filly's kahve kreması",
+    desktop:    "/media/beyaz-ambalaj-yeni-kapsul.png",
+    mobile:     "/media/beyaz-ambalaj-yeni-kapsul.png",
+    alt:        "filly's beyaz ambalaj yeni kapsül",
     label:      "Şeker İlavesiz",
     labelColor: "#ffffff",
     headline:   ["Ritüel aynı,", "deneyim farklı."],
