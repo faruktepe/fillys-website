@@ -13,13 +13,6 @@ const rowBgMap: Record<string, string> = {
   matcha:           "#CCD9EE",
 };
 
-const capsuleIlloMap: Record<string, { il1: string; il2: string }> = {
-  vanilya:          { il1: "/media/vanilya-il1.png",   il2: "/media/vanilya-il2.png" },
-  pistachio:        { il1: "/media/pistachio-il1.png", il2: "/media/pistachio-il2.png" },
-  "beyaz-cikolata": { il1: "/media/beyaz-il1.png",     il2: "/media/beyaz-il2.png" },
-  karamel:          { il1: "/media/karamel-il1.png",   il2: "/media/karamel-il2.png" },
-  matcha:           { il1: "/media/matcha-il1.png",    il2: "/media/matcha-il2.png" },
-};
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -40,7 +33,6 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
   const product = getProduct(slug);
   if (!product) notFound();
 
-  const capsuleIllos = capsuleIlloMap[product.slug];
   const rowBg = rowBgMap[product.slug] ?? "#D6D1C3";
 
   return (
@@ -67,35 +59,32 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
             className="relative flex items-center justify-center overflow-hidden"
             style={{ backgroundColor: rowBg, minHeight: "55vw" }}
           >
-            {/* İllüstrasyonlar */}
-            {capsuleIllos && (
-              <>
-                <div
-                  className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none select-none"
-                  style={{ width: "clamp(120px, 18vw, 240px)", opacity: 0.88 }}
-                >
-                  <Image
-                    src={capsuleIllos.il1}
-                    alt=""
-                    width={240}
-                    height={240}
-                    className="object-contain drop-shadow-md"
-                  />
-                </div>
-                <div
-                  className="absolute bottom-4 right-4 md:bottom-8 md:right-8 pointer-events-none select-none"
-                  style={{ width: "clamp(120px, 18vw, 240px)", opacity: 0.88 }}
-                >
-                  <Image
-                    src={capsuleIllos.il2}
-                    alt=""
-                    width={240}
-                    height={240}
-                    className="object-contain drop-shadow-md"
-                  />
-                </div>
-              </>
-            )}
+            {/* Abstract Flow curves — accent rengiyle */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 800 800"
+              preserveAspectRatio="xMidYMid slice"
+              fill="none"
+              aria-hidden="true"
+              style={{ opacity: 0.13 }}
+            >
+              <path
+                d="M-60 120 C 100 40, 280 200, 460 100 C 580 40, 700 140, 860 80"
+                stroke={product.accent} strokeWidth="52" strokeLinecap="round"
+              />
+              <path
+                d="M-60 320 C 120 220, 320 420, 520 300 C 660 220, 760 340, 860 270"
+                stroke={product.accent} strokeWidth="44" strokeLinecap="round"
+              />
+              <path
+                d="M-60 620 C 140 520, 340 720, 560 600 C 700 520, 780 640, 860 580"
+                stroke={product.accent} strokeWidth="44" strokeLinecap="round"
+              />
+              <path
+                d="M-60 820 C 100 720, 300 900, 520 800 C 680 720, 780 840, 860 780"
+                stroke={product.accent} strokeWidth="52" strokeLinecap="round"
+              />
+            </svg>
 
             {/* Kapsül görseli */}
             <div className="relative w-full h-full" style={{ minHeight: "55vw" }}>

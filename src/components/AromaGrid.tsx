@@ -14,20 +14,6 @@ const products = [
   { slug: "matcha" as Slug,           name: "Matcha",         accent: "#2E6040", tagline: "Dingin. Güçlü.",            capsule: "/media/kapsul/matcha-4.png" },
 ];
 
-type IlloConfig = {
-  il1: string; il2: string;
-  il1Rot: string; il2Rot: string;
-  il1Size: number; il2Size: number;
-};
-
-const illoConfig: Record<Slug, IlloConfig> = {
-  vanilya:          { il1: "/media/vanilya-il1.png",   il2: "/media/vanilya-il2.png",   il1Rot: "-6deg",  il2Rot: "5deg",  il1Size: 155, il2Size: 138 },
-  pistachio:        { il1: "/media/pistachio-il1.png", il2: "/media/pistachio-il2.png", il1Rot: "7deg",   il2Rot: "-4deg", il1Size: 160, il2Size: 140 },
-  "beyaz-cikolata": { il1: "/media/beyaz-il1.png",     il2: "/media/beyaz-il2.png",     il1Rot: "5deg",   il2Rot: "-6deg", il1Size: 165, il2Size: 142 },
-  karamel:          { il1: "/media/karamel-il1.png",   il2: "/media/karamel-il2.png",   il1Rot: "-7deg",  il2Rot: "4deg",  il1Size: 158, il2Size: 138 },
-  matcha:           { il1: "/media/matcha-il1.png",    il2: "/media/matcha-il2.png",    il1Rot: "-4deg",  il2Rot: "6deg",  il1Size: 152, il2Size: 136 },
-};
-
 export default function AromaGrid() {
   const [active, setActive] = useState<Slug | null>(null);
 
@@ -38,87 +24,44 @@ export default function AromaGrid() {
     >
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-24 md:gap-y-16">
         {products.map((p) => {
-          const cfg = illoConfig[p.slug];
           const isActive = active === p.slug;
           const hasActive = active !== null;
-          const illoOpacity = hasActive ? (isActive ? 0.9 : 0) : 0.22;
-          const half1 = Math.round(cfg.il1Size / 2);
-          const half2 = Math.round(cfg.il2Size / 2);
-          const mobileHalf = 39; // 78px / 2
+          const curveOpacity = hasActive ? (isActive ? 0.55 : 0) : 0.18;
 
           return (
             <div key={p.slug} className="relative">
 
-              {/* Mobil il1 — sütunun üstünde, sabit opacity */}
-              <div
-                aria-hidden="true"
-                className="absolute pointer-events-none block md:hidden"
-                style={{
-                  top: "-62px",
-                  left: "50%",
-                  marginLeft: `-${mobileHalf}px`,
-                  width: "78px",
-                  opacity: 0.3,
-                  transform: `rotate(${cfg.il1Rot})`,
-                  zIndex: 5,
-                }}
-              >
-                <Image
-                  src={cfg.il1}
-                  alt=""
-                  width={78}
-                  height={104}
-                  className="object-contain"
-                />
-              </div>
+              {/* Üst SVG — mobil */}
+              <svg aria-hidden="true" className="absolute pointer-events-none block md:hidden"
+                style={{ top: "-52px", left: "50%", transform: "translateX(-50%)", width: "90px", height: "44px", opacity: 0.22, zIndex: 5 }}
+                viewBox="0 0 140 72" fill="none">
+                <path d="M10 58 C 30 20, 60 8, 80 28 C 100 48, 118 18, 134 36" stroke={p.accent} strokeWidth="10" strokeLinecap="round" />
+                <path d="M4 42 C 22 14, 52 4, 72 22 C 92 40, 112 12, 130 28" stroke={p.accent} strokeWidth="6" strokeLinecap="round" strokeOpacity="0.55" />
+              </svg>
 
-              {/* Desktop il1 — sütunun üstünde, hover-interactive */}
-              <div
-                aria-hidden="true"
-                className="absolute pointer-events-none hidden md:block"
-                style={{
-                  top: "-120px",
-                  left: "50%",
-                  marginLeft: `-${half1}px`,
-                  width: `${cfg.il1Size}px`,
-                  opacity: illoOpacity,
-                  transform: `rotate(${cfg.il1Rot})${isActive ? " scale(1.08) translateY(-6px)" : ""}`,
-                  transition: "opacity 0.5s ease, transform 0.55s ease",
-                  zIndex: 5,
-                }}
-              >
-                <Image
-                  src={cfg.il1}
-                  alt=""
-                  width={cfg.il1Size}
-                  height={Math.round((cfg.il1Size * 4) / 3)}
-                  className="object-contain"
-                />
-              </div>
+              {/* Üst SVG — desktop, hover-interactive */}
+              <svg aria-hidden="true" className="absolute pointer-events-none hidden md:block"
+                style={{ top: "-88px", left: "50%", transform: "translateX(-50%)", width: "140px", height: "72px", opacity: curveOpacity, transition: "opacity 0.5s ease", zIndex: 5 }}
+                viewBox="0 0 140 72" fill="none">
+                <path d="M10 58 C 30 20, 60 8, 80 28 C 100 48, 118 18, 134 36" stroke={p.accent} strokeWidth="8" strokeLinecap="round" />
+                <path d="M4 42 C 22 14, 52 4, 72 22 C 92 40, 112 12, 130 28" stroke={p.accent} strokeWidth="5" strokeLinecap="round" strokeOpacity="0.55" />
+              </svg>
 
-              {/* Desktop il2 — sütunun altında */}
-              <div
-                aria-hidden="true"
-                className="absolute pointer-events-none hidden md:block"
-                style={{
-                  bottom: "-100px",
-                  left: "50%",
-                  marginLeft: `-${half2}px`,
-                  width: `${cfg.il2Size}px`,
-                  opacity: illoOpacity,
-                  transform: `rotate(${cfg.il2Rot})${isActive ? " scale(1.06) translateY(6px)" : ""}`,
-                  transition: "opacity 0.5s ease, transform 0.55s ease",
-                  zIndex: 5,
-                }}
-              >
-                <Image
-                  src={cfg.il2}
-                  alt=""
-                  width={cfg.il2Size}
-                  height={Math.round((cfg.il2Size * 4) / 3)}
-                  className="object-contain"
-                />
-              </div>
+              {/* Alt SVG — mobil */}
+              <svg aria-hidden="true" className="absolute pointer-events-none block md:hidden"
+                style={{ bottom: "-48px", left: "50%", transform: "translateX(-50%)", width: "90px", height: "40px", opacity: 0.22, zIndex: 5 }}
+                viewBox="0 0 140 60" fill="none">
+                <path d="M6 18 C 28 48, 58 58, 80 38 C 102 18, 118 50, 136 32" stroke={p.accent} strokeWidth="10" strokeLinecap="round" />
+                <path d="M10 30 C 32 56, 62 64, 84 46 C 106 28, 122 56, 138 42" stroke={p.accent} strokeWidth="6" strokeLinecap="round" strokeOpacity="0.55" />
+              </svg>
+
+              {/* Alt SVG — desktop */}
+              <svg aria-hidden="true" className="absolute pointer-events-none hidden md:block"
+                style={{ bottom: "-72px", left: "50%", transform: "translateX(-50%)", width: "140px", height: "60px", opacity: curveOpacity, transition: "opacity 0.5s ease", zIndex: 5 }}
+                viewBox="0 0 140 60" fill="none">
+                <path d="M6 18 C 28 48, 58 58, 80 38 C 102 18, 118 50, 136 32" stroke={p.accent} strokeWidth="8" strokeLinecap="round" />
+                <path d="M10 30 C 32 56, 62 64, 84 46 C 106 28, 122 56, 138 42" stroke={p.accent} strokeWidth="5" strokeLinecap="round" strokeOpacity="0.55" />
+              </svg>
 
               <Link
                 href={`/urunler/${p.slug}`}
