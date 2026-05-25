@@ -14,7 +14,7 @@ const slides = [
   },
   {
     desktop:    "/media/beyaz-ambalaj-yeni-kapsul.png",
-    mobile:     "/media/beyaz-ambalaj-yeni-kapsul.png",
+    mobile:     "/media/mavi-beyaz-hero.png",
     alt:        "filly's beyaz ambalaj yeni kapsül",
     label:      "Şeker İlavesiz",
     labelColor: "#ffffff",
