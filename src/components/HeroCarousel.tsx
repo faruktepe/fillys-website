@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const badges = ["ŞEKERSİZ", "ŞURUP DEĞİL", "5 AROMA", "15ML KAPSÜL"];
+
 const slides = [
   {
     desktop:    "/media/hero-pistachio1.png",
@@ -24,12 +26,18 @@ const slides = [
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
+  const [badge, setBadge] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 9000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => setBadge((p) => (p + 1) % badges.length), 2800);
+    return () => clearInterval(t);
   }, []);
 
   return (
@@ -107,6 +115,29 @@ export default function HeroCarousel() {
           </div>
         </div>
       ))}
+
+      {/* Animated badge — top right */}
+      <div className="absolute top-24 right-8 md:top-32 md:right-14 lg:right-20 z-20 overflow-hidden">
+        <div className="relative border border-white/30 bg-white/10 backdrop-blur-sm px-4 py-2" style={{ minWidth: "140px" }}>
+          {badges.map((b, i) => (
+            <span
+              key={i}
+              className="absolute inset-0 flex items-center justify-center type-label text-white transition-all duration-500 whitespace-nowrap"
+              style={{
+                fontSize: "0.52rem",
+                letterSpacing: "0.2em",
+                opacity: i === badge ? 1 : 0,
+                transform: i === badge ? "translateY(0)" : "translateY(8px)",
+              }}
+            >
+              {b}
+            </span>
+          ))}
+          <span className="invisible type-label" style={{ fontSize: "0.52rem", letterSpacing: "0.2em" }}>
+            ŞURUP DEĞİL
+          </span>
+        </div>
+      </div>
 
       {/* Dots */}
       <div className="absolute bottom-6 right-8 md:right-14 lg:right-20 z-20 flex gap-2">

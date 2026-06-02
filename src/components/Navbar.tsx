@@ -42,7 +42,7 @@ export default function Navbar({ theme = "light" }: { theme?: "light" | "dark" }
     <>
       {/* ── Desktop navbar ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 hidden md:block ${
+        className={`fixed top-9 left-0 right-0 z-50 transition-all duration-300 hidden md:block ${
           visible ? "translate-y-0" : "-translate-y-full"
         } ${!atTop ? "border-b border-white/10" : ""}`}
         style={{
@@ -109,7 +109,7 @@ export default function Navbar({ theme = "light" }: { theme?: "light" | "dark" }
 
       {/* ── Mobil navbar — her zaman görünür, beyaz arka plan, deep plum ── */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 md:hidden border-b border-[#53284E]/8"
+        className="fixed top-9 left-0 right-0 z-50 md:hidden border-b border-[#53284E]/8"
         style={{ backgroundColor: "#fff" }}
       >
         <div className="h-[64px] px-5 flex items-center justify-between">
@@ -145,7 +145,7 @@ export default function Navbar({ theme = "light" }: { theme?: "light" | "dark" }
 
       {/* ── Mobile full-screen overlay ── */}
       <div
-        className={`fixed inset-0 z-[60] flex flex-col transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-[70] flex flex-col transition-all duration-500 ease-in-out ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-full pointer-events-none"

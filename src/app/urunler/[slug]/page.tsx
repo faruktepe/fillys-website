@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { products, getProduct } from "@/data/products";
+import ProductTabs from "@/components/ProductTabs";
 
 const rowBgMap: Record<string, string> = {
   vanilya:          "#CCD9EE",
@@ -155,8 +156,11 @@ export default async function UrunDetayPage({ params }: { params: Promise<{ slug
               ))}
             </div>
 
+            {/* Tab sistemi */}
+            <ProductTabs slug={product.slug} accent={product.accent} />
+
             {/* CTA */}
-            <div className="border border-[#53284E]/15 px-8 py-5 flex items-center justify-between">
+            <div className="border border-[#53284E]/15 px-8 py-5 flex items-center justify-between mt-10">
               <p
                 className="type-label text-[#53284E]/30"
                 style={{ fontSize: "0.5rem", letterSpacing: "0.2em" }}

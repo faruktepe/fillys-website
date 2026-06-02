@@ -27,6 +27,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/ApfelGrotezk-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="min-h-full flex flex-col">
+        <AnnouncementBar />
         {children}
       </body>
     </html>

@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import EmailForm from "@/components/EmailForm";
 import AromaGrid from "@/components/AromaGrid";
 import HeroCarousel from "@/components/HeroCarousel";
+import RecipeCards from "@/components/RecipeCards";
+import BrandUniverse from "@/components/BrandUniverse";
 
 const igImages = [
   { src: "/media/matcha-site-2.png",         alt: "filly's matcha" },
@@ -63,6 +65,11 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════
+          THE MOMENTS — Brand Universe
+      ══════════════════════════════════════════ */}
+      <BrandUniverse />
 
       {/* ══════════════════════════════════════════
           MANİFESTO (#C1DDE9)

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 type Slug = "vanilya" | "pistachio" | "beyaz-cikolata" | "karamel" | "matcha";
+type Product = { slug: Slug; name: string; accent: string; tagline: string; capsule: string; hoverCapsule: string; seed: number; illustrations: { src: string; alt: string; w: number; top: string; left: string; rotate: number; delay: number }[] };
 
 const products = [
   {
@@ -13,6 +14,7 @@ const products = [
     accent: "#C49A30",
     tagline: "Soft start.",
     capsule: "/media/kapsul/vanilya-4.png",
+    hoverCapsule: "/media/kapsul/vanilya-2.png",
     seed: 2,
     illustrations: [
       { src: "/media/vanilya-il1.png", alt: "vanilla flower", w: 90, top: "-18%", left: "-22%", rotate: -18, delay: 0 },
@@ -26,6 +28,7 @@ const products = [
     accent: "#4E8A38",
     tagline: "Weird is working.",
     capsule: "/media/kapsul/pistachio-4.png",
+    hoverCapsule: "/media/kapsul/pistachio-2.png",
     seed: 7,
     illustrations: [
       { src: "/media/pistachio-il2.png", alt: "pistachio branch", w: 95, top: "-22%", left: "-28%", rotate: -12, delay: 0 },
@@ -39,6 +42,7 @@ const products = [
     accent: "#C07840",
     tagline: "Guilty? Never.",
     capsule: "/media/kapsul/beyaz-cikolata-4.png",
+    hoverCapsule: "/media/kapsul/beyaz-cikolata-2.png",
     seed: 13,
     illustrations: [
       { src: "/media/beyaz-il1.png", alt: "white chocolate",  w: 85, top: "-20%", left: "-25%", rotate: -15, delay: 0 },
@@ -52,6 +56,7 @@ const products = [
     accent: "#A04820",
     tagline: "İkinci fincana gerek yok.",
     capsule: "/media/kapsul/karamel-4.png",
+    hoverCapsule: "/media/kapsul/karamel-2.png",
     seed: 5,
     illustrations: [
       { src: "/media/karamel-il1.png", alt: "caramel cube",  w: 70, top: "-18%", left: "-20%", rotate: -10, delay: 0 },
@@ -65,6 +70,7 @@ const products = [
     accent: "#2E6040",
     tagline: "Dingin. Güçlü.",
     capsule: "/media/kapsul/matcha-4.png",
+    hoverCapsule: "/media/kapsul/matcha-2.png",
     seed: 9,
     illustrations: [
       { src: "/media/matcha-il1.png", alt: "matcha whisk",   w: 78, top: "-22%", left: "-24%", rotate: -20, delay: 0 },
@@ -157,13 +163,22 @@ export default function AromaGrid() {
                     </div>
                   ))}
 
-                  {/* Kapsül görseli */}
+                  {/* Kapsül görseli — hover'da -2.png'ye geçer */}
                   <div className="absolute inset-0" style={{ zIndex: 10 }}>
                     <Image
                       src={p.capsule}
                       alt={`filly's ${p.name}`}
                       fill
                       className="object-contain drop-shadow-lg transition-all duration-500 group-hover:scale-[1.08] group-hover:-rotate-3"
+                      style={{ opacity: isActive ? 0 : 1, transition: "opacity 0.4s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1)" }}
+                      sizes="(max-width: 768px) 42vw, (max-width: 1024px) 28vw, 16vw"
+                    />
+                    <Image
+                      src={p.hoverCapsule}
+                      alt={`filly's ${p.name} alternatif`}
+                      fill
+                      className="object-contain drop-shadow-lg"
+                      style={{ opacity: isActive ? 1 : 0, transform: isActive ? "scale(1.08) rotate(3deg)" : "scale(1)", transition: "opacity 0.4s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1)" }}
                       sizes="(max-width: 768px) 42vw, (max-width: 1024px) 28vw, 16vw"
                     />
                   </div>
