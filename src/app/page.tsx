@@ -67,16 +67,16 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           MANİFESTO (#C1DDE9)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#C1D8E4] overflow-hidden">
+      <section className="bg-[#C2D4E4] overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[75vh]">
 
           {/* Sol — görsel sola yaslı, orijinal boyut */}
-          <div className="relative min-h-[78vw] lg:min-h-0 bg-[#C1D8E4] order-1">
+          <div className="relative min-h-[78vw] lg:min-h-0 bg-[#C2D4E4] order-1">
             <Image
               src="/media/stick-matcha.png"
               alt="filly's matcha kahve kreması"
               fill
-              className="object-contain object-center lg:object-left"
+              className="object-cover object-top lg:object-contain lg:object-left"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
