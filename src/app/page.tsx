@@ -76,7 +76,7 @@ export default function Home() {
               src="/media/stick-matcha.png"
               alt="filly's matcha kahve kreması"
               fill
-              className="object-cover object-top lg:object-contain lg:object-left"
+              className="object-cover object-center lg:object-contain lg:object-left"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
